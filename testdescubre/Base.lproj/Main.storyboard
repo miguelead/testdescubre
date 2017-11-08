@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G17023" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LV7-Gv-5M8">
-    <device id="retina4_0" orientation="portrait">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LV7-Gv-5M8">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -21,7 +21,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bmL-dY-Txk">
@@ -33,14 +33,14 @@
                                 </segments>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U26-Tb-8Q1">
-                                <rect key="frame" x="0.0" y="112" width="320" height="407"/>
+                                <rect key="frame" x="0.0" y="112" width="320" height="319"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="puntodeinteresCell" rowHeight="80" id="XHt-Bc-1z8" customClass="puntodeinteresCell" customModule="testdescubre" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XHt-Bc-1z8" id="5IX-fW-M1o">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="suW-UG-fMt">
@@ -147,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132.5" y="138.38028169014083"/>
+            <point key="canvasLocation" x="2130" y="137.5"/>
         </scene>
         <!--Titulo del lugar-->
         <scene sceneID="Asy-wM-TWC">
@@ -158,11 +158,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Ab7-9I-mqV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jmN-Af-4Eo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIy-V4-new">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pVa-wb-dcm">
                                         <rect key="frame" x="20" y="20" width="280" height="557"/>
@@ -339,11 +339,11 @@
                         <viewControllerLayoutGuide type="bottom" id="HOw-l4-Orq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4R8-32-F3L">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rHn-bI-ypW">
-                                <rect key="frame" x="20" y="144.5" width="280" height="279.5"/>
+                                <rect key="frame" x="20" y="100.5" width="280" height="279.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Juan, en qué puedo ayudarte?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v47-gx-6iI">
                                         <rect key="frame" x="37" y="0.0" width="206.5" height="50.5"/>
@@ -744,7 +744,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eso-nT-7wd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1920" y="-340"/>
+            <point key="canvasLocation" x="2917.5" y="-340"/>
         </scene>
         <!--Elegir ciudad-->
         <scene sceneID="mVw-sT-HeP">
@@ -815,7 +815,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u07-ha-chw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2798" y="-848"/>
+            <point key="canvasLocation" x="3795" y="-848.75"/>
         </scene>
         <!--Check-in-->
         <scene sceneID="vms-kM-nGU">
@@ -826,11 +826,11 @@
                         <viewControllerLayoutGuide type="bottom" id="L0l-7B-OOa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HY3-8z-n30">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ow0-By-nlO">
-                                <rect key="frame" x="36" y="135" width="248" height="298"/>
+                                <rect key="frame" x="36" y="91" width="248" height="298"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dyZ-uh-OIB">
                                         <rect key="frame" x="0.0" y="0.0" width="248" height="141.5"/>
@@ -894,6 +894,7 @@ Ciudad Guayana 8050, Bolívar
                                 </constraints>
                             </stackView>
                         </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="ow0-By-nlO" secondAttribute="trailing" constant="20" id="4ah-CL-Bzh"/>
                             <constraint firstItem="ow0-By-nlO" firstAttribute="leading" secondItem="HY3-8z-n30" secondAttribute="leadingMargin" constant="20" id="Q9R-Jd-K3U"/>
@@ -918,7 +919,7 @@ Ciudad Guayana 8050, Bolívar
                         <viewControllerLayoutGuide type="bottom" id="6tQ-4B-Z9P"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kpT-WJ-fua">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Perfil" image="perfil27" id="k9x-lm-e5h"/>
@@ -937,7 +938,7 @@ Ciudad Guayana 8050, Bolívar
                         <viewControllerLayoutGuide type="bottom" id="jK0-uQ-fAe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mr7-ta-G87">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.1034404201" green="0.83696831599999999" blue="0.59245902949999996" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -957,15 +958,67 @@ Ciudad Guayana 8050, Bolívar
                         <viewControllerLayoutGuide type="bottom" id="5hF-rC-sSQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uBa-J2-wBu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ng2-8q-vS7">
+                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="107" id="QFE-sY-Uo1">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="107"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QFE-sY-Uo1" id="2xq-Us-zOR">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="otters-playful-169788211" translatesAutoresizingMaskIntoConstraints="NO" id="ago-OL-6zZ">
+                                                    <rect key="frame" x="14" y="11" width="90" height="85"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre del grupo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Do-s1-FmX">
+                                                    <rect key="frame" x="112" y="11" width="139" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre del último mensaje" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6R-LG-yac">
+                                                    <rect key="frame" x="112" y="36" width="209" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preview del último mensaje" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4i-50-SKH">
+                                                    <rect key="frame" x="112" y="75" width="208" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.071499999999999994" green="0.65000000000000002" blue="0.55358333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ng2-8q-vS7" firstAttribute="top" secondItem="9O1-xB-XD2" secondAttribute="bottom" id="E2X-GJ-T37"/>
+                            <constraint firstItem="Ng2-8q-vS7" firstAttribute="leading" secondItem="uBa-J2-wBu" secondAttribute="leading" id="PQP-UR-RCN"/>
+                            <constraint firstAttribute="trailing" secondItem="Ng2-8q-vS7" secondAttribute="trailing" id="VgM-fv-AIj"/>
+                            <constraint firstItem="5hF-rC-sSQ" firstAttribute="top" secondItem="Ng2-8q-vS7" secondAttribute="bottom" id="eS6-LD-0FY"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Planes" image="planes18" id="pbJ-ZC-fuE"/>
+                    <navigationItem key="navigationItem" title="Planes" id="Fxr-OY-kQe">
+                        <barButtonItem key="rightBarButtonItem" title="Crear" id="D5F-G8-6KS"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcS-2v-LsL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1363" y="527"/>
+            <point key="canvasLocation" x="-2715" y="48.75"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="DVP-ad-nu4">
@@ -978,7 +1031,7 @@ Ciudad Guayana 8050, Bolívar
                     </tabBar>
                     <connections>
                         <segue destination="N21-Q8-HNa" kind="relationship" relationship="viewControllers" id="FVl-e5-m7G"/>
-                        <segue destination="qbT-gO-8hQ" kind="relationship" relationship="viewControllers" id="jsS-Ky-JTn"/>
+                        <segue destination="BN0-wg-aP5" kind="relationship" relationship="viewControllers" id="jsS-Ky-JTn"/>
                         <segue destination="aW0-pI-8OF" kind="relationship" relationship="viewControllers" id="IBo-DW-3lV"/>
                         <segue destination="LB7-39-tMd" kind="relationship" relationship="viewControllers" id="SMU-RV-VgV"/>
                         <segue destination="B3U-fq-ReU" kind="relationship" relationship="viewControllers" id="64q-lr-IUe"/>
@@ -1005,7 +1058,7 @@ Ciudad Guayana 8050, Bolívar
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ld-mi-ZVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="253" y="138"/>
+            <point key="canvasLocation" x="1248.75" y="137.5"/>
         </scene>
         <!--Check-in-->
         <scene sceneID="n6j-M7-crD">
@@ -1026,12 +1079,32 @@ Ciudad Guayana 8050, Bolívar
             </objects>
             <point key="canvasLocation" x="-1363.125" y="1202.5"/>
         </scene>
+        <!--Planes-->
+        <scene sceneID="85f-Sx-8Kp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BN0-wg-aP5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Planes" image="planes18" id="pbJ-ZC-fuE"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gPI-Vl-250">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qbT-gO-8hQ" kind="relationship" relationship="rootViewController" id="Aag-CN-OkY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RYw-SR-mjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3712.5" y="48.75"/>
+        </scene>
     </scenes>
     <resources>
         <image name="check21" width="25" height="25"/>
         <image name="desc15" width="25" height="25"/>
         <image name="lgourmet" width="553" height="556"/>
         <image name="lgourmet_pic" width="800" height="800"/>
+        <image name="otters-playful-169788211" width="400" height="240"/>
         <image name="perfil27" width="25" height="25"/>
         <image name="planes18" width="25" height="25"/>
         <image name="rutas24" width="25" height="25"/>
