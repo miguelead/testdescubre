@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G17023" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LV7-Gv-5M8">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G17023" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9iZ-f0-kav">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -21,7 +21,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bmL-dY-Txk">
@@ -33,7 +33,7 @@
                                 </segments>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U26-Tb-8Q1">
-                                <rect key="frame" x="0.0" y="112" width="320" height="407"/>
+                                <rect key="frame" x="0.0" y="112" width="320" height="319"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="puntodeinteresCell" rowHeight="80" id="XHt-Bc-1z8" customClass="puntodeinteresCell" customModule="testdescubre" customModuleProvider="target">
@@ -158,11 +158,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Ab7-9I-mqV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jmN-Af-4Eo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="2000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIy-V4-new">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="1951"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pVa-wb-dcm">
                                         <rect key="frame" x="20" y="20" width="280" height="557"/>
@@ -325,10 +325,12 @@
                     <navigationItem key="navigationItem" title="Titulo del lugar" id="ti1-2a-Yz9">
                         <barButtonItem key="rightBarButtonItem" title="Guardar" id="bdx-Ew-l6X"/>
                     </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="2000"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g4v-Ce-HB0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2130" y="978.75"/>
+            <point key="canvasLocation" x="1920" y="1839"/>
         </scene>
         <!--Guía-->
         <scene sceneID="PyQ-tI-o5H">
@@ -339,11 +341,11 @@
                         <viewControllerLayoutGuide type="bottom" id="HOw-l4-Orq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4R8-32-F3L">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rHn-bI-ypW">
-                                <rect key="frame" x="20" y="144.5" width="280" height="279.5"/>
+                                <rect key="frame" x="20" y="100.5" width="280" height="279.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Juan, en qué puedo ayudarte?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v47-gx-6iI">
                                         <rect key="frame" x="37" y="0.0" width="206.5" height="50.5"/>
@@ -826,11 +828,11 @@
                         <viewControllerLayoutGuide type="bottom" id="L0l-7B-OOa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HY3-8z-n30">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ow0-By-nlO">
-                                <rect key="frame" x="36" y="135" width="248" height="298"/>
+                                <rect key="frame" x="36" y="91" width="248" height="298"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dyZ-uh-OIB">
                                         <rect key="frame" x="0.0" y="0.0" width="248" height="141.5"/>
@@ -894,6 +896,7 @@ Ciudad Guayana 8050, Bolívar
                                 </constraints>
                             </stackView>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="ow0-By-nlO" secondAttribute="trailing" constant="20" id="4ah-CL-Bzh"/>
                             <constraint firstItem="ow0-By-nlO" firstAttribute="leading" secondItem="HY3-8z-n30" secondAttribute="leadingMargin" constant="20" id="Q9R-Jd-K3U"/>
@@ -918,7 +921,7 @@ Ciudad Guayana 8050, Bolívar
                         <viewControllerLayoutGuide type="bottom" id="6tQ-4B-Z9P"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kpT-WJ-fua">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Perfil" image="perfil27" id="k9x-lm-e5h"/>
@@ -937,7 +940,7 @@ Ciudad Guayana 8050, Bolívar
                         <viewControllerLayoutGuide type="bottom" id="jK0-uQ-fAe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mr7-ta-G87">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.1034404201" green="0.83696831599999999" blue="0.59245902949999996" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -957,7 +960,7 @@ Ciudad Guayana 8050, Bolívar
                         <viewControllerLayoutGuide type="bottom" id="5hF-rC-sSQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uBa-J2-wBu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -966,6 +969,67 @@ Ciudad Guayana 8050, Bolívar
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcS-2v-LsL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1363" y="527"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cjU-ee-YXy">
+            <objects>
+                <viewController id="9iZ-f0-kav" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CVF-a9-Ame"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ss3-0Y-IBP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qTm-AG-SIv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WUR-a6-e47">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hifivalenLOGO-8" translatesAutoresizingMaskIntoConstraints="NO" id="255-5Q-FP3">
+                                        <rect key="frame" x="63" y="80" width="194" height="202"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="194" id="7Mx-M7-X0H"/>
+                                            <constraint firstAttribute="height" constant="202" id="9qK-XN-3zT"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39m-mL-FXj" customClass="RoundButton" customModule="testdescubre" customModuleProvider="target">
+                                        <rect key="frame" x="69" y="372" width="183" height="36"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Login"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="100"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="LV7-Gv-5M8" kind="show" id="8z4-iT-Vjr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99561536309999998" green="0.78495264050000002" blue="0.03717337549" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="255-5Q-FP3" firstAttribute="leading" secondItem="WUR-a6-e47" secondAttribute="leading" constant="63" id="3j5-1g-ktn"/>
+                                    <constraint firstAttribute="trailing" secondItem="39m-mL-FXj" secondAttribute="trailing" constant="68" id="Mw4-ZZ-7CR"/>
+                                    <constraint firstItem="39m-mL-FXj" firstAttribute="leading" secondItem="WUR-a6-e47" secondAttribute="leading" constant="69" id="OTv-Wi-aM1"/>
+                                    <constraint firstItem="39m-mL-FXj" firstAttribute="top" secondItem="255-5Q-FP3" secondAttribute="bottom" constant="90" id="RUL-RS-Otw"/>
+                                    <constraint firstAttribute="trailing" secondItem="255-5Q-FP3" secondAttribute="trailing" constant="63" id="ReS-sw-MsA"/>
+                                    <constraint firstItem="255-5Q-FP3" firstAttribute="top" secondItem="WUR-a6-e47" secondAttribute="top" constant="80" id="vRL-PC-t9b"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="WUR-a6-e47" secondAttribute="trailing" id="476-i5-8ii"/>
+                            <constraint firstItem="WUR-a6-e47" firstAttribute="top" secondItem="qTm-AG-SIv" secondAttribute="top" id="7ST-MS-R5z"/>
+                            <constraint firstItem="WUR-a6-e47" firstAttribute="leading" secondItem="qTm-AG-SIv" secondAttribute="leading" id="k0g-ZZ-6jz"/>
+                            <constraint firstItem="Ss3-0Y-IBP" firstAttribute="top" secondItem="WUR-a6-e47" secondAttribute="bottom" id="wPi-TM-4Fe"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e8Z-j2-gnJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3525" y="852.46478873239437"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="DVP-ad-nu4">
@@ -1030,6 +1094,7 @@ Ciudad Guayana 8050, Bolívar
     <resources>
         <image name="check21" width="25" height="25"/>
         <image name="desc15" width="25" height="25"/>
+        <image name="hifivalenLOGO-8" width="583" height="792"/>
         <image name="lgourmet" width="553" height="556"/>
         <image name="lgourmet_pic" width="800" height="800"/>
         <image name="perfil27" width="25" height="25"/>
