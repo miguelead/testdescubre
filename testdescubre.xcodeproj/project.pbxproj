@@ -55,6 +55,7 @@
 		49ACD4CB1F5F014100CCA9EA /* testdescubreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testdescubreTests.swift; sourceTree = "<group>"; };
 		49ACD4CD1F5F014100CCA9EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49B042FD1F6B0FD400AD52D8 /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		49C0BFD91FB35E0700A88FDC /* PlanesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanesVC.swift; sourceTree = "<group>"; };
 		4AAF53937A639F477EFA0FBE /* Pods_testdescubre.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testdescubre.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D1488241FB4E2650055685E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D1488261FB4E94A0055685E /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
@@ -187,6 +188,7 @@
 				495EDEDC1F72FA0700B92B8B /* PuntoDeInteresDetalleCV.swift */,
 				49092C161F70B20200DF323E /* FiltrarVC.swift */,
 				49A6792F1FA589FD0005E4BA /* ElegirMapaVC.swift */,
+				49C0BFD91FB35E0700A88FDC /* PlanesVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
