@@ -27,6 +27,7 @@ class FiltrarVC: UIViewController, CLLocationManagerDelegate, ConfirmarElegirCiu
     var filtroElegido : Int! = nil
     
     var filtroSeleccionado : [String:Any] = [
+        "hubocambio" : false,
         "mapa": false,
         "desdelat": 0.0,
         "desdelon": 0.0,
@@ -269,44 +270,33 @@ class FiltrarVC: UIViewController, CLLocationManagerDelegate, ConfirmarElegirCiu
         let desdelon = filtroSeleccionado["desdelon"] as! Double
         
         if desdelat == 0.0 && desdelon == 0.0 {
-
             locManager.delegate = self
             locManager.desiredAccuracy = kCLLocationAccuracyBest
             locManager.requestWhenInUseAuthorization()
             locManager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
             
-            if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
-                CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
-                
-                currentLocation = locManager.location
-                
-                filtroSeleccionado["desdelat"] = currentLocation.coordinate.latitude
-//                desdelat = currentLocation.coordinate.latitude
-                
-                filtroSeleccionado["desdelon"] = currentLocation.coordinate.longitude
-//                desdelon = currentLocation.coordinate.longitude
-                
-//                let textosobreboton = "\(desdelat), \(desdelon)"
-                textoUbicacionLbl.setTitle("Ubicación actual", for: .normal)
-                
-            }
+            currentLocation = locations.first
             
+            filtroSeleccionado["desdelat"] = currentLocation.coordinate.latitude
+            //                desdelat = currentLocation.coordinate.latitude
             
+            filtroSeleccionado["desdelon"] = currentLocation.coordinate.longitude
+            //                desdelon = currentLocation.coordinate.longitude
+            
+            //                let textosobreboton = "\(desdelat), \(desdelon)"
+            textoUbicacionLbl.setTitle("Ubicación actual", for: .normal)
         }else {
             textoUbicacionLbl.setTitle("Ubicación cambiada", for: .normal)
         }
     
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
+    
     
  
 }

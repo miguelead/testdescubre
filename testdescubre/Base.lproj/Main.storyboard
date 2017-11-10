@@ -40,7 +40,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XHt-Bc-1z8" id="5IX-fW-M1o">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="suW-UG-fMt">
@@ -107,7 +107,7 @@
                                             <outlet property="direccion" destination="t3c-A2-R8t" id="lFg-aT-OVe"/>
                                             <outlet property="precio" destination="6qe-e7-kGy" id="UwD-Sk-b9g"/>
                                             <outlet property="titulo" destination="qpX-k0-e7R" id="R49-Ul-BKq"/>
-                                            <segue destination="ncb-vE-R1Q" kind="show" id="KJR-6w-3Po"/>
+                                            <segue destination="ncb-vE-R1Q" kind="show" identifier="mostrarPuntoDeInteresDetalleCV" id="KJR-6w-3Po"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -158,11 +158,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Ab7-9I-mqV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jmN-Af-4Eo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIy-V4-new">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="1151"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pVa-wb-dcm">
                                         <rect key="frame" x="20" y="20" width="280" height="557"/>
@@ -325,10 +325,19 @@
                     <navigationItem key="navigationItem" title="Titulo del lugar" id="ti1-2a-Yz9">
                         <barButtonItem key="rightBarButtonItem" title="Guardar" id="bdx-Ew-l6X"/>
                     </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="1200"/>
+                    <connections>
+                        <outlet property="categoriaLbl" destination="n5q-bj-0fL" id="R6H-AQ-J3w"/>
+                        <outlet property="direccionLbl" destination="JEU-b3-iqJ" id="xjg-6E-Gu2"/>
+                        <outlet property="distanciaLbl" destination="h8Y-De-Ed9" id="196-H2-gQd"/>
+                        <outlet property="precioLbl" destination="6b9-b6-zx2" id="dBc-Wh-ov4"/>
+                        <outlet property="tituloLbl" destination="L2c-rd-nNH" id="FF1-Da-YNh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g4v-Ce-HB0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2078" y="2185"/>
+            <point key="canvasLocation" x="2269" y="2323"/>
         </scene>
         <!--Guía-->
         <scene sceneID="PyQ-tI-o5H">
@@ -876,12 +885,12 @@ Ciudad Guayana 8050, Bolívar
                         <barButtonItem key="backBarButtonItem" title="Cancelar" id="MGf-c3-apx"/>
                         <barButtonItem key="leftBarButtonItem" title="Cancelar" id="h8b-XA-WcR">
                             <connections>
-                                <action selector="CancelarBtn:" destination="kos-XC-emY" id="ZKN-d1-dBn"/>
+                                <action selector="cancelarBtn:" destination="kos-XC-emY" id="bNB-oh-BKo"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Guardar" id="0S6-LX-9Vz">
                             <connections>
-                                <action selector="GuardarBtn:" destination="kos-XC-emY" id="DJD-ZL-qeP"/>
+                                <action selector="guardarBtn:" destination="kos-XC-emY" id="lmN-P2-PSv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -931,7 +940,7 @@ Ciudad Guayana 8050, Bolívar
                                         <rect key="frame" x="0.0" y="28" width="320" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TQm-Yz-CFE" id="Xr3-bN-lnE">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="xn1-3M-07j">
@@ -1023,7 +1032,7 @@ Ciudad Guayana 8050, Bolívar
                                         <rect key="frame" x="0.0" y="28" width="320" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QFE-sY-Uo1" id="2xq-Us-zOR">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="aE5-xi-txr">

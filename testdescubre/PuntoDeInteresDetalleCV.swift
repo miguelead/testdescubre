@@ -7,10 +7,26 @@
 //
 
 import UIKit
+import Alamofire
 
 class PuntoDeInteresDetalleCV: UIViewController {
 
+    @IBOutlet weak var distanciaLbl: UILabel!
+    
+    @IBOutlet weak var precioLbl: UILabel!
+    
+    @IBOutlet weak var tituloLbl: UILabel!
+    
+    @IBOutlet weak var categoriaLbl: UILabel!
+    
+    @IBOutlet weak var direccionLbl: UILabel!
+    
+    
+    
+    
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

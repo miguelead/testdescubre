@@ -20,6 +20,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, Guar
     
     
     var filtroSeleccionado : [String:Any] = [
+        "hubocambio" : false,
         "mapa": false,
         "desdelat": 0.0,
         "desdelon": 0.0,
@@ -47,18 +48,14 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, Guar
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        print("Filtro elegido es : \(filtroelegido)")
+
         print("Filtro elegido es : \(filtroSeleccionado)")
 
-        //        ordenarporFiltrarVC()
-        
+
+        listapuntodeinteres.removeAll()
+        probarAlamo()
         tableView.reloadData()
     }
-//    
-//    func guardarFiltrar(data: Int) {
-//        filtroelegido = data
-//        
-//    }
 
 
     func guardarFiltrar(data: [String:Any]) {
@@ -81,39 +78,58 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, Guar
             filteredlistapuntodeinteres = listapuntodeinteres.sorted(by: {$0._popular_index > $1._popular_index})
         }
     }
-    
-//    
-//    func filtraporFiltrarVC(){
-//        if filtroelegido.filtro == 1{
-//            let ordenyfiltrolistapuntodeinteres.filter({$0._tipo == "DOR"})
-//        }
-//    
-//    }
-//    
+ 
   
     func probarAlamo(){
     
+
+        let desdelatParam = filtroSeleccionado["desdelat"] as! Double
+        let desdelonParam = filtroSeleccionado["desdelon"] as! Double
+        
+        var ordenarporParam : String = "null"
+        if filtroSeleccionado["ordenarpor"] as! Int == 1 {ordenarporParam = "Rating"}
+        if filtroSeleccionado["ordenarpor"] as! Int == 2 {ordenarporParam = "Distancia"}
+        if filtroSeleccionado["ordenarpor"] as! Int == 3 {ordenarporParam = "Precio"}
+        if filtroSeleccionado["ordenarpor"] as! Int == 4 {ordenarporParam = "Popularidad"}
+        
+        var filtrarporParam : String
+        if filtroSeleccionado["filtrarpor"] as! Int == 1 {filtrarporParam = "test1"}
+        if filtroSeleccionado["filtrarpor"] as! Int == 2 {filtrarporParam = "test2"}
+        if filtroSeleccionado["filtrarpor"] as! Int == 3 {filtrarporParam = "test3"}
+        if filtroSeleccionado["filtrarpor"] as! Int == 4 {filtrarporParam = "test4"}
+        
+     
+        let hastakmParam : Int = filtroSeleccionado["hastakm"] as! Int
+        
         let ruta = "http://emprenomina.com/recomendacion/concepto/"
-            
+
         let param: [String: Any] = [
             "usuarioActivo": "6",
             "coordenada": [
-                "lat": "8.2905291",
-                "lon": "-62.7395511"
+                "lat": "\(desdelatParam)",
+                "lon": "\(desdelonParam)"
             ],
-            "kmAlrededor":"3",
-            "ciudad": "5",
+            "kmAlrededor":"\(hastakmParam)",
+            "ciudad": "",
             "conceptos": [""],
             "caracteristicas": [""],
-            "clima":"",
+            "clima" : "",
             "hora": "",
             "N": "10",
-            "ordenamiento": "Rating",
+            "ordenamiento": "\(ordenarporParam)",
             "sitios": [],
             "descubre":"0",
             "auto" : "0"
         ]
         
+        print ("......................")
+        print ("......................")
+        print ("......................")
+        print (param)
+        print ("......................")
+        print ("......................")
+        print ("......................")
+        print ("......................")
         
         
         Alamofire.request(ruta, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
@@ -157,57 +173,13 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, Guar
     }
 
     
-//  Llenar listapuntodeinteres de tipo PuntoDeInteres
-    
-
-//    func parsePOICSV(){
-//        
-//        let path = Bundle.main.path(forResource: "datos6", ofType: "csv")
-//        
-//        do {
-//            let csv = try CSV(contentsOfURL: path!)
-//            let rows = csv.rows
-//            for row in rows{
-//
-//                let POIId = Int(row["ID"]!)!
-//                let titulo = row["TITULO"]!
-//                let tipo = row["TIPO"]!
-//                let categoria = row["CAT1"]!
-//                let direccion = row["DIRECCION"]!
-//                let lat = row["LAT"]!
-//                let lon = row["LON"]!
-//                let precio = Int(row["PRECIO"]!)!
-//                let recom_index = Int(row["RECOM_INDEX"]!)!
-//                let cercan_index = Int(row["CERCAN_INDEX"]!)!
-//                let popular_index = Int(row["POPULAR_INDEX"]!)!
-//                
-//                
-//                let POItemporal = PuntoDeInteres(POIId: POIId, titulo: titulo, tipo: tipo, categoria: categoria, direccion: direccion, lat : lat, lon : lon, precio: precio, recom_index : recom_index, cercan_index : cercan_index,popular_index : popular_index)
-// 
-//                listapuntodeinteres.append(POItemporal)
-//            
-//            }
-//        
-//        }catch let err as NSError {
-//            print (err.debugDescription)
-//        
-//        }
-//    
-//    }
+ 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
         let cell = tableView.dequeueReusableCell(withIdentifier: "puntodeinteresCell", for: indexPath) as! puntodeinteresCell
         
         let puntos : PuntoDeInteres
-        
-//        puntos = filteredlistapuntodeinteres[indexPath.row]
-//        if filtroelegido == 1 {print("\(puntos._recom_index) - \(puntos._titulo)")}
-//        if filtroelegido == 2 {print("\(puntos._cercan_index) - \(puntos._titulo)")}
-//        if filtroelegido == 3 {print("\(puntos._precio) - \(puntos._titulo)")}
-//        if filtroelegido == 4 {print("\(puntos._popular_index) - \(puntos._titulo)")}
-
-        
         
         puntos = listapuntodeinteres[indexPath.row]
         cell.configureCell(puntos)
@@ -229,10 +201,16 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, Guar
         if segue.identifier == "mostrarFiltrarVC"{
             let FiltrarVC : FiltrarVC = segue.destination as! FiltrarVC
             FiltrarVC.delegate = self
-//            FiltrarVC.filtroElegido = filtroelegido
             FiltrarVC.filtroSeleccionado = filtroSeleccionado
         }
+        
+        if segue.identifier == "mostrarDetalleVC"{
+//            let DetalleVC : 
+        
+        }
     }
+    
+    
   
 }
 

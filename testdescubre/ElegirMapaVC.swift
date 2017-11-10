@@ -31,6 +31,7 @@ class ElegirMapaVC: UIViewController, CLLocationManagerDelegate {
     var currentLocation: CLLocation!
     
     var filtroSeleccionado : [String:Any] = [
+        "hubocambio" : false,
         "mapa": false,
         "desdelat": 0.0,
         "desdelon": 0.0,
