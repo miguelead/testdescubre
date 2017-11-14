@@ -43,13 +43,9 @@ class ElegirMapaVC: UIViewController, CLLocationManagerDelegate {
     @IBAction func confirmarBtn(_ sender: UIBarButtonItem) {
         
         if delegate != nil {
-            
             delegate?.confirmarElegirCiudad(data: filtroSeleccionado)
             print (filtroSeleccionado)
-            
             self.navigationController?.popViewController(animated: true)
-            
-            
         }
         
         
@@ -149,25 +145,16 @@ class ElegirMapaVC: UIViewController, CLLocationManagerDelegate {
      }
     
     func cambiarSitiolongpress(gestureRecognizer: UILongPressGestureRecognizer){
-        
         let touchpoint = gestureRecognizer.location(in: mapView)
-        
         let coordinate = mapView.convert(touchpoint, toCoordinateFrom: mapView)
-
         let puntoSeleccionado = MKPointAnnotation()
-        
         puntoSeleccionado.coordinate = coordinate
-
         puntoSeleccionado.title = "Nuevo lugar"
 //        annotation.subtitle = "Nuevo lugar - sub"
-        
-        
         let allAnnotations = mapView.annotations
         mapView.removeAnnotations(allAnnotations)
-        
         mapView.addAnnotation(puntoSeleccionado)
         mapView.selectAnnotation(puntoSeleccionado, animated: true)
-
         filtroSeleccionado["desdelat"] = puntoSeleccionado.coordinate.latitude
         filtroSeleccionado["desdelon"] = puntoSeleccionado.coordinate.longitude
         

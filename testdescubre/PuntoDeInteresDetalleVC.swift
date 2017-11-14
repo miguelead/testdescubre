@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class PuntoDeInteresDetalleCV: UIViewController {
+class PuntoDeInteresDetalleVC: UIViewController {
 
     @IBOutlet weak var distanciaLbl: UILabel!
     

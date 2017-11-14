@@ -15,7 +15,7 @@ protocol GuardarFiltrarDelegate {
     
 }
 
-class FiltrarVC: UIViewController, CLLocationManagerDelegate, ConfirmarElegirCiudadDelegate {
+class FiltrarVC: UIViewController, ConfirmarElegirCiudadDelegate {
     
     
 //    Obtener locacion
@@ -27,7 +27,6 @@ class FiltrarVC: UIViewController, CLLocationManagerDelegate, ConfirmarElegirCiu
     var filtroElegido : Int! = nil
     
     var filtroSeleccionado : [String:Any] = [
-        "hubocambio" : false,
         "mapa": false,
         "desdelat": 0.0,
         "desdelon": 0.0,
@@ -123,19 +122,12 @@ class FiltrarVC: UIViewController, CLLocationManagerDelegate, ConfirmarElegirCiu
     }
 
     
-//    @IBAction func ubicacionActualBtn(_ sender: UIButton) {
-//        performSegue(withIdentifier: "mostrarElegirMapaVC", sender: nil)
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "mostrarElegirMapaVC"{
             let ElegirMapaVC : ElegirMapaVC = segue.destination as! ElegirMapaVC
             ElegirMapaVC.delegate = self
             ElegirMapaVC.filtroSeleccionado = filtroSeleccionado
-        
         }
-        
     }
     
     func confirmarElegirCiudad(data: [String:Any]) {
@@ -203,34 +195,14 @@ class FiltrarVC: UIViewController, CLLocationManagerDelegate, ConfirmarElegirCiu
     
     
     @IBAction func guardarBtn(_ sender: UIBarButtonItem) {
-
-        if delegate != nil {
-            var data : Int = 0
-            
-            if recomendadoSw.isOn {data = 1}
-            if cercanoSw.isOn {data = 2}
-            if precioSw.isOn {data = 3}
-            if popularSw.isOn {data = 4}
-            
-            
-            delegate?.guardarFiltrar(data: filtroSeleccionado)
-            print (data)
-            
-            print (filtroSeleccionado)
-            
-            self.navigationController?.popViewController(animated: true)
-        }
-       
+        delegate?.guardarFiltrar(data: filtroSeleccionado)
+        self.navigationController?.popViewController(animated: true)
       }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-
-        
-
+       
 //        Configurar steppers para que tengan un minimo y un maximo
 
         hastaStepper.wraps = false
@@ -238,36 +210,29 @@ class FiltrarVC: UIViewController, CLLocationManagerDelegate, ConfirmarElegirCiu
         hastaStepper.maximumValue = 25
         hastaStepper.value = 0
 
-        
-        
 //        Mostrar la cantidad de km que venia llevando
         
-        let hastakm = filtroSeleccionado["hastakm"] as! Int
-        textoHastaLbl.text = "\(hastakm) Km"
+        let hastakm = filtroSeleccionado["hastakm"] as? Int
+        textoHastaLbl.text = "\(hastakm ?? 0) Km"
 
-        
 //        Configurar los switches basado en el valor que tengan
+        let ordenarPor = (filtroSeleccionado["ordenarpor"] as? Int) ?? 1
         
+        if ordenarPor == 1 {seleccionarRecomendadoSW()}
+        if ordenarPor == 2 {selecccionarCercanoSw()}
+        if ordenarPor == 3 {selecccionarPrecioSw()}
+        if ordenarPor == 4 {selecccionarPopularSw()}
         
-//        if filtroSeleccionado["hastakm"] as! Int > 0 {textoHastaLbl.text = "\(String(describing: filtroSeleccionado["hastakm"])) Km"}
-        
-        if filtroSeleccionado["ordenarpor"] as! Int == 1 {seleccionarRecomendadoSW()}
-        if filtroSeleccionado["ordenarpor"] as! Int == 2 {selecccionarCercanoSw()}
-        if filtroSeleccionado["ordenarpor"] as! Int == 3 {selecccionarPrecioSw()}
-        if filtroSeleccionado["ordenarpor"] as! Int == 4 {selecccionarPopularSw()}
-        
-        if filtroSeleccionado["filtrarpor"] as! Int == 1 {seleccionarComerSw()}
-        if filtroSeleccionado["filtrarpor"] as! Int == 2 {seleccionarVerSw()}
-        if filtroSeleccionado["filtrarpor"] as! Int == 3 {seleccionarDormirSw()}
-        if filtroSeleccionado["filtrarpor"] as! Int == 4 {seleccionarServiciosSw()}
-        
-        
-//      Que te muestre la ubicacion actual cuando inicias
+        let filtrarpor = (filtroSeleccionado["filtrarpor"] as? Int) ?? 1
+        if filtrarpor == 1 {seleccionarComerSw()}
+        if filtrarpor == 2 {seleccionarVerSw()}
+        if filtrarpor == 3 {seleccionarDormirSw()}
+        if filtrarpor == 4 {seleccionarServiciosSw()}
         
 //        Cambiar texto de seleccionar ubicacion al que venia llevando
         
-        let desdelat = filtroSeleccionado["desdelat"] as! Double
-        let desdelon = filtroSeleccionado["desdelon"] as! Double
+        let desdelat = (filtroSeleccionado["desdelat"] as? Double) ?? 0.0
+        let desdelon = (filtroSeleccionado["desdelon"] as? Double) ?? 0.0
         
         if desdelat == 0.0 && desdelon == 0.0 {
             locManager.delegate = self
@@ -277,11 +242,16 @@ class FiltrarVC: UIViewController, CLLocationManagerDelegate, ConfirmarElegirCiu
         }
     }
     
+    
+    
+}
+
+extension FiltrarVC: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
             CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
             
-            currentLocation = locations.first
+            currentLocation = locations.last
             
             filtroSeleccionado["desdelat"] = currentLocation.coordinate.latitude
             //                desdelat = currentLocation.coordinate.latitude
@@ -294,9 +264,10 @@ class FiltrarVC: UIViewController, CLLocationManagerDelegate, ConfirmarElegirCiu
         }else {
             textoUbicacionLbl.setTitle("Ubicación cambiada", for: .normal)
         }
-    
     }
     
-    
- 
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error localizacion")
+    }
+
 }

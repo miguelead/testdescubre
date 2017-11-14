@@ -7,51 +7,27 @@
 //
 
 import Foundation
-import Alamofire
+import CoreLocation
 
 
 class PuntoDeInteres {
+    
     var _POIId: Int
     var _titulo: String
     var _tipo: String
-    
     var _categoria: String
     var _direccion: String
     var _lat: String
     var _lon: String
-    
     var _precio: String
-//    
-//    var _recom_index : Int
-//    var _cercan_index : Int
-//    var _popular_index : Int
-//    
     var _recom_index : Float
     var _cercan_index : String
     var _popular_index : String
-    
+    var _bookmark: Bool = false
     
     //ID,TITULO,TIPO,CAT1,DIRECCION,LAT,LON,PRECIO,RECOM_INDEX,CERCAN_INDEX,POPULAR_INDEX
-
-    
-    init(POIId: Int,
-         titulo: String,
-         tipo: String,
-         categoria: String,
-         direccion: String,
-         lat: String,
-         lon: String,
-         precio: String,
-         recom_index: Float,
-         cercan_index: String,
-         popular_index: String)
-    
-        
-        
-        
-        
-    {
-        
+    init(POIId: Int, titulo: String, tipo: String, categoria: String, direccion: String,
+         lat: String, lon: String, precio: String, recom_index: Float, cercan_index: String, popular_index: String){
         _POIId = POIId
         _titulo = titulo
         _tipo = tipo
@@ -65,25 +41,10 @@ class PuntoDeInteres {
         _popular_index = popular_index
     }
     
-    
-
-//    func downloadPOIDetails(completed: DownloadComplete) {
-//        //Alamofire download
-//        let currentpoiurl = URL(string: CURRENT_POI_URL)
-//        
-//        
-//        Alamofire.request(currentpoiurl!).responseJSON { response in
-////            let result = response.result
-//            print("Esto es una prueba en la consola")
-//            print(response.result.value!)
-//            
-//            
-//        }
-//        
-//        completed()
-//        
-//        
-//    }
-    
+    func distanciaActual(lat: Double, lon: Double) -> Int{
+        let coordinateA: CLLocation =  CLLocation(latitude: lat, longitude: lon)
+        let coordinateB: CLLocation =  CLLocation(latitude: Double(_lat) ?? 0, longitude: Double(_lon) ?? 0)
+        return Int(coordinateA.distance(from: coordinateB))
+    }
 
 }
