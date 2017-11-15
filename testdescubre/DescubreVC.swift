@@ -14,6 +14,7 @@ class DescubreVC: UIViewController, GuardarFiltrarDelegate{
  
     @IBOutlet weak var tableView: UITableView!
     
+    var ActualRequest: Int?
     var filtroelegido = 1
     var listapuntodeinteres = [PuntoDeInteres]()
     var filteredlistapuntodeinteres = [PuntoDeInteres]()
@@ -73,7 +74,8 @@ class DescubreVC: UIViewController, GuardarFiltrarDelegate{
              let desdelonParam = filtroSeleccionado["desdelon"] as? Double,
              let ordenarPor = filtroSeleccionado["ordenarpor"] as? Int,
              let filtrarPor = filtroSeleccionado["filtrarpor"] as? Int,
-             let hastakmParam = filtroSeleccionado["hastakm"] as? Int else {
+             let hastakmParam = filtroSeleccionado["hastakm"] as? Int,
+             let user = CurrentUser.shared else {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.refreshControl.endRefreshing()
                 return
@@ -91,63 +93,63 @@ class DescubreVC: UIViewController, GuardarFiltrarDelegate{
         if filtrarPor == 3 {filtrarporParam = "Dormir"}
         if filtrarPor == 4 {filtrarporParam = "Servicios"}
 
-        let ruta = "http://emprenomina.com/recomendacion/concepto/"
-        let param: [String: Any] = [
-            "usuarioActivo": "6",
-            "coordenada": [
-                "lat": "\(desdelatParam)",
-                "lon": "\(desdelonParam)"
-            ],
-            "kmAlrededor": "\(hastakmParam)",
-            "clima" : "",
-            "ciudad": "",
-            "hora": "",
-            "conceptos": [""],
-            "caracteristicas": [""],
-            "N": NUMBER_LIST,
-            "ordenamiento": ordenarporParam,
-            "sitios": [],
-            "descubre":"0",
-            "auto" : "0"
-            //"query": filtrarporParam
-        ]
+        var ruta = kRuta + "/search?"
+        ruta += "query=" + filtrarporParam
+        ruta += "&lat=\(desdelatParam)"
+        ruta += "&lng=\(desdelonParam)"
+        ruta += "&qtime=\(NSDate().timeIntervalSince1970)"
+        ruta += "&sort_by=\(ordenarporParam)"
+        ruta += "&discover=0"
+        ruta += "&limit=\(kLimitPag)"
+        ruta += "&offset=\(self.listapuntodeinteres.count)"
+        ruta += "&user_id=\(user._id)"
+        ruta += "&radius=\(hastakmParam)"
         
-        // cambiar endpoint por esto
-        //user_id
-        //query -filtrarpOR
-        //lat
-        //lng
-        //wheater
-        //qtime
-        //sort_by
-        //discover
-        //radius
-        //limit
-        //offset
-        
-        
-        Alamofire.request(ruta, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
-            print(response)
+
+        Alamofire.request(ruta, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.refreshControl.endRefreshing()
-            guard let result = response.result.value as? [[String:Any]] else {
+            guard let result = response.result.value as? [String:Any],
+                 let response = result["response"] as? [String:Any],
+                 let meta = result["meta"] as? [String:Any],
+                 let RequestId = meta["requestID"] as? Int,
+                 let listElement = response["items"] as? [[String:Any]]
+            else {
+                if self.listapuntodeinteres.isEmpty{
+                   self.addBackgroundImage()
+                } else {
+                    self.tableView.backgroundView = nil
+                }
                 return
             }
-            let tipo = "test"
-            let lat = "test"
-            let lon = "test"
+            self.ActualRequest = RequestId
             self.listapuntodeinteres.removeAll()
-            for elemento in result {
-                if let POIId = elemento["id"] as? Int, let titulo = elemento["titulo"] as? String,
-                let recom_index = elemento["valor"] as? Float, let categoria = elemento["categoria"] as? String,
-                let direccion = elemento["direccion"] as? String, let precio = elemento["precio"] as? String{
-                    let POItemporal = PuntoDeInteres(POIId: POIId, titulo: titulo, tipo: tipo, categoria: categoria, direccion: direccion, lat : lat, lon : lon, precio: precio, recom_index : recom_index)
+            for elemento in listElement {
+                if let POIId = elemento["id"] as? Int, let titulo = elemento["name"] as? String,
+                let recom_index = elemento["rating"] as? Float, let categoria = elemento["category"] as? String,
+                let direccion = elemento["address"] as? String, let precio = elemento["price"] as? String,
+                let lat = elemento["lat"] as? Float, let lon = elemento["lng"] as? Float,
+                let photo = elemento["photo"] as? String{
+                    let POItemporal = PuntoDeInteres(POIId: POIId, titulo: titulo, categoria: categoria, direccion: direccion, lat : "\(lat)", lon : "\(lon)", precio: precio, recom_index : recom_index, photo: photo)
                     self.listapuntodeinteres.append(POItemporal)
                 }
+            }
+            if self.listapuntodeinteres.isEmpty{
+                self.addBackgroundImage()
+            } else {
+                self.tableView.backgroundView = nil
             }
             self.tableView.reloadData()
         }
     
+    }
+    
+    func addBackgroundImage(){
+        let image = #imageLiteral(resourceName: "emptystate-12").withRenderingMode(.alwaysTemplate) 
+        let topMessage = "Descubre Nuevos Sitios"
+        let bottomMessage = "Haz pull para consultar de nuevo"
+        let emptyBackgroundView = EmptyBackgroundView(image: image, top: topMessage, bottom: bottomMessage)
+        tableView.backgroundView = emptyBackgroundView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -195,5 +197,6 @@ extension DescubreVC: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listapuntodeinteres.count
     }
+    
 }
 

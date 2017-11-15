@@ -9,5 +9,6 @@ target 'testdescubre' do
 	pod 'Alamofire', '~> 4.5'
 	pod 'AlamofireObjectMapper', '~> 4.0'
     pod 'Kingfisher'
+    pod 'PureLayout'
 
 end

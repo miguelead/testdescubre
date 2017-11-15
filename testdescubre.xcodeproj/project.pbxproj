@@ -27,6 +27,9 @@
 		6D53F3231FB5DE3000D20102 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D53F3221FB5DE3000D20102 /* MapKit.framework */; };
 		6D53F3271FB5EFC400D20102 /* CheckInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53F3261FB5EFC400D20102 /* CheckInVC.swift */; };
 		8E27FF7D1FBB3D6800A8C9A8 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27FF7C1FBB3D6800A8C9A8 /* UIView+extension.swift */; };
+		8E90296E1FBC8ABD00C964CC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90296D1FBC8ABD00C964CC /* CurrentUser.swift */; };
+		8E9029701FBC8C3400C964CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90296F1FBC8C3400C964CC /* LoginViewController.swift */; };
+		8E9029721FBC97CF00C964CC /* EmptyBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9029711FBC97CF00C964CC /* EmptyBackgroundView.swift */; };
 		EBB36FC39464EEFC1BD1166D /* Pods_testdescubre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAF53937A639F477EFA0FBE /* Pods_testdescubre.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +71,9 @@
 		6D53F3261FB5EFC400D20102 /* CheckInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInVC.swift; sourceTree = "<group>"; };
 		83276F911B9B8161C6688165 /* Pods-testdescubre.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testdescubre.release.xcconfig"; path = "Pods/Target Support Files/Pods-testdescubre/Pods-testdescubre.release.xcconfig"; sourceTree = "<group>"; };
 		8E27FF7C1FBB3D6800A8C9A8 /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
+		8E90296D1FBC8ABD00C964CC /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		8E90296F1FBC8C3400C964CC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8E9029711FBC97CF00C964CC /* EmptyBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyBackgroundView.swift; sourceTree = "<group>"; };
 		ED28A6E0261598D140C5AB58 /* Pods-testdescubre.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testdescubre.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testdescubre/Pods-testdescubre.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,6 +184,7 @@
 				496B75131F66CDFE00FD4942 /* puntodeinteres.swift */,
 				49B042FD1F6B0FD400AD52D8 /* constants.swift */,
 				49A76F111F792AD700215741 /* OpcionesFiltrar.swift */,
+				8E90296D1FBC8ABD00C964CC /* CurrentUser.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -188,6 +195,7 @@
 				496B75151F6717CB00FD4942 /* puntodeinteresCell.swift */,
 				6D1488261FB4E94A0055685E /* RoundButton.swift */,
 				6D1488281FB4F1BA0055685E /* CustomTabBarController.swift */,
+				8E9029711FBC97CF00C964CC /* EmptyBackgroundView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 				49A6792F1FA589FD0005E4BA /* ElegirMapaVC.swift */,
 				49C0BFD91FB35E0700A88FDC /* PlanesVC.swift */,
 				6D53F3261FB5EFC400D20102 /* CheckInVC.swift */,
+				8E90296F1FBC8C3400C964CC /* LoginViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -344,6 +353,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -351,6 +361,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -382,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E9029721FBC97CF00C964CC /* EmptyBackgroundView.swift in Sources */,
 				496B75161F6717CC00FD4942 /* puntodeinteresCell.swift in Sources */,
 				49092C171F70B20200DF323E /* FiltrarVC.swift in Sources */,
 				6D1488291FB4F1BA0055685E /* CustomTabBarController.swift in Sources */,
@@ -390,9 +402,11 @@
 				6D1488271FB4E94A0055685E /* RoundButton.swift in Sources */,
 				49A679301FA589FD0005E4BA /* ElegirMapaVC.swift in Sources */,
 				49ACD4B71F5F013D00CCA9EA /* AppDelegate.swift in Sources */,
+				8E90296E1FBC8ABD00C964CC /* CurrentUser.swift in Sources */,
 				49A76F121F792AD800215741 /* OpcionesFiltrar.swift in Sources */,
 				495EDEDD1F72FA0700B92B8B /* PuntoDeInteresDetalleVC.swift in Sources */,
 				8E27FF7D1FBB3D6800A8C9A8 /* UIView+extension.swift in Sources */,
+				8E9029701FBC8C3400C964CC /* LoginViewController.swift in Sources */,
 				49B042FE1F6B0FD400AD52D8 /* constants.swift in Sources */,
 				6D53F3271FB5EFC400D20102 /* CheckInVC.swift in Sources */,
 				496B75141F66CDFE00FD4942 /* puntodeinteres.swift in Sources */,

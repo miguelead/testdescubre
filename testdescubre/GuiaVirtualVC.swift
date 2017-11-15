@@ -24,6 +24,7 @@ class GuiaVirtualVC: UIViewController {
     var listapuntodeinteres = [PuntoDeInteres]()
     var locManager = CLLocationManager()
     var localizacionActual: CLLocationCoordinate2D?
+    var ActualRequest: Int?
  
 
     override func viewDidLoad() {
@@ -40,9 +41,11 @@ class GuiaVirtualVC: UIViewController {
     }
 
     func actualizarTitulo(){
-        let userName = "Miguel"
-        self.nameLabel.text = "¿" + userName + " en que puedo ayudarte?"
-    
+        if let user = CurrentUser.shared{
+            self.nameLabel.text = "¿" + user._nombre + " en que puedo ayudarte?"
+        } else {
+        self.nameLabel.text = "¿En que puedo ayudarte?"
+        }
     }
     func obtenerLocalizacionActual(){
         locManager.delegate = self
@@ -61,66 +64,70 @@ class GuiaVirtualVC: UIViewController {
     }
     
     func consultaApi(ubicacionActual: CLLocation){
-        let ruta = "http://emprenomina.com/recomendacion/concepto/"
-        let param: [String: Any] = [
-            "usuarioActivo": "6",
-            "coordenada": [
-                "lat": "\(ubicacionActual.coordinate.latitude)",
-                "lon": "\(ubicacionActual.coordinate.longitude)"
-            ],
-            "kmAlrededor": "\(kMaxKm)",
-            "clima" : "",
-            "ciudad": "",
-            "hora": "",
-            "conceptos": [""],
-            "caracteristicas": [""],
-            "N": NUMBER_LIST,
-            "ordenamiento": "Rating",
-            "sitios": [],
-            "descubre":"0",
-            "auto" : "0"
-            //"query": filtrarporParam
-        ]
-        
-        // cambiar endpoint por esto
-        //user_id
-        //query -filtrarpOR
-        //lat
-        //lng
-        //wheater
-        //qtime
-        //sort_by
-        //discover
-        //radius
-        //limit
-        //offset
-        
-        
-        Alamofire.request(ruta, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
-            print(response)
+        guard let query = buscador.text, let user = CurrentUser.shared else {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            guard let result = response.result.value as? [[String:Any]] else {
-                return
+            return
+        }
+        
+        var ruta = kRuta + "/search?"
+        ruta += "query=" + query
+        ruta += "&lat=\(ubicacionActual.coordinate.latitude)"
+        ruta += "&lng=\(ubicacionActual.coordinate.longitude)"
+        ruta += "&qtime=\(NSDate().timeIntervalSince1970)"
+        ruta += "&sort_by=Rating"
+        ruta += "&discover=0"
+        ruta += "&limit=\(kLimitPag)"
+        ruta += "&offset=\(self.listapuntodeinteres.count)"
+        ruta += "&user_id=\(user._id)"
+        ruta += "&radius=\(kMaxKm)"
+        
+        Alamofire.request(ruta, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            guard let result = response.result.value as? [String:Any],
+                let response = result["response"] as? [String:Any],
+                let meta = result["meta"] as? [String:Any],
+                let RequestId = meta["requestID"] as? Int,
+                let listElement = response["items"] as? [[String:Any]]
+                else {
+                    if self.listapuntodeinteres.isEmpty{
+                        self.addBackgroundImage()
+                    } else {
+                        self.tableView.backgroundView = nil
+                    }
+                    return
             }
-            let tipo = "test"
-            let lat = "test"
-            let lon = "test"
+            self.ActualRequest = RequestId
             self.listapuntodeinteres.removeAll()
-            for elemento in result {
-                if let POIId = elemento["id"] as? Int, let titulo = elemento["titulo"] as? String,
-                    let recom_index = elemento["valor"] as? Float, let categoria = elemento["categoria"] as? String,
-                    let direccion = elemento["direccion"] as? String, let precio = elemento["precio"] as? String{
-                    let POItemporal = PuntoDeInteres(POIId: POIId, titulo: titulo, tipo: tipo, categoria: categoria, direccion: direccion, lat : lat, lon : lon, precio: precio, recom_index : recom_index)
+            for elemento in listElement {
+                if let POIId = elemento["id"] as? Int, let titulo = elemento["name"] as? String,
+                    let recom_index = elemento["rating"] as? Float, let categoria = elemento["category"] as? String,
+                    let direccion = elemento["address"] as? String, let precio = elemento["price"] as? String,
+                    let lat = elemento["lat"] as? Float, let lon = elemento["lng"] as? Float,
+                    let photo = elemento["photo"] as? String{
+                    let POItemporal = PuntoDeInteres(POIId: POIId, titulo: titulo, categoria: categoria, direccion: direccion, lat : "\(lat)", lon : "\(lon)", precio: precio, recom_index : recom_index, photo: photo)
                     self.listapuntodeinteres.append(POItemporal)
                 }
             }
+            if self.listapuntodeinteres.isEmpty{
+                self.addBackgroundImage()
+            } else {
+                self.tableView.backgroundView = nil
+            }
             self.tableView.reloadData()
         }
-        
+        }
+    
+    func addBackgroundImage(){
+        let image = #imageLiteral(resourceName: "hifivalen25-8").withRenderingMode(.alwaysTemplate)
+        let topMessage = "¿Necesitas ayuda?"
+        let bottomMessage = "No se han encontrado lugares con esos terminos"
+        let emptyBackgroundView = EmptyBackgroundView(image: image, top: topMessage, bottom: bottomMessage)
+        self.tableView.backgroundView = emptyBackgroundView
     }
+}
 
     
-}
+
 
 extension GuiaVirtualVC: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -144,6 +151,7 @@ extension GuiaVirtualVC: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let last = locations.last{
             self.localizacionActual = last.coordinate
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             consultaApi(ubicacionActual: last)
         }
     }
@@ -178,11 +186,16 @@ extension GuiaVirtualVC: UITextFieldDelegate{
             return
         }
 
-            self.buttomContraintTextfield.isActive = text.isEmpty
-            self.topContraintTexfield.isActive = !text.isEmpty
-            self.viewInfo.isHidden = !text.isEmpty
-            self.tableView.isHidden = text.isEmpty
+        self.buttomContraintTextfield.isActive = text.isEmpty
+        self.topContraintTexfield.isActive = !text.isEmpty
+        self.viewInfo.isHidden = !text.isEmpty
+        self.tableView.isHidden = text.isEmpty
         
+        if text.isEmpty{
+            self.nameLabel.isHidden = true
+        } else {
+            self.obtenerLocalizacionActual()
+        }
         UIView.animate(withDuration: 0.5, animations: {
             self.view.layoutIfNeeded()
         }, completion:{ _ in
