@@ -21,13 +21,12 @@ class PuntoDeInteres {
     var _lon: String
     var _precio: String
     var _recom_index : Float
-    var _cercan_index : String
-    var _popular_index : String
+
     var _bookmark: Bool = false
     
     //ID,TITULO,TIPO,CAT1,DIRECCION,LAT,LON,PRECIO,RECOM_INDEX,CERCAN_INDEX,POPULAR_INDEX
     init(POIId: Int, titulo: String, tipo: String, categoria: String, direccion: String,
-         lat: String, lon: String, precio: String, recom_index: Float, cercan_index: String, popular_index: String){
+         lat: String, lon: String, precio: String, recom_index: Float){
         _POIId = POIId
         _titulo = titulo
         _tipo = tipo
@@ -37,8 +36,6 @@ class PuntoDeInteres {
         _lon = lon
         _precio = precio
         _recom_index = recom_index
-        _cercan_index = cercan_index
-        _popular_index = popular_index
     }
     
     func distanciaActual(lat: Double, lon: Double) -> Int{

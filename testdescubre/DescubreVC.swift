@@ -66,23 +66,7 @@ class DescubreVC: UIViewController, GuardarFiltrarDelegate{
         filtroSeleccionado = data
         consultaApi()
     }
-    
-    func ordenarporFiltrarVC(){
-        if filtroelegido == 1 {
-            filteredlistapuntodeinteres = listapuntodeinteres.sorted(by: {$0._recom_index > $1._recom_index})
-        }
-        if filtroelegido == 2 {
-            filteredlistapuntodeinteres = listapuntodeinteres.sorted(by: {$0._cercan_index < $1._cercan_index})
-        }
-        if filtroelegido == 3 {
-            filteredlistapuntodeinteres = listapuntodeinteres.sorted(by: {$0._precio < $1._precio})
-        }
-        if filtroelegido == 4 {
-            filteredlistapuntodeinteres = listapuntodeinteres.sorted(by: {$0._popular_index > $1._popular_index})
-        }
-    }
- 
-  
+      
     func consultaApi(){
         
         guard let desdelatParam = filtroSeleccionado["desdelat"] as? Double,
@@ -152,14 +136,12 @@ class DescubreVC: UIViewController, GuardarFiltrarDelegate{
             let tipo = "test"
             let lat = "test"
             let lon = "test"
-            let cercan_index = "2"
-            let popular_index = "3"
             self.listapuntodeinteres.removeAll()
             for elemento in result {
                 if let POIId = elemento["id"] as? Int, let titulo = elemento["titulo"] as? String,
                 let recom_index = elemento["valor"] as? Float, let categoria = elemento["categoria"] as? String,
                 let direccion = elemento["direccion"] as? String, let precio = elemento["precio"] as? String{
-                    let POItemporal = PuntoDeInteres(POIId: POIId, titulo: titulo, tipo: tipo, categoria: categoria, direccion: direccion, lat : lat, lon : lon, precio: precio, recom_index : recom_index, cercan_index : cercan_index,popular_index : popular_index)
+                    let POItemporal = PuntoDeInteres(POIId: POIId, titulo: titulo, tipo: tipo, categoria: categoria, direccion: direccion, lat : lat, lon : lon, precio: precio, recom_index : recom_index)
                     self.listapuntodeinteres.append(POItemporal)
                 }
             }
@@ -192,6 +174,8 @@ extension DescubreVC: CLLocationManagerDelegate{
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error localizacion")
+        self.refreshControl.endRefreshing()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }
 

@@ -391,11 +391,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HGu-v6-Tag">
-                                <rect key="frame" x="16" y="178" width="288" height="30"/>
+                                <rect key="frame" x="32" y="218" width="256" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.0" green="0.70611077547073364" blue="0.63615566492080688" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="2"/>
@@ -526,27 +526,63 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Juan en que puedo ayudarte?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJs-yX-Nvz">
-                                <rect key="frame" x="32" y="84" width="256" height="74"/>
+                                <rect key="frame" x="32" y="124" width="256" height="74"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                 <color key="textColor" red="0.0" green="0.70611077547073364" blue="0.63615566492080688" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kb5-GQ-DqZ">
+                                <rect key="frame" x="32" y="288" width="256" height="192"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use el asistente virtual para hacer busqueda dentro de la guia" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VU8-7l-9w6">
+                                        <rect key="frame" x="13" y="49.5" width="230" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" red="0.067424662411212921" green="0.41149866580963135" blue="0.49926728010177612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUA-31-bdc">
+                                        <rect key="frame" x="0.0" y="97.5" width="256" height="47"/>
+                                        <string key="text">“Hoteles en Caracas”
+“Restaurantes en Portuguesa”
+“Centros comerciales cerca de mi”</string>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                        <color key="textColor" red="0.067424662410000002" green="0.4114986658" blue="0.49926728009999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="tUA-31-bdc" firstAttribute="centerX" secondItem="VU8-7l-9w6" secondAttribute="centerX" id="0P2-rc-7vA"/>
+                                    <constraint firstItem="VU8-7l-9w6" firstAttribute="width" secondItem="kb5-GQ-DqZ" secondAttribute="width" multiplier="0.9" id="Ply-yS-9qo"/>
+                                    <constraint firstItem="tUA-31-bdc" firstAttribute="top" secondItem="VU8-7l-9w6" secondAttribute="bottom" constant="15" id="jLH-Z7-Bka"/>
+                                    <constraint firstItem="VU8-7l-9w6" firstAttribute="centerY" secondItem="kb5-GQ-DqZ" secondAttribute="centerY" constant="-30" id="mcC-VV-e7l"/>
+                                    <constraint firstItem="tUA-31-bdc" firstAttribute="width" secondItem="kb5-GQ-DqZ" secondAttribute="width" id="nk3-OQ-KJJ"/>
+                                    <constraint firstItem="VU8-7l-9w6" firstAttribute="centerX" secondItem="kb5-GQ-DqZ" secondAttribute="centerX" id="tUf-KO-9iZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.97252601385116577" green="0.97326189279556274" blue="0.97263997793197632" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="HGu-v6-Tag" firstAttribute="centerX" secondItem="4R8-32-F3L" secondAttribute="centerX" id="3aF-aG-ILo"/>
                             <constraint firstItem="cZp-GF-1NP" firstAttribute="leading" secondItem="4R8-32-F3L" secondAttribute="leading" id="9DM-xc-bMm"/>
                             <constraint firstItem="dJs-yX-Nvz" firstAttribute="width" secondItem="4R8-32-F3L" secondAttribute="width" multiplier="0.8" id="C4F-Qv-vzq"/>
-                            <constraint firstItem="HGu-v6-Tag" firstAttribute="width" secondItem="4R8-32-F3L" secondAttribute="width" multiplier="0.9" id="Ja1-dl-Q4T"/>
+                            <constraint firstAttribute="bottom" secondItem="kb5-GQ-DqZ" secondAttribute="bottom" id="HYe-Bb-AYS"/>
+                            <constraint firstItem="HGu-v6-Tag" firstAttribute="width" secondItem="4R8-32-F3L" secondAttribute="width" multiplier="0.8" id="Ja1-dl-Q4T"/>
                             <constraint firstItem="dJs-yX-Nvz" firstAttribute="centerX" secondItem="4R8-32-F3L" secondAttribute="centerX" id="Jc4-fS-brO"/>
                             <constraint firstAttribute="trailing" secondItem="cZp-GF-1NP" secondAttribute="trailing" id="Khj-aM-Hxo"/>
                             <constraint firstItem="HGu-v6-Tag" firstAttribute="top" secondItem="7gp-s2-K1D" secondAttribute="bottom" constant="10" id="NbQ-tc-xdB"/>
                             <constraint firstAttribute="bottom" secondItem="cZp-GF-1NP" secondAttribute="bottom" id="Pyb-hX-Fzt"/>
+                            <constraint firstItem="kb5-GQ-DqZ" firstAttribute="width" secondItem="4R8-32-F3L" secondAttribute="width" multiplier="0.8" id="TZ2-5J-ZDF"/>
+                            <constraint firstItem="kb5-GQ-DqZ" firstAttribute="top" secondItem="HGu-v6-Tag" secondAttribute="bottom" constant="40" id="bA0-VY-qdY"/>
                             <constraint firstItem="cZp-GF-1NP" firstAttribute="top" secondItem="HGu-v6-Tag" secondAttribute="bottom" constant="10" id="hYl-K8-4wT"/>
-                            <constraint firstItem="dJs-yX-Nvz" firstAttribute="top" secondItem="7gp-s2-K1D" secondAttribute="bottom" constant="20" id="j68-ia-MXE"/>
+                            <constraint firstItem="dJs-yX-Nvz" firstAttribute="top" secondItem="7gp-s2-K1D" secondAttribute="bottom" constant="60" id="j68-ia-MXE"/>
+                            <constraint firstItem="kb5-GQ-DqZ" firstAttribute="centerX" secondItem="4R8-32-F3L" secondAttribute="centerX" id="r80-Nh-Get"/>
                             <constraint firstItem="HGu-v6-Tag" firstAttribute="top" secondItem="dJs-yX-Nvz" secondAttribute="bottom" constant="20" id="t9R-fi-eYd"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="cZp-GF-1NP"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="NbQ-tc-xdB"/>
                             </mask>
@@ -555,8 +591,11 @@
                     <navigationItem key="navigationItem" title="Guía" id="Kj6-nc-ErI"/>
                     <connections>
                         <outlet property="buscador" destination="HGu-v6-Tag" id="FCl-bl-OJh"/>
+                        <outlet property="buttomContraintTextfield" destination="t9R-fi-eYd" id="Mmp-XU-Aj1"/>
                         <outlet property="nameLabel" destination="dJs-yX-Nvz" id="U2u-78-FSh"/>
                         <outlet property="tableView" destination="cZp-GF-1NP" id="dKH-TD-AWU"/>
+                        <outlet property="topContraintTexfield" destination="NbQ-tc-xdB" id="bSe-GI-GKJ"/>
+                        <outlet property="viewInfo" destination="kb5-GQ-DqZ" id="FLX-C0-T3g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLR-uP-eKZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

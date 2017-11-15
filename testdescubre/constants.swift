@@ -12,5 +12,6 @@ import Foundation
 let CURRENT_POI_URL = "https://api.myjson.com/bins/1harct"
 
 let NUMBER_LIST = 10
+let kMaxKm = 50
 typealias DownloadComplete = () -> ()
 
