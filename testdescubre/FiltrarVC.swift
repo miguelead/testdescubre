@@ -116,7 +116,6 @@ class FiltrarVC: UIViewController, ConfirmarElegirCiudadDelegate {
     
     @IBAction func hastaStepperCambio(_ sender: UIStepper) {
         filtroSeleccionado["hastakm"] = Int(sender.value)
-        print ("El valor del stepper es \(Int(sender.value))")
         textoHastaLbl.text = "\(Int(sender.value)) Km"
         
     }
@@ -238,7 +237,7 @@ class FiltrarVC: UIViewController, ConfirmarElegirCiudadDelegate {
             locManager.delegate = self
             locManager.desiredAccuracy = kCLLocationAccuracyBest
             locManager.requestWhenInUseAuthorization()
-            locManager.startUpdatingLocation()
+            locManager.requestLocation()
         }
     }
     

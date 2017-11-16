@@ -8,7 +8,7 @@
 
 import UIKit
 
-class puntodeinteresCell: UITableViewCell {
+class PuntodeinteresCell: UITableViewCell {
 
     @IBOutlet weak var titulo: UILabel!
     @IBOutlet weak var categoria: UILabel!
@@ -16,8 +16,10 @@ class puntodeinteresCell: UITableViewCell {
     @IBOutlet weak var precio: UILabel!
     @IBOutlet weak var distancia: UILabel!
     @IBOutlet weak var markbook: UIButton!
+    @IBOutlet weak var imageLugar: UIImageView!
     var puntodeinteres : PuntoDeInteres!
 
+    
     func configureCell(_ puntodeinteres: PuntoDeInteres, lat: Double, lon: Double){
         self.puntodeinteres = puntodeinteres
         titulo.text = self.puntodeinteres._titulo

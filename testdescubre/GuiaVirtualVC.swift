@@ -39,6 +39,10 @@ class GuiaVirtualVC: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         actualizarTitulo()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
 
     func actualizarTitulo(){
         if let user = CurrentUser.shared{
@@ -59,7 +63,10 @@ class GuiaVirtualVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "mostrarPuntoDeInteresDetalleCV"{
+        if segue.identifier == "mostrarPuntoDeInteresDetalleCV",
+            let vc = segue.destination as? PuntoDeInteresDetalleVC,
+            let cell = sender as? PuntodeinteresCell{
+            vc.punto = cell.puntodeinteres
         }
     }
     
@@ -80,8 +87,14 @@ class GuiaVirtualVC: UIViewController {
         ruta += "&offset=\(self.listapuntodeinteres.count)"
         ruta += "&user_id=\(user._id)"
         ruta += "&radius=\(kMaxKm)"
+        ruta += "&transport=car"
         
-        Alamofire.request(ruta, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+        guard let rutaValidada = ruta.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            return
+        }
+        
+        Alamofire.request(rutaValidada, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             guard let result = response.result.value as? [String:Any],
                 let response = result["response"] as? [String:Any],
@@ -102,9 +115,9 @@ class GuiaVirtualVC: UIViewController {
                 if let POIId = elemento["id"] as? Int, let titulo = elemento["name"] as? String,
                     let recom_index = elemento["rating"] as? Float, let categoria = elemento["category"] as? String,
                     let direccion = elemento["address"] as? String, let precio = elemento["price"] as? String,
-                    let lat = elemento["lat"] as? Float, let lon = elemento["lng"] as? Float,
+                    let lat = elemento["lat"] as? String, let lon = elemento["lng"] as? String,
                     let photo = elemento["photo"] as? String{
-                    let POItemporal = PuntoDeInteres(POIId: POIId, titulo: titulo, categoria: categoria, direccion: direccion, lat : "\(lat)", lon : "\(lon)", precio: precio, recom_index : recom_index, photo: photo)
+                    let POItemporal = PuntoDeInteres(POIId: POIId, titulo: titulo, categoria: categoria, direccion: direccion, lat : lat, lon : lon, precio: precio, recom_index : recom_index, photo: photo)
                     self.listapuntodeinteres.append(POItemporal)
                 }
             }
@@ -131,7 +144,7 @@ class GuiaVirtualVC: UIViewController {
 
 extension GuiaVirtualVC: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "puntodeinteresCell", for: indexPath) as! puntodeinteresCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "puntodeinteresCell", for: indexPath) as! PuntodeinteresCell
         let puntos = listapuntodeinteres[indexPath.row]
         cell.selectionStyle = .none
         cell.configureCell(puntos, lat: localizacionActual?.latitude ?? 0.0,lon: localizacionActual?.longitude ?? 0.0)
@@ -185,24 +198,29 @@ extension GuiaVirtualVC: UITextFieldDelegate{
             })
             return
         }
-
+        
+        self.listapuntodeinteres.removeAll()
+        self.tableView.reloadData()
         self.buttomContraintTextfield.isActive = text.isEmpty
         self.topContraintTexfield.isActive = !text.isEmpty
         self.viewInfo.isHidden = !text.isEmpty
         self.tableView.isHidden = text.isEmpty
         
-        if text.isEmpty{
+        if !text.isEmpty{
             self.nameLabel.isHidden = true
-        } else {
-            self.obtenerLocalizacionActual()
-        }
-        UIView.animate(withDuration: 0.5, animations: {
-            self.view.layoutIfNeeded()
-        }, completion:{ _ in
-            self.nameLabel.isHidden = !text.isEmpty
             UIView.animate(withDuration: 0.5, animations: {
                 self.view.layoutIfNeeded()
-            })
-        })
+            }, completion:nil)
+            
+        } else {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.layoutIfNeeded()
+            }, completion:{ _ in
+                self.nameLabel.isHidden = false
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.view.layoutIfNeeded()
+                })
+            })}
+            self.obtenerLocalizacionActual()
     }
 }

@@ -10,5 +10,6 @@ target 'testdescubre' do
 	pod 'AlamofireObjectMapper', '~> 4.0'
     pod 'Kingfisher'
     pod 'PureLayout'
+    pod 'FSCalendar'
 
 end

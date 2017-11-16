@@ -11,119 +11,45 @@ import CoreLocation
 
 
 
-class CheckInVC: UIViewController, CLLocationManagerDelegate {
+class CheckInVC: UIViewController {
 
     
-    @IBAction func cancelarBtn(_ sender: Any) {
-        
-        self.tabBarController?.selectedIndex = 0
-        
-    }
-    
-    @IBAction func guardarBtn(_ sender: Any) {
-    }
-    
-    /*
-
-     Pasos para hacer check-in
-     
- 
-    */
-    
-    
-    // Obtener locacion
+   
+    @IBOutlet weak var nombreLocacion: UILabel!
+    @IBOutlet weak var cordenadas: UILabel!
+    @IBOutlet weak var ubicacionCompleta: UILabel!
+    @IBOutlet weak var campoComentario: UITextView!
 
     var locManager = CLLocationManager()
     var currentLocation: CLLocation!
     var desdelat : CLLocationDegrees = 0.0
     var desdelon : CLLocationDegrees = 0.0
-    var ubicacionTexto = "null"
-    
-    let baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?"
-    let apikey = "AIzaSyDiMXRRlAI8s5_vzRZknBiDUuukquzFWNI"
-    
-    
-    func getAddressForLatLng(latitude: String, longitude: String) -> String{
-        let url = NSURL(string: "\(baseUrl)latlng=\(latitude),\(longitude)&key=\(apikey)")
-        let data = NSData(contentsOf: url! as URL)
-        
-        let json = try! JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
-        
-        if let result = json["results"] as? [[String : Any]] {
-            
-            let address = result[0]["formatted_address"] as? String
-            
-            return (address!)
-            
-            
-//            if let address = result[0]["address_components"] as? [[String : Any]] {
-//        
-//                let number = address[0]["short_name"] as! String
-//                let street = address[1]["short_name"] as! String
-//                let city = address[2]["short_name"] as! String
-//                let state = address[4]["short_name"] as! String
-//                let zip = address[6]["short_name"] as! String
-//                print("\n\(number) \(street), \(city), \(state) \(zip)")
-//            }
-            
-            
-        }else {
-            return ("Direccion desconocida")
-        
-        }
-    }
-    
-    
-    
-    // View Lifecycle
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-    
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
-            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
-            
-            currentLocation = locManager.location
-
-            desdelat = currentLocation.coordinate.latitude
-           
-            desdelon = currentLocation.coordinate.longitude
-            
-            let desdelatTxt = String(desdelat)
-            let desdelonTxt = String(desdelon)
-            
-            print(getAddressForLatLng(latitude: desdelatTxt, longitude: desdelonTxt))
-            
-            
-
-            
-            
-            
-        }
-    
-    }
+    var ubicacionTexto = "Sitio no encontrado"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(CheckInVC.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(CheckInVC.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-     
-        // Obtener locacion
-        
         locManager.delegate = self
         locManager.desiredAccuracy = kCLLocationAccuracyBest
         locManager.distanceFilter = 5.0
         locManager.requestWhenInUseAuthorization()
-        locManager.startUpdatingLocation()
-        
-       
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.campoComentario.placeholder = "Escribe un comentario del sitio"
+        self.navigationController?.navigationBar.isTranslucent = true
     }
     
- 
+    override func viewDidAppear(_ animated: Bool) {
+        self.campoComentario.text = ""
+        locManager.requestLocation()
+    }
+
+    @IBAction func cancelarBtn(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 0
+    }
+    
+    @IBAction func guardarBtn(_ sender: Any) {
+    }
+    
     
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
@@ -141,15 +67,37 @@ class CheckInVC: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension CheckInVC: CLLocationManagerDelegate{
+    
+    func getAddressForLatLng(latitude: String, longitude: String) -> (completeName:String, title: String){
+        let url = NSURL(string: "\(baseUrl)latlng=\(latitude),\(longitude)&key=\(apikey)")
+        let data = NSData(contentsOf: url! as URL)
+        let json = try! JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
+        if let result = json["results"] as? [[String : Any]],
+           let address = result[0]["formatted_address"] as? String{
+            return (address, address)
+        }else {
+            return ("","Direccion desconocida")
+        }
     }
-    */
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
+            currentLocation = locManager.location
+            self.cordenadas.text = "\(desdelat), \(desdelon)"
+            desdelat = currentLocation.coordinate.latitude
+            desdelon = currentLocation.coordinate.longitude
+            let direccion = getAddressForLatLng(latitude: String(desdelat), longitude: String(desdelon))
+            self.nombreLocacion.text = direccion.title
+            self.ubicacionCompleta.text = direccion.completeName
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error localizacion")
+    }
 
 }

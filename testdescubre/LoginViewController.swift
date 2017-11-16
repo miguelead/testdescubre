@@ -10,20 +10,23 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func continuarConFacebook(_ sender: Any) {
+        CurrentUser.shared = CurrentUser(id: 6, nombre: "Luis", mail: "ejemplo@gmail.com", location: "Puerto ordaz, Bolivar, Venezuela")
+        performSegue(withIdentifier: "sucessfulLogin", sender: nil)
     }
-    
     
     @IBAction func loginUser(_ sender: Any) {
-        CurrentUser.shared = CurrentUser(id: 6, nombre: "Luis")
-        performSegue(withIdentifier: "sucessfulLogin", sender: nil)
+        if let mail = emailField.text, !mail.isEmpty,
+           let password = passwordField.text, !password.isEmpty{
+            CurrentUser.shared = CurrentUser(id: 6, nombre: "Luis", mail: mail, location: "Puerto ordaz, Bolivar, Venezuela")
+            performSegue(withIdentifier: "sucessfulLogin", sender: nil)
+        }
     }
 }
