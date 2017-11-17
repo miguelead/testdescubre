@@ -64,6 +64,8 @@ class EventosVC: UIViewController {
         if filtrarPor == 3 {filtrarporParam = "Dormir"}
         if filtrarPor == 4 {filtrarporParam = "Servicios"}
         
+        print(ordenarporParam)
+        print(filtrarporParam)
         self.tableView.reloadData()
     }
     

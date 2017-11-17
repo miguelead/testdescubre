@@ -26,7 +26,7 @@ class PuntoDeInteresDetalleVC: UIViewController {
     @IBOutlet weak var sitioWeb: UIButton!
     
     var punto: PuntoDeInteres!
-   // var distanciaActual: CLLocationCoordinate2D?
+    var distanciaActual: CLLocationCoordinate2D!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,7 @@ class PuntoDeInteresDetalleVC: UIViewController {
             self.navigationItem.rightBarButtonItem?.tintColor = UIColor.hexStringToUIColor(hex: "11A791")
         }
         self.fillData()
+        UIApplication.shared.isNetworkActivityIndicatorVisible =  true
         self.consultaApi()
     }
  
@@ -55,19 +56,35 @@ class PuntoDeInteresDetalleVC: UIViewController {
     func fillData(){
         self.tituloLbl.text = punto._titulo
         self.precioLbl.text = punto._precio
-        //self.distanciaLbl.text = "\(punto.distanciaActual(lat: distanciaActual.latitude, lon: distanciaActual.longitude))"
+        let distanciaMetros = self.punto.distanciaActual(lat: distanciaActual.latitude, lon: distanciaActual.longitude)
+        if distanciaMetros >= 1000{
+            self.distanciaLbl.text = "\(Int(distanciaMetros / 1000))km"
+        } else {
+            self.distanciaLbl.text = "\(distanciaMetros)m"
+        }
         self.categoriaLbl.text = punto._categoria
         self.direccionLbl.text = punto._direccion
         self.descripcion.text = punto._info
         self.servicios.text = ""
         self.caracteristicas.text = ""
-        self.llamarLabel.isEnabled = false
-        self.contactarLabel.isEnabled = false
-        self.sitioWeb.isEnabled = false
+        self.llamarLabel.isEnabled = !punto._telf.isEmpty
+        self.contactarLabel.isEnabled = !punto._mail.isEmpty
+        self.sitioWeb.isEnabled = !punto._web.isEmpty
+        self.navigationController?.navigationItem.title = punto._titulo
     }
     
     func consultaApi(){
         let url = kRutaSecundaria + "/base/api/\(punto._POIId)"
+        
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            guard let result = response.result.value as? [String:Any]
+                else {
+                    return
+                }
+            
+            print(result)
+        }
     }
     
     @IBAction func llamarSitio(_ sender: Any) {

@@ -65,8 +65,10 @@ class GuiaVirtualVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mostrarPuntoDeInteresDetalleCV",
             let vc = segue.destination as? PuntoDeInteresDetalleVC,
-            let cell = sender as? PuntodeinteresCell{
+            let cell = sender as? PuntodeinteresCell,
+            let cordinate = localizacionActual{
             vc.punto = cell.puntodeinteres
+            vc.distanciaActual = cordinate
         }
     }
     

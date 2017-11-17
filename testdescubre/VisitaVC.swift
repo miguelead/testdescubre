@@ -17,7 +17,7 @@ class VisitaVC: UIViewController{
     var ActualRequest: Int?
     var listapuntodeinteres = [PuntoDeInteres]()
     var locManager = CLLocationManager()
-    var currentLocation: CLLocation!
+    var currentLocation: CLLocationCoordinate2D?
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -156,6 +156,7 @@ class VisitaVC: UIViewController{
            let vc = segue.destination as? PuntoDeInteresDetalleVC,
            let cell = sender as? PuntodeinteresCell{
             vc.punto = cell.puntodeinteres
+            vc.distanciaActual = currentLocation ?? CLLocationCoordinate2D(latitude: (filtroSeleccionado["desdelat"] as? Double) ?? 0.0, longitude: (filtroSeleccionado["desdelon"] as? Double) ?? 0.0)
         }
     }
     
@@ -166,6 +167,7 @@ extension VisitaVC: CLLocationManagerDelegate{
         if let last = locations.last{
             filtroSeleccionado["desdelat"] = last.coordinate.latitude
             filtroSeleccionado["desdelon"] = last.coordinate.longitude
+            currentLocation = last.coordinate
             consultaApi()
         }
     }
