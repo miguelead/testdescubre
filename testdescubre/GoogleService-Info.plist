@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>12117056168-lmllm1rtvam07ti06ng6nioeqvuu687j.apps.googleusercontent.com</string>
+	<string>12117056168-k0igbtr46ildtuj0h6a6kfkl9majkeeb.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.12117056168-lmllm1rtvam07ti06ng6nioeqvuu687j</string>
+	<string>com.googleusercontent.apps.12117056168-k0igbtr46ildtuj0h6a6kfkl9majkeeb</string>
 	<key>API_KEY</key>
 	<string>AIzaSyD_m6DXLgqtpFN836VegI48vx6dsISXdhE</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.momentum.FireBaseTest</string>
+	<string>com.momentumlab.Travelea</string>
 	<key>PROJECT_ID</key>
 	<string>testfirebase-bcb3a</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:12117056168:ios:eb0955a49e5f276b</string>
+	<string>1:12117056168:ios:05ec5f64595ba0ef</string>
 	<key>DATABASE_URL</key>
 	<string>https://testfirebase-bcb3a.firebaseio.com</string>
 </dict>

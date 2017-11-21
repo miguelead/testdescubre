@@ -100,7 +100,7 @@ class VisitaVC: UIViewController{
         ruta += "&discover=0"
         ruta += "&limit=\(kLimitPag)"
         ruta += "&offset=\(self.listapuntodeinteres.count)"
-        ruta += "&user_id=\(user._id)"
+        ruta += "&user_id=\(user._uid)"
         ruta += "&radius=\(hastakmParam)"
         
 

@@ -46,7 +46,7 @@ class GuiaVirtualVC: UIViewController {
 
     func actualizarTitulo(){
         if let user = CurrentUser.shared{
-            self.nameLabel.text = "¿" + user._nombre + " en que puedo ayudarte?"
+            self.nameLabel.text = "¿" + user._username + " en que puedo ayudarte?"
         } else {
         self.nameLabel.text = "¿En que puedo ayudarte?"
         }
@@ -87,7 +87,7 @@ class GuiaVirtualVC: UIViewController {
         ruta += "&discover=0"
         ruta += "&limit=\(kLimitPag)"
         ruta += "&offset=\(self.listapuntodeinteres.count)"
-        ruta += "&user_id=\(user._id)"
+        ruta += "&user_id=\(user._uid)"
         ruta += "&radius=\(kMaxKm)"
         ruta += "&transport=car"
         

@@ -26,7 +26,7 @@
 		6D53F3231FB5DE3000D20102 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D53F3221FB5DE3000D20102 /* MapKit.framework */; };
 		6D53F3271FB5EFC400D20102 /* CheckInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53F3261FB5EFC400D20102 /* CheckInVC.swift */; };
 		8E4E4F941FBDE93B008D29BD /* Eventos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E4F931FBDE93B008D29BD /* Eventos.swift */; };
-		8E4E4F971FBDF87A008D29BD /* RegistroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E4F961FBDF87A008D29BD /* RegistroVC.swift */; };
+		8E4E4F971FBDF87A008D29BD /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E4F961FBDF87A008D29BD /* RegistroViewController.swift */; };
 		8E4E4F991FBE06F9008D29BD /* UITextView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E4F981FBE06F9008D29BD /* UITextView+extension.swift */; };
 		8E90296E1FBC8ABD00C964CC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90296D1FBC8ABD00C964CC /* CurrentUser.swift */; };
 		8E9029701FBC8C3400C964CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90296F1FBC8C3400C964CC /* LoginViewController.swift */; };
@@ -52,6 +52,9 @@
 		8E98D2741FBF2728007ECF8C /* Check.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E98D2731FBF2728007ECF8C /* Check.storyboard */; };
 		8E98D2761FBF273B007ECF8C /* Perfil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E98D2751FBF273B007ECF8C /* Perfil.storyboard */; };
 		8E98D2781FBF2745007ECF8C /* Ruta.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E98D2771FBF2745007ECF8C /* Ruta.storyboard */; };
+		8EE098D91FC31EB800C43D03 /* FacebookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE098D81FC31EB800C43D03 /* FacebookService.swift */; };
+		8EE098DB1FC32D0300C43D03 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE098DA1FC32D0300C43D03 /* UIAlertController+Extensions.swift */; };
+		8EE098DD1FC35E4B00C43D03 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE098DC1FC35E4B00C43D03 /* QuestionViewController.swift */; };
 		EBB36FC39464EEFC1BD1166D /* Pods_testdescubre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAF53937A639F477EFA0FBE /* Pods_testdescubre.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,7 +94,7 @@
 		6D53F3261FB5EFC400D20102 /* CheckInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInVC.swift; sourceTree = "<group>"; };
 		83276F911B9B8161C6688165 /* Pods-testdescubre.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testdescubre.release.xcconfig"; path = "Pods/Target Support Files/Pods-testdescubre/Pods-testdescubre.release.xcconfig"; sourceTree = "<group>"; };
 		8E4E4F931FBDE93B008D29BD /* Eventos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Eventos.swift; sourceTree = "<group>"; };
-		8E4E4F961FBDF87A008D29BD /* RegistroVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistroVC.swift; sourceTree = "<group>"; };
+		8E4E4F961FBDF87A008D29BD /* RegistroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
 		8E4E4F981FBE06F9008D29BD /* UITextView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+extension.swift"; sourceTree = "<group>"; };
 		8E90296D1FBC8ABD00C964CC /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		8E90296F1FBC8C3400C964CC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +120,9 @@
 		8E98D2731FBF2728007ECF8C /* Check.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Check.storyboard; sourceTree = "<group>"; };
 		8E98D2751FBF273B007ECF8C /* Perfil.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Perfil.storyboard; sourceTree = "<group>"; };
 		8E98D2771FBF2745007ECF8C /* Ruta.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Ruta.storyboard; sourceTree = "<group>"; };
+		8EE098D81FC31EB800C43D03 /* FacebookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookService.swift; sourceTree = "<group>"; };
+		8EE098DA1FC32D0300C43D03 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
+		8EE098DC1FC35E4B00C43D03 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		ED28A6E0261598D140C5AB58 /* Pods-testdescubre.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testdescubre.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testdescubre/Pods-testdescubre.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				49B042FD1F6B0FD400AD52D8 /* constants.swift */,
+				8EE098D81FC31EB800C43D03 /* FacebookService.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -174,6 +181,7 @@
 				8E98D2661FBF18F6007ECF8C /* UIImage+Gif.swift */,
 				8E98D2601FBF18D7007ECF8C /* UIIView+extensions.swift */,
 				8E4E4F981FBE06F9008D29BD /* UITextView+extension.swift */,
+				8EE098DA1FC32D0300C43D03 /* UIAlertController+Extensions.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -269,7 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				8E90296F1FBC8C3400C964CC /* LoginViewController.swift */,
-				8E4E4F961FBDF87A008D29BD /* RegistroVC.swift */,
+				8E4E4F961FBDF87A008D29BD /* RegistroViewController.swift */,
+				8EE098DC1FC35E4B00C43D03 /* QuestionViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -477,9 +486,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-testdescubre/Pods-testdescubre-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
@@ -492,9 +505,13 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
@@ -538,8 +555,9 @@
 				8E98D26C1FBF1A9A007ECF8C /* UserSelectChannelTableViewCell.swift in Sources */,
 				8E98D2591FBF1899007ECF8C /* NameChannelTableViewCell.swift in Sources */,
 				49092C171F70B20200DF323E /* FiltrarVC.swift in Sources */,
+				8EE098D91FC31EB800C43D03 /* FacebookService.swift in Sources */,
 				8E98D25B1FBF18AB007ECF8C /* CreateChannelTableViewController.swift in Sources */,
-				8E4E4F971FBDF87A008D29BD /* RegistroVC.swift in Sources */,
+				8E4E4F971FBDF87A008D29BD /* RegistroViewController.swift in Sources */,
 				6D1488291FB4F1BA0055685E /* CustomTabBarController.swift in Sources */,
 				8E90297D1FBCBEFD00C964CC /* OfertasCell.swift in Sources */,
 				8E4E4F991FBE06F9008D29BD /* UITextView+extension.swift in Sources */,
@@ -558,6 +576,7 @@
 				8E98D2671FBF18F6007ECF8C /* UIImage+Gif.swift in Sources */,
 				8E98D25D1FBF18B3007ECF8C /* DataChannelCell.swift in Sources */,
 				8E9029701FBC8C3400C964CC /* LoginViewController.swift in Sources */,
+				8EE098DD1FC35E4B00C43D03 /* QuestionViewController.swift in Sources */,
 				8E9029741FBCA17200C964CC /* VisitaVC.swift in Sources */,
 				8E90297B1FBCBCEB00C964CC /* Ofertas.swift in Sources */,
 				49B042FE1F6B0FD400AD52D8 /* constants.swift in Sources */,
@@ -565,6 +584,7 @@
 				8E98D2541FBF1856007ECF8C /* ChatViewController.swift in Sources */,
 				8E9029781FBCB44600C964CC /* OfertasVC.swift in Sources */,
 				6D53F3271FB5EFC400D20102 /* CheckInVC.swift in Sources */,
+				8EE098DB1FC32D0300C43D03 /* UIAlertController+Extensions.swift in Sources */,
 				496B75141F66CDFE00FD4942 /* puntodeinteres.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -720,9 +740,10 @@
 				INFOPLIST_FILE = testdescubre/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.miguel.testdescubre;
+				PRODUCT_BUNDLE_IDENTIFIER = com.momentumlab.Travelea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -735,9 +756,10 @@
 				INFOPLIST_FILE = testdescubre/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.miguel.testdescubre;
+				PRODUCT_BUNDLE_IDENTIFIER = com.momentumlab.Travelea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

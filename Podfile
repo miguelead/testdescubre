@@ -11,10 +11,13 @@ target 'testdescubre' do
     pod 'Kingfisher'
     pod 'PureLayout'
     pod 'FSCalendar'
+    pod 'FBSDKCoreKit'
+    pod 'FBSDKLoginKit'
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
     pod 'Firebase/Storage'
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
-    pod 'Firebase/RemoteConfig'
+    pod 'IQKeyboardManagerSwift'
     pod 'JSQMessagesViewController'
-
 end

@@ -60,10 +60,18 @@ class CheckInVC: UIViewController {
             body["tourist_id"] = self.id
             body["poi_id"] = user_id
             
-            let ruta = "emprenomina.com/perfil/API/checkin/"
+            //let ruta = "emprenomina.com/perfil/API/checkin/"
+            let ruta = kRutaSecundaria + "/perfil/API/checkin/"
             
             Alamofire.request(ruta, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                guard 200...300 ~= (response.response?.statusCode ?? -999)
+                    else {
+                        UIAlertController.presentViewController(title: "Error", message: "No se pudo hacer Check In en el sitio", view: self)
+                        return
+                }
+
+                UIAlertController.presentViewController(title: "", message: "¡Felicidades haz hecho Check In al lugar!", view: self)
             }
         }
     }
@@ -78,7 +86,9 @@ extension CheckInVC: CLLocationManagerDelegate{
                         "lon": longitude
             ]]
         
-        let ruta = "http://emprenomina.com/base/api/where_am_i/"
+        //let ruta = "http://emprenomina.com/base/api/where_am_i/"
+        let ruta = kRutaSecundaria + "/base/api/where_am_i/"
+        
         Alamofire.request(ruta, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             guard let result = response.result.value as? [String:Any],

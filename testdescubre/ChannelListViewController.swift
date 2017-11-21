@@ -77,7 +77,7 @@ class ChannelListViewController: UITableViewController {
     super.prepare(for: segue, sender: sender)
     if let channel = sender as? Channel {
       let chatVc = segue.destination as! ChatViewController
-      chatVc.senderDisplayName = CurrentUser.shared?._nombre ?? ""
+      chatVc.senderDisplayName = CurrentUser.shared?._username ?? ""
       chatVc.channel = channel
       chatVc.channelRef = channelRef.child(channel.id)
     }
