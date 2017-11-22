@@ -24,13 +24,12 @@ import UIKit
 import Firebase
 
 
-class ChannelListViewController: UITableViewController {
+class ChannelListViewController: UIViewController {
 
     
-  private var channelRefHandle: DatabaseHandle?
-  private var channels: [Channel] = []
-  
-  private lazy var channelRef: DatabaseReference = Database.database().reference().child("channels")
+  @IBOutlet weak var tableView: UITableView!
+  fileprivate var channelRefHandle: DatabaseHandle?
+  fileprivate var channels: [Channel] = []
   
   // MARK: View Lifecycle
   
@@ -39,35 +38,47 @@ class ChannelListViewController: UITableViewController {
     title = "Planes"
     self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     self.navigationController?.navigationBar.shadowImage = UIImage()
+    self.addBackgroundImage(message: "")
     observeChannels()
   }
   
   deinit {
     if let refHandle = channelRefHandle {
-      channelRef.removeObserver(withHandle: refHandle)
+      let ref = Database.database().reference()
+      ref.child("channels").removeObserver(withHandle: refHandle)
     }
   }
 
 
-  // MARK: Firebase related methods
+    func addBackgroundImage(message: String = "¿No tienes un plan disponible? crea uno"){
+        let image = #imageLiteral(resourceName: "emptystate-13").withRenderingMode(.alwaysTemplate)
+        let topMessage = "Arma tu Combo de amigos"
+        let bottomMessage = message
+        let emptyBackgroundView = EmptyBackgroundView(image: image, top: topMessage, bottom: bottomMessage)
+        self.tableView.backgroundView = emptyBackgroundView
+    }
 
   private func observeChannels() {
-    // We can use the observe method to listen for new
-    // channels being written to the Firebase DB
-    channelRefHandle = channelRef.observe(.childAdded, with: { (snapshot) -> Void in
-      let channelData = snapshot.value as! Dictionary<String, AnyObject>
-      let id = snapshot.key
-      if let name = channelData["name"] as? String, name.characters.count > 0 {
-        var last_message = (channelData["messages"] as? [String: Any])?.reversed().first?.value as? [String: Any]
-        var info :String? = nil
-        if let lst_mssage = last_message{
-            info = lst_mssage.keys.contains("photoURL") ? "Ha enviado una imagen" : last_message?["text"] as? String
+    let ref = Database.database().reference()
+    channelRefHandle = ref.child("channels").observe(.value, with: { (snapshot) -> Void in
+        for child in snapshot.children.allObjects as? [DataSnapshot] ?? [] {
+            let channelData = child.value as? Dictionary<String, AnyObject>
+            let id = child.key
+            if let name = channelData?["name"] as? String, name.characters.count > 0 {
+                var last_message = (channelData?["messages"] as? [String: Any])?.reversed().first?.value as? [String: Any]
+                var info :String? = nil
+                if let lst_mssage = last_message{
+                    info = lst_mssage.keys.contains("photoURL") ? "Ha enviado una imagen" : last_message?["text"] as? String
+                }
+                self.channels.append(Channel(id: id, name: name, owner: last_message?["senderName"] as? String, details: info))
+            }
         }
-        self.channels.append(Channel(id: id, name: name, owner: last_message?["senderName"] as? String, details: info))
+        if self.channels.isEmpty{
+            self.addBackgroundImage()
+        } else {
+            self.tableView.backgroundView = nil
+        }
         self.tableView.reloadData()
-      } else {
-        print("Error! Could not decode channel data")
-      }
     })
   }
   
@@ -75,25 +86,27 @@ class ChannelListViewController: UITableViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     super.prepare(for: segue, sender: sender)
-    if let channel = sender as? Channel {
-      let chatVc = segue.destination as! ChatViewController
+    if let channel = sender as? Channel, let chatVc = segue.destination as? ChatViewController {
+      let ref = Database.database().reference()
       chatVc.senderDisplayName = CurrentUser.shared?._username ?? ""
       chatVc.channel = channel
-      chatVc.channelRef = channelRef.child(channel.id)
+      chatVc.channelRef = ref.child("channels").child(channel.id)
     }
   }
-  
+}
+
+extension ChannelListViewController: UITableViewDelegate, UITableViewDataSource{
   // MARK: UITableViewDataSource
   
-  override func numberOfSections(in tableView: UITableView) -> Int {
+   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
   
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return channels.count
   }
   
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "ExistingChannel", for: indexPath) as! DataChannelCell
     cell.titleLabel.text = channels[indexPath.row].name
     cell.ownerData.text = channels[indexPath.row].owner
@@ -103,7 +116,7 @@ class ChannelListViewController: UITableViewController {
 
   // MARK: UITableViewDelegate
   
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       let channel = channels[indexPath.row]
       self.performSegue(withIdentifier: "ShowChannel", sender: channel)
   }

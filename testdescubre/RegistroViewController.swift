@@ -51,8 +51,13 @@ class RegistroViewController: UIViewController {
                 changeRequest?.displayName = username
                 changeRequest?.commitChanges { _ in }
                 let ref = Database.database().reference()
-                ref.child("users").child(user.uid).setValue(["name": name, "FirstTime": false])
+                var content = ["name": name , "FirstTime": false,"username": username, "mail": mail] as [String : Any]
+                if let url = user.photoURL{
+                    content["icon"] = url.absoluteString
+                }
+                 ref.child("users").child(user.uid).setValue(content)
                 CurrentUser.shared = CurrentUser(user: user, customData: ["name": name])
+                
                 let body: [String: Any] = [
                     "email": mail,
                     "username": username,
@@ -78,7 +83,7 @@ extension RegistroViewController: UITextFieldDelegate{
 
 extension RegistroViewController{
     func consultaApi(body: [String:Any]){
-        let ruta = kRutaSecundaria + "/base/api/register/"
+        let ruta = KRutaMain + "/base/api/register/"
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Alamofire.request(ruta, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             self.indicadorView.stopAnimating()
@@ -95,6 +100,7 @@ extension RegistroViewController{
                             print ("Error signing out: %@", signOutError)
                         }
                     })
+                    CurrentUser.shared = nil
                     return
             }
             CurrentUser.shared?._uid = "\(userId)"

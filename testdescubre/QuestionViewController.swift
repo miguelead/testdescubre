@@ -44,7 +44,7 @@ class QuestionViewController: UIViewController {
             return
         }
         let ref = Database.database().reference()
-        ref.child("users").child(user._id).setValue(["FirstTime": true])
+        ref.child("users/\(user._id)/FirstTime").setValue(true)
         AppDelegate.getAppDelegate().registerForPushNotifications()
         self.performSegue(withIdentifier: "sucessfulLogin", sender: nil)
     }

@@ -559,7 +559,7 @@ Selecciona al menos 5 lugares</string>
         <scene sceneID="VDC-1X-jG8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N21-Q8-HNa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Descubre" image="desc15" id="lea-yJ-Vij"/>
+                    <tabBarItem key="tabBarItem" title="Descubre" image="desc15" id="lea-yJ-Vij"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ckp-pZ-ATl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

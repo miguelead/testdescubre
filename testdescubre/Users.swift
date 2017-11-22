@@ -20,12 +20,14 @@
  * THE SOFTWARE.
  */
 
-internal class Users {
+internal struct Users {
   internal let id: String
   internal let name: String
+  internal let image: String
 
-    init(id: String, name: String) {
+    init(id: String, name: String, image: String? = nil) {
         self.id = id
         self.name = name
+        self.image = image ?? ""
     }
 }

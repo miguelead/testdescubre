@@ -9,14 +9,14 @@
 import UIKit
 
 protocol userSelectDelegate{
-    func selectUser(id: String, status: Bool)
+    func selectUser(index: Int, status: Bool)
 }
 
 class UserSelectChannelTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameCell: UILabel!
     @IBOutlet weak var checkUser: UISwitch!
-    var userId: String!
+    var userIndex:Int!
     var delegate: userSelectDelegate?
     
     override func awakeFromNib() {
@@ -29,7 +29,7 @@ class UserSelectChannelTableViewCell: UITableViewCell {
     }
     
     @IBAction func updateStatusUser(_ sender: Any) {
-        self.delegate?.selectUser(id: userId, status: checkUser.isOn)
+        self.delegate?.selectUser(index: userIndex, status: checkUser.isOn)
     }
     
 }

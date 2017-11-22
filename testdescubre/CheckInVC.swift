@@ -18,12 +18,16 @@ class CheckInVC: UIViewController {
     @IBOutlet weak var cordenadas: UILabel!
     @IBOutlet weak var ubicacionCompleta: UILabel!
     @IBOutlet weak var campoComentario: UITextView!
-
+    @IBOutlet weak var botonGuardar: UIBarButtonItem!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
+    
     var locManager = CLLocationManager()
     var currentLocation: CLLocation!
     var desdelat : CLLocationDegrees = 0.0
     var desdelon : CLLocationDegrees = 0.0
-    var id = ""
+    var PlaceId = ""
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +36,19 @@ class CheckInVC: UIViewController {
         locManager.distanceFilter = 5.0
         locManager.requestWhenInUseAuthorization()
         self.campoComentario.placeholder = "Escribe un comentario del sitio"
-        self.campoComentario.delegate = self
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.botonGuardar.isEnabled = false
+        self.loading.stopAnimating()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.campoComentario.text = ""
+        self.nombreLocacion.text = "----"
+        self.ubicacionCompleta.text = ""
+        self.cordenadas.text = "0.0,0.0"
+        self.PlaceId = ""
+        self.botonGuardar.isEnabled = false
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         locManager.requestLocation()
     }
@@ -52,18 +62,17 @@ class CheckInVC: UIViewController {
     }
     
     @IBAction func guardarBtn(_ sender: Any) {
-        if !id.isEmpty, let user_id = CurrentUser.shared?._id{
+        if !PlaceId.isEmpty, let user_id = CurrentUser.shared?._uid{
             var body:[String: Any] = [:]
             if let comentario = campoComentario.text, !comentario.isEmpty{
                 body["comment"] = comentario
             }
-            body["tourist_id"] = self.id
-            body["poi_id"] = user_id
-            
-            //let ruta = "emprenomina.com/perfil/API/checkin/"
-            let ruta = kRutaSecundaria + "/perfil/API/checkin/"
-            
+            body["tourist_id"] = user_id
+            body["poi_id"] = self.PlaceId
+            let ruta = KRutaMain + "/perfil/API/checkin/"
+            self.loading.startAnimating()
             Alamofire.request(ruta, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+                self.loading.stopAnimating()
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 guard 200...300 ~= (response.response?.statusCode ?? -999)
                     else {
@@ -71,7 +80,13 @@ class CheckInVC: UIViewController {
                         return
                 }
 
-                UIAlertController.presentViewController(title: "", message: "¡Felicidades haz hecho Check In al lugar!", view: self)
+                UIAlertController.presentViewController(title: "", message: "¡Felicidades haz hecho Check In al lugar!", view: self, successEvent: {_ in
+                    if let tab = self.tabBarController as? CustomTabBarController{
+                        self.tabBarController?.selectedIndex = tab.lastTab
+                    } else {
+                        self.tabBarController?.selectedIndex = 0
+                    }
+                })
             }
         }
     }
@@ -86,8 +101,7 @@ extension CheckInVC: CLLocationManagerDelegate{
                         "lon": longitude
             ]]
         
-        //let ruta = "http://emprenomina.com/base/api/where_am_i/"
-        let ruta = kRutaSecundaria + "/base/api/where_am_i/"
+        let ruta = KRutaMain + "/base/api/where_am_i/"
         
         Alamofire.request(ruta, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -100,14 +114,15 @@ extension CheckInVC: CLLocationManagerDelegate{
                 else {
                     self.nombreLocacion.text = "Direccion desconocida"
                     self.ubicacionCompleta.text = ""
-                    self.id = ""
+                    self.PlaceId = ""
                     return
             }
             
             self.nombreLocacion.text = name
             self.ubicacionCompleta.text = locality
-            self.id = "\(locality_id)"
+            self.PlaceId = "\(locality_id)"
             self.cordenadas.text = "\(lat), \(lng)"
+            self.botonGuardar.isEnabled = true
             
         }
     }
@@ -130,10 +145,4 @@ extension CheckInVC: CLLocationManagerDelegate{
 
 }
 
-extension CheckInVC: UITextViewDelegate{
-    func textViewDidEndEditing(_ textView: UITextView){
-        textView.resignFirstResponder()
-    }
-
-}
 

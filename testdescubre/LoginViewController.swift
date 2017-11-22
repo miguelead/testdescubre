@@ -87,7 +87,11 @@ class LoginViewController: UIViewController {
                 }
                 CurrentUser.shared = CurrentUser(user: user, customData: customData)
                 if value?["FirstTime"] == nil{
-                    ref.child("users").child(user.uid).setValue(["name": user.displayName ?? "", "FirstTime": false])
+                    var content = ["name": user.displayName ?? "", "FirstTime": false,"username": user.displayName ?? "","mail": mail] as [String : Any]
+                    if let url = user.photoURL{
+                        content["icon"] = url.absoluteString
+                    }
+                    ref.child("users").child(user.uid).setValue(content)
                 }
                 let body: [String: Any] = [
                     "email": mail,
@@ -105,6 +109,7 @@ class LoginViewController: UIViewController {
     }
     
     func errorEvent(mensaje: String = "Hubo un problema de conexion, intentelo mas tarde"){
+        CurrentUser.shared = nil
         UIAlertController.presentViewController(title: "Error", message: mensaje, view: self, OkLabel: "Aceptar", successEvent: { evento in })
     }
     
@@ -156,7 +161,7 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController{
     func consultaApi(body: [String:Any], value: NSDictionary? = nil){
-        let ruta = kRutaSecundaria + "/base/api/register/"
+        let ruta = KRutaMain + "/base/api/register/"
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Alamofire.request(ruta, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -172,6 +177,7 @@ extension LoginViewController{
                         } catch let signOutError as NSError {
                             print ("Error signing out: %@", signOutError)
                         }
+                        CurrentUser.shared = nil
                     })
                     return
             }

@@ -82,6 +82,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dTD-3N-IsJ">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.97252601390000004" green="0.97326189279999997" blue="0.97263997790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -92,6 +96,7 @@
                             <constraint firstItem="UWC-cQ-kq4" firstAttribute="centerX" secondItem="bKu-ta-7Wx" secondAttribute="centerX" id="5r3-TM-G3J"/>
                             <constraint firstItem="byg-ee-Y6o" firstAttribute="leading" secondItem="bKu-ta-7Wx" secondAttribute="leading" id="7Co-y4-c0r"/>
                             <constraint firstItem="vpD-U2-O9L" firstAttribute="top" secondItem="pMU-VP-cj4" secondAttribute="bottom" constant="20" id="7W0-nC-yDc"/>
+                            <constraint firstItem="dTD-3N-IsJ" firstAttribute="centerX" secondItem="bKu-ta-7Wx" secondAttribute="centerX" id="90o-DI-IRs"/>
                             <constraint firstItem="Lgb-C2-mcf" firstAttribute="top" secondItem="byg-ee-Y6o" secondAttribute="bottom" id="AY8-A3-qKg"/>
                             <constraint firstItem="UWC-cQ-kq4" firstAttribute="top" secondItem="vpD-U2-O9L" secondAttribute="bottom" constant="15" id="AwT-aa-6pU"/>
                             <constraint firstItem="byg-ee-Y6o" firstAttribute="top" secondItem="bKu-ta-7Wx" secondAttribute="top" id="Ezf-Yz-9Ex"/>
@@ -102,6 +107,7 @@
                             <constraint firstItem="l8z-zp-umu" firstAttribute="top" secondItem="1wQ-ZU-TQJ" secondAttribute="bottom" constant="10" id="O4d-VK-ddO"/>
                             <constraint firstItem="NYx-eT-04P" firstAttribute="top" secondItem="ke3-eg-yaX" secondAttribute="bottom" id="PRY-Pz-pdN"/>
                             <constraint firstItem="l8z-zp-umu" firstAttribute="width" secondItem="bKu-ta-7Wx" secondAttribute="width" multiplier="0.8" id="QJc-nI-5rY"/>
+                            <constraint firstItem="dTD-3N-IsJ" firstAttribute="centerY" secondItem="bKu-ta-7Wx" secondAttribute="centerY" id="QYT-Mb-RnW"/>
                             <constraint firstItem="Lgb-C2-mcf" firstAttribute="leading" secondItem="bKu-ta-7Wx" secondAttribute="leading" id="SIo-88-jmG"/>
                             <constraint firstItem="1wQ-ZU-TQJ" firstAttribute="top" secondItem="NYx-eT-04P" secondAttribute="bottom" constant="5" id="StY-hx-GF6"/>
                             <constraint firstAttribute="trailing" secondItem="byg-ee-Y6o" secondAttribute="trailing" id="UPF-Lg-OMF"/>
@@ -128,8 +134,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="botonGuardar" destination="Qop-jJ-Nhd" id="wKY-ez-7IU"/>
                         <outlet property="campoComentario" destination="l8z-zp-umu" id="BUy-93-eQC"/>
                         <outlet property="cordenadas" destination="NYx-eT-04P" id="rhG-wG-9qG"/>
+                        <outlet property="loading" destination="dTD-3N-IsJ" id="eoM-ma-1Ve"/>
                         <outlet property="nombreLocacion" destination="UWC-cQ-kq4" id="wYd-rv-fcY"/>
                         <outlet property="ubicacionCompleta" destination="1wQ-ZU-TQJ" id="jbC-9e-eZB"/>
                     </connections>
