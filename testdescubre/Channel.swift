@@ -21,20 +21,25 @@
  */
 
 internal class Channel {
+    
   internal let id: String
   internal let name: String
   internal var owner: String
   internal var details:String
+  internal var image:String
+
   
-    init(id: String, name: String, owner: String?, details: String?) {
+    init(id: String, name: String, owner: String?, details: String?, image: String?) {
         self.id = id
         self.name = name
         self.owner = owner ?? ""
         self.details = details ?? ""
+        self.image = image ?? ""
     }
     
     func updateLastInfo(owner: String?, details: String?){
         self.owner = owner ?? ""
         self.details = details ?? ""
     }
+    
 }

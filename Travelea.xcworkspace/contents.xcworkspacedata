@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/macmomentum01/Documents/dev/travelea/testdescubre/Travelea.xcodeproj">
+      location = "group:Travelea.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

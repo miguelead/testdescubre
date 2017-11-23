@@ -8,8 +8,9 @@
 
 import UIKit
 
-class PuntodeinteresCell: UITableViewCell {
+class puntodeinteresTableroCell: UITableViewCell {
 
+    @IBOutlet weak var fecha: UILabel!
     @IBOutlet weak var titulo: UILabel!
     @IBOutlet weak var categoria: UILabel!
     @IBOutlet weak var direccion: UILabel!
@@ -17,10 +18,12 @@ class PuntodeinteresCell: UITableViewCell {
     @IBOutlet weak var distancia: UILabel!
     @IBOutlet weak var markbook: UIButton!
     @IBOutlet weak var imageLugar: UIImageView!
-    var puntodeinteres : PuntoDeInteres!
+    @IBOutlet weak var likesCount: UILabel!
+    var puntodeinteres : PuntoDeInteresTablero!
 
     
-    func configureCell(_ puntodeinteres: PuntoDeInteres, lat: Double, lon: Double){
+    
+    func configureCell(_ puntodeinteres: PuntoDeInteresTablero, lat: Double, lon: Double){
         self.puntodeinteres = puntodeinteres
         titulo.text = self.puntodeinteres._titulo
         categoria.text = self.puntodeinteres._categoria
@@ -31,6 +34,14 @@ class PuntodeinteresCell: UITableViewCell {
             self.distancia.text = "\(Int(distanciaMetros / 1000))km"
         } else {
             self.distancia.text = "\(distanciaMetros)m"
+        }
+        
+        likesCount.text = "\(self.puntodeinteres._likes)"
+        
+        if !self.puntodeinteres._date.isEmpty{
+            self.fecha.text = String.formatBy(dateString: self.puntodeinteres._date)
+        } else {
+            self.fecha.text = "Sin fecha asignada"
         }
         if puntodeinteres._bookmark{
             let image = #imageLiteral(resourceName: "hifivalen25-11").withRenderingMode(.alwaysTemplate)
@@ -53,5 +64,8 @@ class PuntodeinteresCell: UITableViewCell {
         self.puntodeinteres._bookmark = !self.puntodeinteres._bookmark
          markbook.tintColor = UIColor.hexStringToUIColor(hex: "00B19C")
     }
-   
+    
+    
+    
+    
 }

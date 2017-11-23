@@ -14,7 +14,7 @@
         <!--Nombre de grupo-->
         <scene sceneID="cjU-ee-YXy">
             <objects>
-                <viewController storyboardIdentifier="login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9iZ-f0-kav" customClass="LoginViewController" customModule="testdescubre" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9iZ-f0-kav" customClass="LoginViewController" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CVF-a9-Ame"/>
                         <viewControllerLayoutGuide type="bottom" id="Ss3-0Y-IBP"/>
@@ -42,7 +42,7 @@
                                             <action selector="loginUser:" destination="9iZ-f0-kav" eventType="touchUpInside" id="EcN-jt-djG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWk-hx-nE3" customClass="RoundButton" customModule="testdescubre" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWk-hx-nE3">
                                         <rect key="frame" x="64" y="196" width="192" height="30"/>
                                         <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="13"/>
@@ -148,7 +148,7 @@
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Jjr-kq-QnS">
                                         <rect key="frame" x="141.5" y="221.5" width="37" height="37"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="0.0"/>
@@ -213,6 +213,7 @@
                     <navigationItem key="navigationItem" title="Nombre de grupo" id="w6o-z4-WSC"/>
                     <connections>
                         <outlet property="emailField" destination="Pis-eQ-Chn" id="Rf5-Cw-8JE"/>
+                        <outlet property="facebookButtom" destination="sWk-hx-nE3" id="BlZ-3F-CCy"/>
                         <outlet property="loadingView" destination="Jjr-kq-QnS" id="1Ag-G4-1jr"/>
                         <outlet property="passwordField" destination="l6s-Ip-vkP" id="UqY-er-Fwf"/>
                         <segue destination="LV7-Gv-5M8" kind="show" identifier="sucessfulLogin" id="Yv6-Jm-VCs"/>
@@ -227,7 +228,7 @@
         <!--Registro View Controller-->
         <scene sceneID="U5W-3R-Xtq">
             <objects>
-                <viewController id="guU-av-ZTK" customClass="RegistroViewController" customModule="testdescubre" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="guU-av-ZTK" customClass="RegistroViewController" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A25-zk-aq0"/>
                         <viewControllerLayoutGuide type="bottom" id="iSU-AU-PEy"/>
@@ -430,7 +431,7 @@
         <!--Selecciona-->
         <scene sceneID="KX5-aC-QEE">
             <objects>
-                <viewController id="RKO-b9-j1P" customClass="QuestionViewController" customModule="testdescubre" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RKO-b9-j1P" customClass="QuestionViewController" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8cN-Ws-EXP"/>
                         <viewControllerLayoutGuide type="bottom" id="XYt-Or-LS8"/>
@@ -466,21 +467,21 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r2b-NT-Io5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r2b-NT-Io5">
                                 <rect key="frame" x="0.0" y="138.5" width="320" height="341.5"/>
                                 <color key="backgroundColor" red="0.99576550720000001" green="0.78306084870000003" blue="0.034013021740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sitioCell" textLabel="XAn-Q7-IzH" style="IBUITableViewCellStyleDefault" id="TZb-gi-avd">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sitioCell" editingAccessoryType="checkmark" textLabel="XAn-Q7-IzH" style="IBUITableViewCellStyleDefault" id="TZb-gi-avd">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TZb-gi-avd" id="CPG-29-NUo">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XAn-Q7-IzH">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="XAn-Q7-IzH">
                                                     <rect key="frame" x="15" y="0.0" width="290" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-BlackOblique" family="Avenir" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-BlackOblique" family="Avenir" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -498,7 +499,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIj-yG-CxD">
                                 <rect key="frame" x="66" y="80" width="189" height="38.5"/>
                                 <string key="text">¿Dónde te gustaria ir?
-Selecciona al menos 5 lugares</string>
+Selecciona al menos 8 lugares</string>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -537,7 +538,7 @@ Selecciona al menos 5 lugares</string>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="DVP-ad-nu4">
             <objects>
-                <tabBarController storyboardIdentifier="tabMainController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LV7-Gv-5M8" customClass="CustomTabBarController" customModule="testdescubre" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabMainController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LV7-Gv-5M8" customClass="CustomTabBarController" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="XiE-t5-7O7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -712,8 +713,8 @@ Selecciona al menos 5 lugares</string>
         <image name="rutas24" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yv6-Jm-VCs"/>
-        <segue reference="TQ4-tB-c7l"/>
+        <segue reference="bWE-6z-yxj"/>
+        <segue reference="Brn-rX-cRm"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.066666666666666666" green="0.65490196078431373" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
 </document>

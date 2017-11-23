@@ -15,7 +15,7 @@
         <!--Titulo del lugar-->
         <scene sceneID="OZF-ea-Knc">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="Hp5-Xf-oPO" customClass="PuntoDeInteresDetalleVC" customModule="testdescubre" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="Hp5-Xf-oPO" customClass="PuntoDeInteresDetalleVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Glg-eV-LbM"/>
                         <viewControllerLayoutGuide type="bottom" id="jQP-MI-RyC"/>
@@ -222,7 +222,7 @@
         <!--Data Source-->
         <scene sceneID="f7X-KO-WkH">
             <objects>
-                <viewController storyboardIdentifier="EventosVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3oO-8c-NR3" customClass="EventosVC" customModule="testdescubre" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventosVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3oO-8c-NR3" customClass="EventosVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gt5-O0-AOR"/>
                         <viewControllerLayoutGuide type="bottom" id="SJu-rc-BwP"/>
@@ -303,7 +303,7 @@
                                 <rect key="frame" x="0.0" y="340" width="375" height="327"/>
                                 <color key="backgroundColor" red="0.97252601390000004" green="0.97326189279999997" blue="0.97263997790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ofertasCell" rowHeight="120" id="MUg-fE-2xO" customClass="OfertasCell" customModule="testdescubre" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ofertasCell" rowHeight="120" id="MUg-fE-2xO" customClass="OfertasCell" customModule="Travelea" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MUg-fE-2xO" id="MTa-Cg-HT2">
@@ -432,7 +432,7 @@
         <!--Guía-->
         <scene sceneID="enM-BQ-GEg">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="D5R-7w-djI" customClass="GuiaVirtualVC" customModule="testdescubre" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="D5R-7w-djI" customClass="GuiaVirtualVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="soV-35-ZvG"/>
                         <viewControllerLayoutGuide type="bottom" id="scX-l6-eta"/>
@@ -486,7 +486,7 @@
                                 <rect key="frame" x="0.0" y="214" width="375" height="453"/>
                                 <color key="backgroundColor" red="0.97252601390000004" green="0.97326189279999997" blue="0.97263997790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="puntodeinteresCell" rowHeight="120" id="YqJ-7u-6Po" customClass="PuntodeinteresCell" customModule="testdescubre" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="puntodeinteresCell" rowHeight="120" id="YqJ-7u-6Po" customClass="PuntodeinteresCell" customModule="Travelea" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YqJ-7u-6Po" id="xFp-PJ-iMp">
@@ -655,7 +655,7 @@
         <!--VisitaVC-->
         <scene sceneID="YGq-N0-8K5">
             <objects>
-                <viewController storyboardIdentifier="VisitaVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UfH-gl-lgY" customClass="VisitaVC" customModule="testdescubre" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VisitaVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UfH-gl-lgY" customClass="VisitaVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kSd-n1-arg"/>
                         <viewControllerLayoutGuide type="bottom" id="P96-pL-L6G"/>
@@ -668,7 +668,7 @@
                                 <rect key="frame" x="0.0" y="60.5" width="375" height="606.5"/>
                                 <color key="backgroundColor" red="0.97252601390000004" green="0.97326189279999997" blue="0.97263997790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="puntodeinteresCell" rowHeight="120" id="XQS-oF-Ibl" customClass="PuntodeinteresCell" customModule="testdescubre" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="puntodeinteresCell" rowHeight="120" id="XQS-oF-Ibl" customClass="PuntodeinteresCell" customModule="Travelea" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XQS-oF-Ibl" id="uDW-5k-7TZ">
@@ -814,7 +814,7 @@
         <!--Descubre-->
         <scene sceneID="CAl-2G-4VA">
             <objects>
-                <viewController storyboardIdentifier="DescubreVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="voJ-A4-nhV" customClass="DescubreVC" customModule="testdescubre" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DescubreVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="voJ-A4-nhV" customClass="DescubreVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6fS-1t-8c1"/>
                         <viewControllerLayoutGuide type="bottom" id="LSt-gN-IXr"/>
@@ -876,7 +876,7 @@
         <!--Filtrar-->
         <scene sceneID="fYk-Xv-Qay">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="I3H-Rv-qfl" customClass="FiltrarVC" customModule="testdescubre" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="I3H-Rv-qfl" customClass="FiltrarVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aF3-q1-6fz"/>
                         <viewControllerLayoutGuide type="bottom" id="Nf0-L5-6K6"/>
@@ -1243,7 +1243,7 @@
         <!--Elegir ciudad-->
         <scene sceneID="zng-MU-oFp">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="1Bq-G5-614" customClass="ElegirMapaVC" customModule="testdescubre" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="1Bq-G5-614" customClass="ElegirMapaVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L08-hm-VOV"/>
                         <viewControllerLayoutGuide type="bottom" id="HTu-9G-fy4"/>
@@ -1314,7 +1314,7 @@
         <!--OfertasVC-->
         <scene sceneID="t7v-F1-rUQ">
             <objects>
-                <viewController storyboardIdentifier="OfertasVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k2c-ep-nbv" customClass="OfertasVC" customModule="testdescubre" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OfertasVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k2c-ep-nbv" customClass="OfertasVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2FB-8Q-Hfw"/>
                         <viewControllerLayoutGuide type="bottom" id="Bwm-fb-Xs4"/>
@@ -1327,7 +1327,7 @@
                                 <rect key="frame" x="0.0" y="60.5" width="375" height="606.5"/>
                                 <color key="backgroundColor" red="0.97252601390000004" green="0.97326189279999997" blue="0.97263997790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ofertasCell" rowHeight="120" id="vru-CC-m1K" customClass="OfertasCell" customModule="testdescubre" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ofertasCell" rowHeight="120" id="vru-CC-m1K" customClass="OfertasCell" customModule="Travelea" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vru-CC-m1K" id="1sL-w9-Fyy">

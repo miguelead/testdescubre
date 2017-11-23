@@ -74,7 +74,7 @@ class PuntoDeInteresDetalleVC: UIViewController {
     }
     
     func consultaApi(){
-        let url = kRutaSecundaria + "/base/api/\(punto._POIId)"
+        let url = KRutaMain + "/base/api/\(punto._POIId)"
         
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false

@@ -13,8 +13,6 @@ class CreateChannelTableViewController: UIViewController, UINavigationController
 
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
-    fileprivate var channelRefHandle: DatabaseHandle?
-    fileprivate var usersRefHandle: DatabaseHandle?
     fileprivate var userslist: [Users] = []
     fileprivate var nameChannel: String?
     fileprivate var imageChannel: UIImage?
@@ -22,8 +20,13 @@ class CreateChannelTableViewController: UIViewController, UINavigationController
 
    
     
-    private lazy var usersRef: DatabaseReference = Database.database().reference().child("users")
-    private lazy var channelRef: DatabaseReference = Database.database().reference().child("channels")
+    fileprivate var channelRefHandle: DatabaseHandle?
+    fileprivate var usersRefHandle: DatabaseHandle?
+    fileprivate var channel_UserRefHandle: DatabaseHandle?
+    
+    fileprivate lazy var usersRef: DatabaseReference = Database.database().reference().child("users")
+    fileprivate lazy var channelRef: DatabaseReference = Database.database().reference().child("channels")
+    fileprivate lazy var channel_UserRef: DatabaseReference = Database.database().reference().child("channels_users")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,21 +41,27 @@ class CreateChannelTableViewController: UIViewController, UINavigationController
         if let userRefHandle = usersRefHandle {
             usersRef.removeObserver(withHandle: userRefHandle)
         }
+        if let channel_UserRefHandle = channel_UserRefHandle {
+            channel_UserRef.removeObserver(withHandle: channel_UserRefHandle)
+        }
     }
     
     @IBAction func createChannel(_ sender: Any) {
         if let name = nameChannel, name.characters.count > 5{
-    
             self.indicator.startAnimating()
             var userMap = self.userSelect.reduce([String:[String: Any]](), { (list, user) -> [String:Any] in
                 var ret = list
-                ret[user.id] = ["name": user.name, "uid": user.id]
+                ret[user.id] = true
                 return ret
             })
             
-            userMap[CurrentUser.shared?._id ?? ""] = ["name": CurrentUser.shared?._username ?? "", "uid": CurrentUser.shared?._id ?? ""]
+            userMap[CurrentUser.shared?._id ?? ""] = true
             let channel = channelRef.childByAutoId()
-            channel.setValue(["name" : name, "users": userMap])
+            channel.setValue(["name" : name, "participants": userMap])
+            
+            for key in userMap.keys{
+                channel_UserRef.child(key).child(channel.key).setValue(true)
+            }
             if let image = imageChannel {
                 uploadImage(id: channel.key, image: image)
             } else{
@@ -75,17 +84,17 @@ class CreateChannelTableViewController: UIViewController, UINavigationController
             return
         }
         let storageRef = Storage.storage().reference()
-        let riversRef = storageRef.child(id + "/icons/iconChannel.jpg")
+        let riversRef = storageRef.child("channels/" + id + "/icon/iconChannel.jpg")
         _ = riversRef.putData(data as Data, metadata: nil) { (metadata, error) in
-            guard metadata != nil else {
+            guard let meta = metadata else {
                 self.indicator.stopAnimating()
                 UIAlertController.presentViewController(title: "Registro casi Exitoso", message: "Se registro sala de chat, pero la imagen no pudo ser cargada", view: self, OkLabel: "Aceptar", successEvent: { evento in
                     self.navigationController?.popViewController(animated: true)
                 })
-                
                 return
             }
             self.indicator.stopAnimating()
+            self.channelRef.child(id).child("icon").setValue(meta.path)
             UIAlertController.presentViewController(title: "Registro Exitoso", message: "La sala de chat se registro con exito", view: self, OkLabel: "Aceptar", successEvent: { evento in
                 self.navigationController?.popViewController(animated: true)
             })

@@ -108,12 +108,6 @@ extension RegistroViewController{
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "endRegisterEvent",
-            let vc = segue.destination as? QuestionViewController{
-            vc.locationActual = locationActual
-        }
-    }
 }
 
 

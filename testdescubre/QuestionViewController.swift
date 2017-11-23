@@ -9,10 +9,12 @@
 import UIKit
 import CoreLocation
 import Firebase
+import Alamofire
 
-struct places {
+struct Places {
     var name: String
     var uid: String
+    var isSelected:Bool = false
     init(name: String, uid: String) {
         self.name = name
         self.uid = uid
@@ -23,30 +25,79 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var selectMessage: UILabel!
     @IBOutlet weak var endButtom: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
-    var lugares:[places] = []
-    var selectedPlace:[places] = []
-    var locationActual: CLLocationCoordinate2D!
-    
+    var lugares:[Places] = []
+    let kminPoi = 8
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.endButtom.isEnabled = false
-        self.consultarApi(lat: locationActual.latitude, long: locationActual.longitude)
+        self.selectMessage.text = "¿Dónde te gustaria ir?\nSelecciona al menos \(kminPoi) lugares"
+        self.consultarApi()
     }
 
-    func consultarApi(lat: Double, long: Double){
-        lugares = [places(name: "Orinokia", uid: "12"), places(name: "Tomasa", uid: "10"),places(name: "santo tome", uid: "2") ,places(name: "playa el agua", uid: "5") ,places(name: "Plaza el hierro", uid: "11") ,places(name: "Upata", uid: "13")]
-        self.tableView.reloadData()
+    func consultarApi(){
+        let ruta = KRutaMain + "/login/api/minigame/"
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        Alamofire.request(ruta, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            guard 200...300 ~= (response.response?.statusCode ?? -999),
+                let result = response.result.value as? [String:Any],
+                let lugaresJson = result["pois"] as? [[String:Any]],
+                lugaresJson.count >= self.kminPoi
+                else {
+                    UIAlertController.presentViewController(title: "Error", message: "Hubo un problema de conexion, intentelo mas tarde", view: self, OkLabel: "Aceptar", successEvent: { evento in
+                        let firebaseAuth = Auth.auth()
+                        do {
+                            try firebaseAuth.signOut()
+                        } catch let signOutError as NSError {
+                            print ("Error signing out: %@", signOutError)
+                        }
+                    })
+                    CurrentUser.shared = nil
+                    return
+            }
+            self.lugares = lugaresJson.flatMap({ lugar -> Places? in
+                if let name = lugar["name"] as? String, let id = lugar["id"] as? Int{
+                    return Places(name: name, uid: "\(id)")
+                }
+                return nil
+            })
+            self.tableView.reloadData()
+        }
     }
     
-    func consultarApi(lugaresSeleccionados: [places]){
+    func consultarApi(lugaresSeleccionados: [Places]){
         guard let user = CurrentUser.shared else {
             UIAlertController.presentViewController(title: "Error", message: "Existe un problema con su usuario, intentelo mas tarde", view: self, OkLabel: "Aceptar", successEvent: { evento in })
             return
         }
-        let ref = Database.database().reference()
-        ref.child("users/\(user._id)/FirstTime").setValue(true)
-        AppDelegate.getAppDelegate().registerForPushNotifications()
-        self.performSegue(withIdentifier: "sucessfulLogin", sender: nil)
+        let ruta = KRutaMain + "/login/api/minigame/"
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        let selectData: [[String:String]] = lugaresSeleccionados.flatMap { place -> [String: String] in
+            return ["id": place.uid]
+        }
+        let body: [String:Any] = ["tourist_id": user._uid, "pois" : selectData]
+        Alamofire.request(ruta, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            guard 200...300 ~= (response.response?.statusCode ?? -999)
+                else {
+                    UIAlertController.presentViewController(title: "Error", message: "Hubo un problema de conexion, intentelo mas tarde", view: self, OkLabel: "Aceptar", successEvent: { evento in
+                        let firebaseAuth = Auth.auth()
+                        do {
+                            try firebaseAuth.signOut()
+                        } catch let signOutError as NSError {
+                            print ("Error signing out: %@", signOutError)
+                        }
+                    })
+                    CurrentUser.shared = nil
+                    return
+            }
+         
+            let ref = Database.database().reference()
+            ref.child("users/\(user._id)/FirstTime").setValue(true)
+            AppDelegate.getAppDelegate().registerForPushNotifications()
+            self.performSegue(withIdentifier: "sucessfulLogin", sender: nil)
+        }
     }
 
     
@@ -61,37 +112,32 @@ class QuestionViewController: UIViewController {
         UIApplication.shared.keyWindow?.rootViewController = loginViewController
     }
     @IBAction func siguienteEvento(_ sender: Any) {
-        consultarApi(lugaresSeleccionados: selectedPlace)
+        consultarApi(lugaresSeleccionados: lugares.filter({$0.isSelected}))
     }
 }
 
 
 extension QuestionViewController: UITableViewDelegate{
+  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let index = selectedPlace.map({$0.name}).index(of: lugares[indexPath.row].name){
-            selectedPlace.remove(at: index)
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-            if selectedPlace.count < 5 {
+        if tableView.cellForRow(at: indexPath as IndexPath) != nil {
+            self.lugares[indexPath.row].isSelected = !self.lugares[indexPath.row].isSelected
+            if self.lugares.filter({$0.isSelected}).count >= kminPoi {
+                self.endButtom.isEnabled = true
+            } else {
                 self.endButtom.isEnabled = false
             }
-        } else {
-            self.selectedPlace.append(self.lugares[indexPath.row])
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-            if self.selectedPlace.count >= 5 {
-                self.endButtom.isEnabled = true
+            if lugares.filter({$0.isSelected}).count == 0{
+                selectMessage.text = "¿Dónde te gustaria ir?\nSelecciona al menos \(kminPoi) lugares"
+            } else if 1...kminPoi-2 ~= lugares.filter({$0.isSelected}).count{
+                selectMessage.text = "¿Dónde te gustaria ir?\nSelecciona al menos \((kminPoi - lugares.filter({$0.isSelected}).count)) lugares mas"
+            } else if lugares.filter({$0.isSelected}).count == kminPoi-1{
+                selectMessage.text = "¿Dónde te gustaria ir?\nSelecciona al menos 1 lugar mas"
+            } else {
+                selectMessage.text = "¿Dónde te gustaria ir?\nGracias por seleccionar"
             }
+            self.tableView.reloadData()
         }
-        
-        if selectedPlace.count == 0{
-            selectMessage.text = "¿Dónde te gustaria ir?\nSelecciona al menos 5 lugares"
-        } else if 1...3 ~= selectedPlace.count{
-            selectMessage.text = "¿Dónde te gustaria ir?\nSelecciona al menos \((5 - selectedPlace.count)) lugares mas"
-        } else if selectedPlace.count == 4{
-            selectMessage.text = "¿Dónde te gustaria ir?\nSelecciona al menos 1 lugar mas"
-        } else {
-            selectMessage.text = "¿Dónde te gustaria ir?\nGracias por seleccionar"
-        }
-        
     }
 }
 
@@ -100,6 +146,11 @@ extension QuestionViewController: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "sitioCell", for: indexPath)
         cell.textLabel?.text = lugares[indexPath.row].name
         cell.selectionStyle = .none
+        if lugares[indexPath.row].isSelected{
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
         return cell
     }
     

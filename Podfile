@@ -5,7 +5,7 @@ platform :ios, '9.0'
 
 use_frameworks!
 
-target 'testdescubre' do
+target 'Travelea' do
 	pod 'Alamofire', '~> 4.5'
 	pod 'AlamofireObjectMapper', '~> 4.0'
     pod 'Kingfisher'
@@ -19,5 +19,5 @@ target 'testdescubre' do
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
     pod 'IQKeyboardManagerSwift'
-    pod 'JSQMessagesViewController'
+    pod 'RAMAnimatedTabBarController'
 end

@@ -49,16 +49,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>JSQMessagesViewController.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>JSQSystemSoundPlayer.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -69,7 +59,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-testdescubre.xcscheme</key>
+		<key>Pods-Travelea.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -84,6 +74,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RAMAnimatedTabBarController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -92,6 +87,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>06B47ED75D0AA410B71F47571779D316</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0CB5620CFD141062DD17379F35A58F2B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2F0C0F810568D3E82219429D9D870F04</key>
 		<dict>
 			<key>primary</key>
@@ -103,6 +108,11 @@
 			<true/>
 		</dict>
 		<key>44CAD6CE523055ED339E87154473A254</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>57933CDA46DFC6A0301049792FFE4CEC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,12 +132,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9C2C8F906C0C2148A7EC364FEBECA6F7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B9E504BB32A86879786559051E4E8BDD</key>
+		<key>9F2DBEC718689B79DF896F3EB46FD2D4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,22 +157,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C467BCC16A0CC8969345407AA28BBFAC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>C5A2DB7A84B7B78E359870D2E1B24AA7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C7DCF2B547F7871B9BFD74DE93B0E173</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D0581AF7BF4A6DA140D280B19ECC7BFF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

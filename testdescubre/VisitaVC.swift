@@ -91,7 +91,7 @@ class VisitaVC: UIViewController{
         if filtrarPor == 3 {filtrarporParam = "Dormir"}
         if filtrarPor == 4 {filtrarporParam = "Servicios"}
 
-        var ruta = kRuta + "/search?"
+        var ruta = KRutaMain + ":8001/api/search?"
         ruta += "query=" + filtrarporParam
         ruta += "&lat=\(desdelatParam)"
         ruta += "&lng=\(desdelonParam)"

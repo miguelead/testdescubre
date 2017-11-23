@@ -17,16 +17,20 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var facebookButtom: UIButton!
     var locManager = CLLocationManager()
-    var locationActual: CLLocationCoordinate2D! = CLLocationCoordinate2D(latitude: 8.2972945, longitude: -62.7114469)
+    var locationActual: CLLocationCoordinate2D! = defaultLocation
     var tokenFacebook: String?
   
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.emailField.delegate = self
         self.passwordField.delegate = self
         self.loadingView.stopAnimating()
+        self.customFacebookButtom()
         self.obtenerLocalizacionActual()
     }
 
@@ -37,12 +41,14 @@ class LoginViewController: UIViewController {
     @IBAction func continuarConFacebook(_ sender: Any) {
         if FacebookLoginService.userIsFacebookLoggedIn(){
             self.loadingView.startAnimating()
+            facebookButtom.setTitle("Continuar con Facebook", for: .normal)
             self.firebaseUpdateFacebook()
         } else {
             self.loadingView.startAnimating()
             FacebookLoginService.getFacebookPermission(from: self, permissionEvent: { [weak self] permission in
                 switch permission{
                 case .allPermission:
+                    self?.facebookButtom.setTitle("Continuar con Facebook", for: .normal)
                     self?.firebaseUpdateFacebook()
                     break
                 }
@@ -60,6 +66,14 @@ class LoginViewController: UIViewController {
         }
     }
     
+    func customFacebookButtom(){
+        if FacebookLoginService.userIsFacebookLoggedIn(){
+            facebookButtom.setTitle("Continuar con Facebook", for: .normal)
+        } else {
+            facebookButtom.setTitle("Loguearse con Facebook", for: .normal)
+        }
+    
+    }
     func obtenerLocalizacionActual(){
         locManager.delegate = self
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -147,16 +161,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "facebookEndRegister",
-            let vc = segue.destination as? QuestionViewController{
-            vc.locationActual = locationActual
-        } else if segue.identifier == "RegisterEvent",
-                let vc = segue.destination as? RegistroViewController,
-                let location = locationActual{
-            vc.locationActual = location
-        }
-    }
 }
 
 extension LoginViewController{
