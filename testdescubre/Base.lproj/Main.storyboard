@@ -542,7 +542,9 @@ Selecciona al menos 8 lugares</string>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="XiE-t5-7O7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="N21-Q8-HNa" kind="relationship" relationship="viewControllers" id="FVl-e5-m7G"/>
@@ -560,7 +562,19 @@ Selecciona al menos 8 lugares</string>
         <scene sceneID="VDC-1X-jG8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N21-Q8-HNa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Descubre" image="desc15" id="lea-yJ-Vij"/>
+                    <tabBarItem key="tabBarItem" title="Descubre" image="desc15" id="lea-yJ-Vij" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="kRW-M6-U7o" id="HFn-dm-zbG"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ckp-pZ-ATl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -572,6 +586,16 @@ Selecciona al menos 8 lugares</string>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ld-mi-ZVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="kRW-M6-U7o" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
+                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
+                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="366" y="123"/>
         </scene>
@@ -589,7 +613,19 @@ Selecciona al menos 8 lugares</string>
         <scene sceneID="n6j-M7-crD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aW0-pI-8OF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="2" title="Check-in" image="check21" id="jkS-EM-nhu"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Check-in" image="check21" id="jkS-EM-nhu" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="m2H-Za-lXH" id="pgp-Kg-obD"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="joi-sn-C4u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -603,6 +639,16 @@ Selecciona al menos 8 lugares</string>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7kK-Td-xTg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="m2H-Za-lXH" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
+                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
+                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-212" y="914"/>
         </scene>
@@ -620,7 +666,19 @@ Selecciona al menos 8 lugares</string>
         <scene sceneID="85f-Sx-8Kp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BN0-wg-aP5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Planes" image="planes18" id="pbJ-ZC-fuE"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Planes" image="planes18" selectedImage="planes18" id="pbJ-ZC-fuE" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="Ruq-Wq-N3q" id="F8f-Rq-EGL"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gPI-Vl-250">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -632,6 +690,16 @@ Selecciona al menos 8 lugares</string>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYw-SR-mjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Ruq-Wq-N3q" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
+                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
+                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-1584" y="-389"/>
         </scene>
@@ -649,7 +717,19 @@ Selecciona al menos 8 lugares</string>
         <scene sceneID="gLj-ej-ECf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZOG-V1-P78" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="3" title="Rutas" image="rutas24" id="jUq-28-s3d"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Rutas" image="rutas24" id="jUq-28-s3d" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="vwM-0l-jaG" id="lrk-OS-QTH"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HzR-Et-YuP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -661,6 +741,16 @@ Selecciona al menos 8 lugares</string>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HMg-xb-x9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="vwM-0l-jaG" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
+                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
+                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-1142" y="1833"/>
         </scene>
@@ -678,7 +768,22 @@ Selecciona al menos 8 lugares</string>
         <scene sceneID="FsB-9W-BJV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qp4-2Q-qZ1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="4" title="Perfil" image="perfil27" id="k9x-lm-e5h"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="Perfil" image="perfil27" id="k9x-lm-e5h" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="yOffSet">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="4Jw-Zd-o5F" id="JiN-Zk-DHj"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jef-Pv-kA1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -690,6 +795,16 @@ Selecciona al menos 8 lugares</string>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YI6-bf-lmx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="4Jw-Zd-o5F" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
+                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
+                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-2432" y="1833"/>
         </scene>

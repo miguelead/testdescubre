@@ -37,10 +37,12 @@ class GuiaVirtualVC: UIViewController {
         buscador.layer.borderWidth = 1.5
         buscador.delegate = self
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.hiddenTab(true)
         actualizarTitulo()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.hiddenTab(false)
         self.tableView.reloadData()
     }
 
@@ -56,6 +58,12 @@ class GuiaVirtualVC: UIViewController {
         locManager.desiredAccuracy = kCLLocationAccuracyBest
         locManager.requestWhenInUseAuthorization()
         locManager.requestLocation()
+    }
+    
+    func hiddenTab(_ flag:Bool){
+        if let tab = self.tabBarController as? CustomTabBarController{
+            tab.animationTabBarHidden(flag)
+        }
     }
     
     override func didReceiveMemoryWarning() {

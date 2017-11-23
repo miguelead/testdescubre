@@ -35,6 +35,7 @@ class CheckInVC: UIViewController {
         locManager.desiredAccuracy = kCLLocationAccuracyBest
         locManager.distanceFilter = 5.0
         locManager.requestWhenInUseAuthorization()
+        self.hiddenTab(true)
         self.campoComentario.placeholder = "Escribe un comentario del sitio"
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -42,6 +43,11 @@ class CheckInVC: UIViewController {
         self.loading.stopAnimating()
     }
     
+    func hiddenTab(_ flag:Bool){
+        if let tab = self.tabBarController as? CustomTabBarController{
+            tab.animationTabBarHidden(flag)
+        }
+    }
     override func viewDidAppear(_ animated: Bool) {
         self.campoComentario.text = ""
         self.nombreLocacion.text = "----"
@@ -52,10 +58,15 @@ class CheckInVC: UIViewController {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         locManager.requestLocation()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.hiddenTab(false)
+    }
 
     @IBAction func cancelarBtn(_ sender: Any) {
         if let tab = self.tabBarController as? CustomTabBarController{
             self.tabBarController?.selectedIndex = tab.lastTab
+            
         } else {
             self.tabBarController?.selectedIndex = 0
         }

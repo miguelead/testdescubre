@@ -47,7 +47,7 @@ class CreateChannelTableViewController: UIViewController, UINavigationController
     }
     
     @IBAction func createChannel(_ sender: Any) {
-        if let name = nameChannel, name.characters.count > 5{
+        if let name = nameChannel, name.characters.count > 5, !userSelect.isEmpty{
             self.indicator.startAnimating()
             var userMap = self.userSelect.reduce([String:[String: Any]](), { (list, user) -> [String:Any] in
                 var ret = list
@@ -70,7 +70,11 @@ class CreateChannelTableViewController: UIViewController, UINavigationController
                     self.navigationController?.popViewController(animated: true)
                 })
             }
-            
+        } else {
+            UIAlertController.presentViewController(title: "Error", message: "El chat no tiene nombre, o no han sido seleccionado ningun compañero para el chat", view: self, OkLabel: "Aceptar", successEvent: { evento in
+            })
+
+        
         }
     }
 

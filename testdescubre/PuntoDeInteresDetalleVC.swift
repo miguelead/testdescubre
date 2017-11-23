@@ -39,9 +39,20 @@ class PuntoDeInteresDetalleVC: UIViewController {
         }
         self.fillData()
         UIApplication.shared.isNetworkActivityIndicatorVisible =  true
+        self.hiddenTab(true)
         self.consultaApi()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.hiddenTab(false)
+    }
  
+    func hiddenTab(_ flag:Bool){
+        if let tab = self.tabBarController as? CustomTabBarController{
+            tab.animationTabBarHidden(flag)
+        }
+    }
+    
     func updateStateBookMark(){
         if punto._bookmark{
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hifivalen25-9"), style: .plain, target: self, action: #selector(updateStateBookMark))

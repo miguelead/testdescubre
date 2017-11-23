@@ -7,14 +7,13 @@
 //
 
 import UIKit
+import RAMAnimatedTabBarController
 
-class CustomTabBarController: UITabBarController, UITabBarControllerDelegate {
+class CustomTabBarController: RAMAnimatedTabBarController {
 
     var lastTab: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBar.tintColor = UIColor.hexStringToUIColor(hex: "11A791")
-        self.tabBar.barTintColor = .white
     }
 
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {

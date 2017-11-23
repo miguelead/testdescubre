@@ -15,7 +15,7 @@
         <!--Titulo del lugar-->
         <scene sceneID="OZF-ea-Knc">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="Hp5-Xf-oPO" customClass="PuntoDeInteresDetalleVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Hp5-Xf-oPO" customClass="PuntoDeInteresDetalleVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Glg-eV-LbM"/>
                         <viewControllerLayoutGuide type="bottom" id="jQP-MI-RyC"/>
@@ -432,7 +432,7 @@
         <!--Guía-->
         <scene sceneID="enM-BQ-GEg">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="D5R-7w-djI" customClass="GuiaVirtualVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="D5R-7w-djI" customClass="GuiaVirtualVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="soV-35-ZvG"/>
                         <viewControllerLayoutGuide type="bottom" id="scX-l6-eta"/>
@@ -442,7 +442,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yjF-vy-OU4">
-                                <rect key="frame" x="19" y="174" width="337.5" height="30"/>
+                                <rect key="frame" x="19" y="137" width="337.5" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.0" green="0.70611077550000001" blue="0.63615566489999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -454,16 +454,16 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUD-Am-PyR">
-                                <rect key="frame" x="37.5" y="244" width="300" height="423"/>
+                                <rect key="frame" x="37.5" y="207" width="300" height="460"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use el asistente virtual para hacer busqueda dentro de la guia" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoA-pF-5dQ">
-                                        <rect key="frame" x="15" y="165" width="270" height="33.5"/>
+                                        <rect key="frame" x="15" y="184" width="270" height="33.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <color key="textColor" red="0.067424662410000002" green="0.4114986658" blue="0.49926728009999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4KE-h4-7AY">
-                                        <rect key="frame" x="0.0" y="213" width="300" height="47"/>
+                                        <rect key="frame" x="0.0" y="232" width="300" height="47"/>
                                         <string key="text">“Hoteles en Caracas”
 “Restaurantes en Portuguesa”
 “Centros comerciales cerca de mi”</string>
@@ -483,7 +483,7 @@
                                 </constraints>
                             </view>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lTX-m6-whi">
-                                <rect key="frame" x="0.0" y="214" width="375" height="453"/>
+                                <rect key="frame" x="0.0" y="177" width="375" height="490"/>
                                 <color key="backgroundColor" red="0.97252601390000004" green="0.97326189279999997" blue="0.97263997790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="puntodeinteresCell" rowHeight="120" id="YqJ-7u-6Po" customClass="PuntodeinteresCell" customModule="Travelea" customModuleProvider="target">
@@ -608,8 +608,8 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Juan en que puedo ayudarte?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gA4-2X-itm">
-                                <rect key="frame" x="37.5" y="80" width="300" height="74"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <rect key="frame" x="37.5" y="50" width="300" height="67"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="textColor" red="0.0" green="0.70611077550000001" blue="0.63615566489999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -617,7 +617,7 @@
                         <color key="backgroundColor" red="0.97252601390000004" green="0.97326189279999997" blue="0.97263997790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="vUD-Am-PyR" secondAttribute="bottom" id="42a-jb-tIZ"/>
-                            <constraint firstItem="gA4-2X-itm" firstAttribute="top" secondItem="soV-35-ZvG" secondAttribute="bottom" constant="60" id="5fR-Up-5bb"/>
+                            <constraint firstItem="gA4-2X-itm" firstAttribute="top" secondItem="soV-35-ZvG" secondAttribute="bottom" constant="30" id="5fR-Up-5bb"/>
                             <constraint firstAttribute="bottom" secondItem="lTX-m6-whi" secondAttribute="bottom" id="Ago-Rw-Lof"/>
                             <constraint firstItem="lTX-m6-whi" firstAttribute="leading" secondItem="Fi7-PH-jnQ" secondAttribute="leading" id="Bax-Ug-aja"/>
                             <constraint firstItem="yjF-vy-OU4" firstAttribute="width" secondItem="Fi7-PH-jnQ" secondAttribute="width" multiplier="0.9" id="HKZ-nh-pft"/>
@@ -1467,6 +1467,6 @@
         <image name="lgourmet_pic" width="800" height="800"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eci-Pn-OQX"/>
+        <segue reference="R8C-Vo-Gdl"/>
     </inferredMetricsTieBreakers>
 </document>

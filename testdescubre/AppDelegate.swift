@@ -46,6 +46,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
     }
     
     func registerForPushNotifications() {
+
         if #available(iOS 10.0, *){
             UNUserNotificationCenter.current().delegate = self
             UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert], completionHandler: {(granted, error) in
@@ -69,7 +70,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data){
         let token = String(format: "%@", deviceToken as CVarArg)
         print("didRegisterForRemoteNotificationsWithDeviceToken", token)
-        //PushNotificationService.shared.addPushConectionService(token: token)
     }
     
 
@@ -80,8 +80,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         print("didReceiveRemoteNotification fetchCompletionHandler")
-        //PushNotificationService.shared.appState = application.applicationState
-        //PushNotificationService.shared.notificationReceived(notification: userInfo, completion: completionHandler)
+
     }
     
     // MARK: - IOS 10 OR High Push notification method

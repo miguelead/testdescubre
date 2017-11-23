@@ -124,6 +124,7 @@
 		8E896CA61FC7334400828225 /* NoteMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteMessageTableViewCell.swift; sourceTree = "<group>"; };
 		8E896CA81FC7356F00828225 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		8E896CAA1FC7365F00828225 /* CollecionPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollecionPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		8E896CAC1FC772A700828225 /* Travelea.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Travelea.entitlements; sourceTree = SOURCE_ROOT; };
 		8E90296D1FBC8ABD00C964CC /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		8E90296F1FBC8C3400C964CC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8E9029711FBC97CF00C964CC /* EmptyBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyBackgroundView.swift; sourceTree = "<group>"; };
@@ -245,6 +246,7 @@
 		49ACD4B51F5F013C00CCA9EA /* Travelea */ = {
 			isa = PBXGroup;
 			children = (
+				8E896CAC1FC772A700828225 /* Travelea.entitlements */,
 				8E98D25E1FBF18C2007ECF8C /* GoogleService-Info.plist */,
 				49ACD4D61F5F02EA00CCA9EA /* Model */,
 				49ACD4D71F5F02F100CCA9EA /* View */,
@@ -462,6 +464,9 @@
 							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
 							};
 						};
 					};
@@ -804,6 +809,7 @@
 			baseConfigurationReference = BB86AC9F493E92B06914BA9A /* Pods-Travelea.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Travelea.entitlements;
 				DEVELOPMENT_TEAM = 67P4A8SJ5P;
 				INFOPLIST_FILE = testdescubre/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -820,6 +826,7 @@
 			baseConfigurationReference = CDF2DA1711C1E07D65BCE1A6 /* Pods-Travelea.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Travelea.entitlements;
 				DEVELOPMENT_TEAM = 67P4A8SJ5P;
 				INFOPLIST_FILE = testdescubre/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
