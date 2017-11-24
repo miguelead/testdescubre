@@ -467,28 +467,101 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r2b-NT-Io5">
-                                <rect key="frame" x="0.0" y="138.5" width="320" height="341.5"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r2b-NT-Io5">
+                                <rect key="frame" x="0.0" y="128.5" width="320" height="351.5"/>
                                 <color key="backgroundColor" red="0.99576550720000001" green="0.78306084870000003" blue="0.034013021740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sitioCell" editingAccessoryType="checkmark" textLabel="XAn-Q7-IzH" style="IBUITableViewCellStyleDefault" id="TZb-gi-avd">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sitioCell" rowHeight="104" id="Kbg-TF-8Mr" customClass="puntoInteresCheck" customModule="Travelea" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="104"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TZb-gi-avd" id="CPG-29-NUo">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kbg-TF-8Mr" id="xou-b2-KHj">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="104"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="XAn-Q7-IzH">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-BlackOblique" family="Avenir" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2CY-Mv-RjO">
+                                                    <rect key="frame" x="16" y="6" width="288" height="92"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lgourmet" translatesAutoresizingMaskIntoConstraints="NO" id="IDf-GY-lWJ">
+                                                            <rect key="frame" x="10" y="14" width="64.5" height="64"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="IDf-GY-lWJ" secondAttribute="height" multiplier="1:1" id="oZd-df-5qa"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="6cT-ir-d3n">
+                                                            <rect key="frame" x="84.5" y="14" width="35" height="18"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="13"/>
+                                                            <color key="textColor" red="0.0026629283089999998" green="0.40736240150000003" blue="0.51872229579999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoria" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Uf4-GT-N8H">
+                                                            <rect key="frame" x="84.5" y="32" width="55.5" height="16.5"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="12"/>
+                                                            <color key="textColor" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Direccion" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="aQR-eB-CVW">
+                                                            <rect key="frame" x="84.5" y="48.5" width="46.5" height="15.5"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
+                                                            <color key="textColor" red="0.74202448129999998" green="0.74259525540000004" blue="0.74211281539999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark-08-8" translatesAutoresizingMaskIntoConstraints="NO" id="9A5-K0-wP8">
+                                                            <rect key="frame" x="258" y="36" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="V2v-PX-OKr"/>
+                                                                <constraint firstAttribute="width" secondItem="9A5-K0-wP8" secondAttribute="height" multiplier="1:1" id="gnd-VM-IFY"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Uf4-GT-N8H" firstAttribute="leading" secondItem="6cT-ir-d3n" secondAttribute="leading" id="58n-3q-tLL"/>
+                                                        <constraint firstItem="Uf4-GT-N8H" firstAttribute="top" secondItem="6cT-ir-d3n" secondAttribute="bottom" id="9v7-6A-elB"/>
+                                                        <constraint firstItem="9A5-K0-wP8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aQR-eB-CVW" secondAttribute="trailing" constant="2" id="Loq-1V-ty7"/>
+                                                        <constraint firstItem="6cT-ir-d3n" firstAttribute="leading" secondItem="IDf-GY-lWJ" secondAttribute="trailing" constant="10" id="PXH-Ua-Y6d"/>
+                                                        <constraint firstItem="9A5-K0-wP8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6cT-ir-d3n" secondAttribute="trailing" constant="1" id="Sbc-0b-Ax2"/>
+                                                        <constraint firstItem="9A5-K0-wP8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Uf4-GT-N8H" secondAttribute="trailing" constant="2" id="UgA-xj-2u6"/>
+                                                        <constraint firstItem="aQR-eB-CVW" firstAttribute="leading" secondItem="Uf4-GT-N8H" secondAttribute="leading" id="Wrp-FA-vHn"/>
+                                                        <constraint firstItem="IDf-GY-lWJ" firstAttribute="centerY" secondItem="2CY-Mv-RjO" secondAttribute="centerY" id="XEv-Sn-bzc"/>
+                                                        <constraint firstItem="IDf-GY-lWJ" firstAttribute="height" secondItem="2CY-Mv-RjO" secondAttribute="height" multiplier="0.7" id="YaV-xp-pRV"/>
+                                                        <constraint firstItem="6cT-ir-d3n" firstAttribute="top" secondItem="IDf-GY-lWJ" secondAttribute="top" id="dKN-5f-q5i"/>
+                                                        <constraint firstItem="IDf-GY-lWJ" firstAttribute="leading" secondItem="2CY-Mv-RjO" secondAttribute="leading" constant="10" id="gp1-Sg-TH2"/>
+                                                        <constraint firstItem="aQR-eB-CVW" firstAttribute="top" secondItem="Uf4-GT-N8H" secondAttribute="bottom" id="iSz-cA-ePT"/>
+                                                        <constraint firstItem="9A5-K0-wP8" firstAttribute="centerY" secondItem="IDf-GY-lWJ" secondAttribute="centerY" id="pni-gI-fN1"/>
+                                                        <constraint firstAttribute="trailing" secondItem="9A5-K0-wP8" secondAttribute="trailing" constant="10" id="zKH-n7-BOA"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.99576550722122192" green="0.78306084871292114" blue="0.034013021737337112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="2CY-Mv-RjO" firstAttribute="centerX" secondItem="xou-b2-KHj" secondAttribute="centerX" id="11y-rd-HKD"/>
+                                                <constraint firstItem="2CY-Mv-RjO" firstAttribute="centerY" secondItem="xou-b2-KHj" secondAttribute="centerY" id="3RA-QY-UBq"/>
+                                                <constraint firstItem="2CY-Mv-RjO" firstAttribute="height" secondItem="xou-b2-KHj" secondAttribute="height" multiplier="0.88" id="Co2-ja-jXF"/>
+                                                <constraint firstItem="2CY-Mv-RjO" firstAttribute="centerY" secondItem="xou-b2-KHj" secondAttribute="centerY" id="Ldx-kF-WUY"/>
+                                                <constraint firstItem="2CY-Mv-RjO" firstAttribute="width" secondItem="xou-b2-KHj" secondAttribute="width" multiplier="0.9" id="yDy-bz-qdt"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.99576550720000001" green="0.78306084870000003" blue="0.034013021740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.99576550722122192" green="0.78306084871292114" blue="0.034013021737337112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="puntodeinteresCell">
+                                            <accessibilityTraits key="traits" summaryElement="YES"/>
+                                        </accessibility>
+                                        <connections>
+                                            <outlet property="categoria" destination="Uf4-GT-N8H" id="fnq-0d-fXY"/>
+                                            <outlet property="checkImage" destination="9A5-K0-wP8" id="4VD-2T-txk"/>
+                                            <outlet property="direccion" destination="aQR-eB-CVW" id="MuD-32-20H"/>
+                                            <outlet property="imageLugar" destination="IDf-GY-lWJ" id="7do-Jf-8ee"/>
+                                            <outlet property="titulo" destination="6cT-ir-d3n" id="IRd-Qw-IkU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -497,9 +570,9 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIj-yG-CxD">
-                                <rect key="frame" x="66" y="80" width="189" height="38.5"/>
-                                <string key="text">¿Dónde te gustaria ir?
-Selecciona al menos 8 lugares</string>
+                                <rect key="frame" x="59.5" y="80" width="202.5" height="38.5"/>
+                                <string key="text">¿Dónde has ido o te gustaría ir?
+Selecciona al menos   lugares</string>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -510,7 +583,7 @@ Selecciona al menos 8 lugares</string>
                             <constraint firstAttribute="trailing" secondItem="r2b-NT-Io5" secondAttribute="trailing" id="9BB-iV-R7b"/>
                             <constraint firstItem="XnL-xF-Dd2" firstAttribute="leading" secondItem="3kw-D4-jMK" secondAttribute="leading" id="EzL-g1-w8N"/>
                             <constraint firstItem="BIj-yG-CxD" firstAttribute="centerX" secondItem="3kw-D4-jMK" secondAttribute="centerX" id="QXk-lM-mBv"/>
-                            <constraint firstItem="r2b-NT-Io5" firstAttribute="top" secondItem="BIj-yG-CxD" secondAttribute="bottom" constant="20" id="ayB-MB-88y"/>
+                            <constraint firstItem="r2b-NT-Io5" firstAttribute="top" secondItem="BIj-yG-CxD" secondAttribute="bottom" constant="10" id="ayB-MB-88y"/>
                             <constraint firstItem="r2b-NT-Io5" firstAttribute="leading" secondItem="3kw-D4-jMK" secondAttribute="leading" id="gED-bO-IIf"/>
                             <constraint firstItem="XYt-Or-LS8" firstAttribute="top" secondItem="r2b-NT-Io5" secondAttribute="bottom" id="kHd-OQ-eje"/>
                             <constraint firstItem="XnL-xF-Dd2" firstAttribute="top" secondItem="3kw-D4-jMK" secondAttribute="top" id="nae-5u-o2R"/>
@@ -533,7 +606,7 @@ Selecciona al menos 8 lugares</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Rl-US-bWy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3628" y="1550"/>
+            <point key="canvasLocation" x="-3628.125" y="1550"/>
         </scene>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="DVP-ad-nu4">
@@ -562,19 +635,7 @@ Selecciona al menos 8 lugares</string>
         <scene sceneID="VDC-1X-jG8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N21-Q8-HNa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Descubre" image="desc15" id="lea-yJ-Vij" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <outlet property="animation" destination="kRW-M6-U7o" id="HFn-dm-zbG"/>
-                        </connections>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Descubre" image="desc15" id="lea-yJ-Vij"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ckp-pZ-ATl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -586,16 +647,6 @@ Selecciona al menos 8 lugares</string>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ld-mi-ZVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="kRW-M6-U7o" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="366" y="123"/>
         </scene>
@@ -613,19 +664,7 @@ Selecciona al menos 8 lugares</string>
         <scene sceneID="n6j-M7-crD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aW0-pI-8OF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="2" title="Check-in" image="check21" id="jkS-EM-nhu" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <outlet property="animation" destination="m2H-Za-lXH" id="pgp-Kg-obD"/>
-                        </connections>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" tag="2" title="Check-in" image="check21" id="jkS-EM-nhu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="joi-sn-C4u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -639,16 +678,6 @@ Selecciona al menos 8 lugares</string>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7kK-Td-xTg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="m2H-Za-lXH" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="-212" y="914"/>
         </scene>
@@ -666,19 +695,7 @@ Selecciona al menos 8 lugares</string>
         <scene sceneID="85f-Sx-8Kp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BN0-wg-aP5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Planes" image="planes18" selectedImage="planes18" id="pbJ-ZC-fuE" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <outlet property="animation" destination="Ruq-Wq-N3q" id="F8f-Rq-EGL"/>
-                        </connections>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" tag="1" title="Planes" image="planes18" selectedImage="planes18" id="pbJ-ZC-fuE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gPI-Vl-250">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -690,16 +707,6 @@ Selecciona al menos 8 lugares</string>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYw-SR-mjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="Ruq-Wq-N3q" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="-1584" y="-389"/>
         </scene>
@@ -717,19 +724,7 @@ Selecciona al menos 8 lugares</string>
         <scene sceneID="gLj-ej-ECf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZOG-V1-P78" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="3" title="Rutas" image="rutas24" id="jUq-28-s3d" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <outlet property="animation" destination="vwM-0l-jaG" id="lrk-OS-QTH"/>
-                        </connections>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" tag="3" title="Rutas" image="rutas24" id="jUq-28-s3d"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HzR-Et-YuP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -741,16 +736,6 @@ Selecciona al menos 8 lugares</string>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HMg-xb-x9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="vwM-0l-jaG" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="-1142" y="1833"/>
         </scene>
@@ -768,22 +753,7 @@ Selecciona al menos 8 lugares</string>
         <scene sceneID="FsB-9W-BJV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qp4-2Q-qZ1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="4" title="Perfil" image="perfil27" id="k9x-lm-e5h" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="yOffSet">
-                                <real key="value" value="0.0"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <outlet property="animation" destination="4Jw-Zd-o5F" id="JiN-Zk-DHj"/>
-                        </connections>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" tag="4" title="Perfil" image="perfil27" id="k9x-lm-e5h"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jef-Pv-kA1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -795,16 +765,6 @@ Selecciona al menos 8 lugares</string>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YI6-bf-lmx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="4Jw-Zd-o5F" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="-2432" y="1833"/>
         </scene>
@@ -821,14 +781,16 @@ Selecciona al menos 8 lugares</string>
     </scenes>
     <resources>
         <image name="check21" width="25" height="25"/>
+        <image name="checkmark-08-8" width="53" height="43"/>
         <image name="desc15" width="25" height="25"/>
         <image name="hifivalenLOGO-8" width="583" height="792"/>
+        <image name="lgourmet" width="553" height="556"/>
         <image name="perfil27" width="25" height="25"/>
         <image name="planes18" width="25" height="25"/>
         <image name="rutas24" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bWE-6z-yxj"/>
+        <segue reference="TQ4-tB-c7l"/>
         <segue reference="Brn-rX-cRm"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.066666666666666666" green="0.65490196078431373" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>

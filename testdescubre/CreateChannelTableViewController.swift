@@ -82,7 +82,7 @@ class CreateChannelTableViewController: UIViewController, UINavigationController
     func uploadImage(id: String, image: UIImage){
         guard let data = UIImagePNGRepresentation(image) as NSData? else {
             self.indicator.stopAnimating()
-            UIAlertController.presentViewController(title: "Registro casi Exitoso", message: "Se registro sala de chat, pero la imagen no pudo ser cargada", view: self, OkLabel: "Aceptar", successEvent: { evento in
+            UIAlertController.presentViewController(title: "Registro casi Exitoso", message: "Se registro la sala de chat, pero la imagen no pudo ser cargada", view: self, OkLabel: "Aceptar", successEvent: { evento in
                 self.navigationController?.popViewController(animated: true)
             })
             return
@@ -92,13 +92,13 @@ class CreateChannelTableViewController: UIViewController, UINavigationController
         _ = riversRef.putData(data as Data, metadata: nil) { (metadata, error) in
             guard let meta = metadata else {
                 self.indicator.stopAnimating()
-                UIAlertController.presentViewController(title: "Registro casi Exitoso", message: "Se registro sala de chat, pero la imagen no pudo ser cargada", view: self, OkLabel: "Aceptar", successEvent: { evento in
+                UIAlertController.presentViewController(title: "Registro casi Exitoso", message: "Se registro la sala de chat, pero la imagen no pudo ser cargada", view: self, OkLabel: "Aceptar", successEvent: { evento in
                     self.navigationController?.popViewController(animated: true)
                 })
                 return
             }
             self.indicator.stopAnimating()
-            self.channelRef.child(id).child("icon").setValue(meta.path)
+            self.channelRef.child(id).child("icon").setValue(meta.downloadURL()?.absoluteString ?? meta.path ?? "")
             UIAlertController.presentViewController(title: "Registro Exitoso", message: "La sala de chat se registro con exito", view: self, OkLabel: "Aceptar", successEvent: { evento in
                 self.navigationController?.popViewController(animated: true)
             })
@@ -176,7 +176,7 @@ extension CreateChannelTableViewController: nameDelegate{
     func addImageChannel(){
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let imagePicker = UIImagePickerController()
-            imagePicker.navigationBar.tintColor = UIColor.hexStringToUIColor(hex: "F6F6F8")
+            imagePicker.navigationBar.tintColor = UIColor.hexStringToUIColor(hex: "07B49F")
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary
             imagePicker.allowsEditing = true

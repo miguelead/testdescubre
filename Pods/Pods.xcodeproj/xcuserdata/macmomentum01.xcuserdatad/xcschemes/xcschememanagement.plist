@@ -74,11 +74,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RAMAnimatedTabBarController.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -87,16 +82,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>06B47ED75D0AA410B71F47571779D316</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>0CB5620CFD141062DD17379F35A58F2B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>2F0C0F810568D3E82219429D9D870F04</key>
 		<dict>
 			<key>primary</key>
@@ -112,11 +97,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>57933CDA46DFC6A0301049792FFE4CEC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>6D5CEDECD3D8DC52EA507E0431BDA8A0</key>
 		<dict>
 			<key>primary</key>
@@ -127,12 +107,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>94737B70112879E2524596A89AA699B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9502FB01641FBABB78522037E882757B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F2DBEC718689B79DF896F3EB46FD2D4</key>
+		<key>9769D742E2DAE2BACD3F5C3F0A7FF9BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -158,6 +143,11 @@
 			<true/>
 		</dict>
 		<key>C5A2DB7A84B7B78E359870D2E1B24AA7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E3138DF2552BF78309C68D97AF6D3B0B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

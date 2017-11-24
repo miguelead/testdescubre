@@ -15,7 +15,7 @@
         <!--Titulo del lugar-->
         <scene sceneID="OZF-ea-Knc">
             <objects>
-                <viewController id="Hp5-Xf-oPO" customClass="PuntoDeInteresDetalleVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="Hp5-Xf-oPO" customClass="PuntoDeInteresDetalleVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Glg-eV-LbM"/>
                         <viewControllerLayoutGuide type="bottom" id="jQP-MI-RyC"/>
@@ -432,7 +432,7 @@
         <!--Guía-->
         <scene sceneID="enM-BQ-GEg">
             <objects>
-                <viewController id="D5R-7w-djI" customClass="GuiaVirtualVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="D5R-7w-djI" customClass="GuiaVirtualVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="soV-35-ZvG"/>
                         <viewControllerLayoutGuide type="bottom" id="scX-l6-eta"/>

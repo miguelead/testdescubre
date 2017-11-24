@@ -13,10 +13,16 @@ import Alamofire
 
 struct Places {
     var name: String
+    var ubicacion: String
+    var tipo: String
+    var photo: String
     var uid: String
     var isSelected:Bool = false
-    init(name: String, uid: String) {
+    init(name: String, uid: String, ubicacion: String, tipo: String, photo: String) {
         self.name = name
+        self.ubicacion = ubicacion
+        self.tipo = tipo
+        self.photo = photo
         self.uid = uid
     }
 }
@@ -31,7 +37,7 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.endButtom.isEnabled = false
-        self.selectMessage.text = "¿Dónde te gustaria ir?\nSelecciona al menos \(kminPoi) lugares"
+        self.selectMessage.text = "¿Dónde has ido o te gustaría ir?\nSelecciona al menos \(kminPoi) lugares"
         self.consultarApi()
     }
 
@@ -58,7 +64,7 @@ class QuestionViewController: UIViewController {
             }
             self.lugares = lugaresJson.flatMap({ lugar -> Places? in
                 if let name = lugar["name"] as? String, let id = lugar["id"] as? Int{
-                    return Places(name: name, uid: "\(id)")
+                    return Places(name: name, uid: "\(id)", ubicacion: lugar["address"] as? String ?? "", tipo: lugar["get_descriptor_concat"] as? String ?? "", photo: lugar["photo"] as? String ?? "")
                 }
                 return nil
             })
@@ -128,13 +134,13 @@ extension QuestionViewController: UITableViewDelegate{
                 self.endButtom.isEnabled = false
             }
             if lugares.filter({$0.isSelected}).count == 0{
-                selectMessage.text = "¿Dónde te gustaria ir?\nSelecciona al menos \(kminPoi) lugares"
+                selectMessage.text = "¿Dónde has ido o te gustaría ir?\nSelecciona al menos \(kminPoi) lugares"
             } else if 1...kminPoi-2 ~= lugares.filter({$0.isSelected}).count{
-                selectMessage.text = "¿Dónde te gustaria ir?\nSelecciona al menos \((kminPoi - lugares.filter({$0.isSelected}).count)) lugares mas"
+                selectMessage.text = "¿Dónde has ido o te gustaría ir?\nSelecciona al menos \((kminPoi - lugares.filter({$0.isSelected}).count)) lugares mas"
             } else if lugares.filter({$0.isSelected}).count == kminPoi-1{
-                selectMessage.text = "¿Dónde te gustaria ir?\nSelecciona al menos 1 lugar mas"
+                selectMessage.text = "¿Dónde has ido o te gustaría ir?\nSelecciona al menos 1 lugar mas"
             } else {
-                selectMessage.text = "¿Dónde te gustaria ir?\nGracias por seleccionar"
+                selectMessage.text = "¿Dónde has ido o te gustaría ir?\nGracias por seleccionar"
             }
             self.tableView.reloadData()
         }
@@ -143,14 +149,8 @@ extension QuestionViewController: UITableViewDelegate{
 
 extension QuestionViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "sitioCell", for: indexPath)
-        cell.textLabel?.text = lugares[indexPath.row].name
-        cell.selectionStyle = .none
-        if lugares[indexPath.row].isSelected{
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "sitioCell", for: indexPath) as! puntoInteresCheck
+        cell.configureCell(lugares[indexPath.row])
         return cell
     }
     

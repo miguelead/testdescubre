@@ -161,6 +161,14 @@ class LoginViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "RegisterEvent"{
+            let registroVc = segue.destination as! RegistroViewController
+            registroVc.locationActual = locationActual
+        }
+        
+    }
+    
 }
 
 extension LoginViewController{
@@ -195,6 +203,8 @@ extension LoginViewController{
             }
         }
     }
+    
+    
 }
 
 extension LoginViewController: UITextFieldDelegate{

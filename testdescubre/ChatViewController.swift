@@ -27,20 +27,24 @@ import Firebase
 
 class ChatViewController: UIViewController {
   
-
+  @IBOutlet weak var chatBar: UITextField!
+  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var checkInButtom: UIBarButtonItem!
+  @IBOutlet weak var cameraButtom: UIBarButtonItem!
+    
   var channelRef: DatabaseReference!
-
-  private lazy var messageRef: DatabaseReference = self.channelRef.child("messages")
+  fileprivate lazy var messageRef: DatabaseReference = self.channelRef.child("messages")
   fileprivate lazy var storageRef: StorageReference = Storage.storage().reference(forURL: "gs://testfirebase-bcb3a.appspot.com")
-  private lazy var userIsTypingRef: DatabaseReference = self.channelRef.child("typingIndicator").child(CurrentUser.shared?._id ?? "")
-  private lazy var usersTypingQuery: DatabaseQuery = self.channelRef.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
+  fileprivate lazy var userIsTypingRef: DatabaseReference = self.channelRef.child("typingIndicator").child(CurrentUser.shared?._id ?? "")
+  fileprivate lazy var usersTypingQuery: DatabaseQuery = self.channelRef.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
 
-  private var newMessageRefHandle: DatabaseHandle?
-  private var updatedMessageRefHandle: DatabaseHandle?
+    
+  fileprivate var newMessageRefHandle: DatabaseHandle?
+  fileprivate var updatedMessageRefHandle: DatabaseHandle?
   
-  private var messages: [MessageContent] = []
- 
-  private var localTyping = false
+    
+  fileprivate var messages: [MessageContent] = []
+  fileprivate var localTyping = false
   var channel: Channel? {
     didSet {
       title = channel?.name
@@ -59,6 +63,7 @@ class ChatViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.chatBar.delegate = self
     self.navigationController?.navigationBar.tintColor = UIColor.hexStringToUIColor(hex: "01B29D")
     observeMessages()
   }
@@ -87,6 +92,14 @@ class ChatViewController: UIViewController {
     })
     
   }
+    
+    @IBAction func eventCheckIn(_ sender: Any) {
+    }
+    
+    
+    @IBAction func eventCamera(_ sender: Any) {
+    }
+    
   
   private func observeTyping() {
     let typingIndicatorRef = channelRef!.child("typingIndicator")
@@ -103,12 +116,19 @@ class ChatViewController: UIViewController {
 }
   
  
-extension ChatViewController: UITextViewDelegate{
-  func textViewDidChange(_ textView: UITextView) {
-    isTyping = textView.text != ""
-  }
-
+extension ChatViewController: UITextFieldDelegate{
+    private func textFieldDidBeginEditing(_ textField: UITextField) -> Bool{
+        self.isTyping = true
+        return true
+    }
+    
+    private func textFieldDidEndEditing(_ textField: UITextField) -> Bool{
+        self.isTyping = false
+        return true
+    }
+  
 }
+
 
 // MARK: Image Picker Delegate
 extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -120,4 +140,39 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
     picker.dismiss(animated: true, completion:nil)
   }
+}
+extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
+    // MARK: UITableViewDataSource
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let mensaje = messages[indexPath.row]
+        if let actualUser = CurrentUser.shared?._id, actualUser == mensaje.user_id{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "simpleMessageB", for: indexPath) as! SimpleMessageTableViewCell
+            cell.textInfo.text = mensaje.mensaje
+            cell.titlePrincipal.text = "Yo"
+            cell.starIcon.image = UIImage()
+            return cell
+            
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "simpleMessageA", for: indexPath) as! SimpleMessageTableViewCell
+            cell.textInfo.text = mensaje.mensaje
+            cell.titlePrincipal.text = mensaje.usuario
+            cell.starIcon.image = UIImage()
+            return cell
+        }
+        
+    }
+    
+    // MARK: UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
 }

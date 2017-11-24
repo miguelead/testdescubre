@@ -62,11 +62,11 @@ class ChannelListViewController: UIViewController {
     }
 
   private func observeChannels() {
-    channel_UserRefHandle = channel_UserRef.child(CurrentUser.shared?._id ?? "").observe(.value, with: { (snapshot) in
+    channel_UserRefHandle = channel_UserRef.child(CurrentUser.shared?._id ?? "").observe(.value, with: { (snapshots) in
         self.channels = []
-        for child in snapshot.children.allObjects  as? [DataSnapshot] ?? []{
+        for child in snapshots.children.allObjects  as? [DataSnapshot] ?? []{
             self.channelRefHandle = self.channelRef.child(child.key).observe(.value, with: { (snapshot) -> Void in
-                    let channelData = child.value as? Dictionary<String, AnyObject>
+                    let channelData = snapshot.value as? Dictionary<String, AnyObject>
                     if let name = channelData?["name"] as? String, name.characters.count > 0 {
                         var last_message = (channelData?["messages"] as? [String: Any])?.reversed().first?.value as? [String: Any]
                         var info :String? = nil
@@ -79,14 +79,13 @@ class ChannelListViewController: UIViewController {
                             self.channels.append(Channel(id: child.key, name: name, owner: last_message?["senderName"] as? String, details: info, image: channelData?["icon"] as? String))
                         }
                     }
-                    self.tableView.reloadData()
+                if self.channels.isEmpty{
+                    self.addBackgroundImage()
+                } else {
+                    self.tableView.backgroundView = nil
+                }
+                self.tableView.reloadData()
             })
-            if self.channels.isEmpty{
-                self.addBackgroundImage()
-            } else {
-                self.tableView.backgroundView = nil
-            }
-            self.tableView.reloadData()
         }
     })
 }
@@ -115,8 +114,8 @@ extension ChannelListViewController: UITableViewDelegate, UITableViewDataSource{
   
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "ExistingChannel", for: indexPath) as! DataChannelCell
-    if channels[indexPath.row].name.isEmpty, channels[indexPath.row].owner.isEmpty{
-        cell.titleLabel.text = channels[indexPath.row].name
+    cell.titleLabel.text = channels[indexPath.row].name
+    if !channels[indexPath.row].owner.isEmpty{
         cell.ownerData.text = channels[indexPath.row].owner
     } else {
         cell.ownerData.text = "La sala acaba de ser creada"
@@ -124,6 +123,7 @@ extension ChannelListViewController: UITableViewDelegate, UITableViewDataSource{
     if !channels[indexPath.row].image.isEmpty, let url = URL(string: channels[indexPath.row].image){
         cell.userIcon.kf.setImage(with: url)
     }
+    cell.selectionStyle = .none
     cell.lastMessageData.text = channels[indexPath.row].details
     return cell
   }

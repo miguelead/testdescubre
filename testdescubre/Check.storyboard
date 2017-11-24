@@ -14,7 +14,7 @@
         <!--Check InVC-->
         <scene sceneID="SEt-s4-hUf">
             <objects>
-                <viewController id="tNe-SC-2aW" customClass="CheckInVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="tNe-SC-2aW" customClass="CheckInVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pMU-VP-cj4"/>
                         <viewControllerLayoutGuide type="bottom" id="J1V-et-fkU"/>

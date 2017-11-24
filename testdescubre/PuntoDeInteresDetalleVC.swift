@@ -39,19 +39,10 @@ class PuntoDeInteresDetalleVC: UIViewController {
         }
         self.fillData()
         UIApplication.shared.isNetworkActivityIndicatorVisible =  true
-        self.hiddenTab(true)
         self.consultaApi()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.hiddenTab(false)
-    }
- 
-    func hiddenTab(_ flag:Bool){
-        if let tab = self.tabBarController as? CustomTabBarController{
-            tab.animationTabBarHidden(flag)
-        }
-    }
+  
     
     func updateStateBookMark(){
         if punto._bookmark{
