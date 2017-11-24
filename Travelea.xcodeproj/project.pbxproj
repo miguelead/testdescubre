@@ -17,17 +17,18 @@
 		49A76F121F792AD800215741 /* OpcionesFiltrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A76F111F792AD700215741 /* OpcionesFiltrar.swift */; };
 		49ACD4B71F5F013D00CCA9EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ACD4B61F5F013D00CCA9EA /* AppDelegate.swift */; };
 		49ACD4B91F5F013D00CCA9EA /* DescubreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ACD4B81F5F013D00CCA9EA /* DescubreVC.swift */; };
-		49ACD4BC1F5F013F00CCA9EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49ACD4BA1F5F013F00CCA9EA /* Main.storyboard */; };
-		49ACD4C11F5F014000CCA9EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49ACD4BF1F5F014000CCA9EA /* LaunchScreen.storyboard */; };
 		49B042FE1F6B0FD400AD52D8 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B042FD1F6B0FD400AD52D8 /* constants.swift */; };
 		6D1488251FB4E2650055685E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D1488241FB4E2650055685E /* Assets.xcassets */; };
 		6D1488291FB4F1BA0055685E /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1488281FB4F1BA0055685E /* CustomTabBarController.swift */; };
 		6D53F3231FB5DE3000D20102 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D53F3221FB5DE3000D20102 /* MapKit.framework */; };
 		6D53F3271FB5EFC400D20102 /* CheckInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53F3261FB5EFC400D20102 /* CheckInVC.swift */; };
-		72394C85D34F041AD45E29FE /* Pods_Travelea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A12FAFECF45529BBD44966C /* Pods_Travelea.framework */; };
 		8E4E4F941FBDE93B008D29BD /* Eventos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E4F931FBDE93B008D29BD /* Eventos.swift */; };
 		8E4E4F971FBDF87A008D29BD /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E4F961FBDF87A008D29BD /* RegistroViewController.swift */; };
 		8E4E4F991FBE06F9008D29BD /* UITextView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E4F981FBE06F9008D29BD /* UITextView+extension.swift */; };
+		8E7DF4B71FC8A8C900E2AB33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E7DF4B61FC8A8C900E2AB33 /* Main.storyboard */; };
+		8E7DF4B91FC8A8D300E2AB33 /* Planea.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E7DF4B81FC8A8D300E2AB33 /* Planea.storyboard */; };
+		8E7DF4BC1FC8A8DF00E2AB33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E7DF4BA1FC8A8DF00E2AB33 /* LaunchScreen.storyboard */; };
+		8E7DF4BD1FC8A8DF00E2AB33 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E7DF4BB1FC8A8DF00E2AB33 /* Info.plist */; };
 		8E896C921FC7129D00828225 /* ChatMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E896C911FC7129D00828225 /* ChatMainViewController.swift */; };
 		8E896C941FC7153300828225 /* TableroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E896C931FC7153300828225 /* TableroViewController.swift */; };
 		8E896C961FC7154300828225 /* NotasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E896C951FC7154300828225 /* NotasViewController.swift */; };
@@ -61,7 +62,6 @@
 		8E98D2651FBF18EF007ECF8C /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98D2641FBF18EF007ECF8C /* Channel.swift */; };
 		8E98D2671FBF18F6007ECF8C /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98D2661FBF18F6007ECF8C /* UIImage+Gif.swift */; };
 		8E98D26C1FBF1A9A007ECF8C /* UserSelectChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98D26B1FBF1A9A007ECF8C /* UserSelectChannelTableViewCell.swift */; };
-		8E98D26F1FBF1EF9007ECF8C /* Planea.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E98D26D1FBF1EF9007ECF8C /* Planea.storyboard */; };
 		8E98D2721FBF21EF007ECF8C /* Descubre.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E98D2711FBF21EF007ECF8C /* Descubre.storyboard */; };
 		8E98D2741FBF2728007ECF8C /* Check.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E98D2731FBF2728007ECF8C /* Check.storyboard */; };
 		8E98D2761FBF273B007ECF8C /* Perfil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E98D2751FBF273B007ECF8C /* Perfil.storyboard */; };
@@ -69,7 +69,7 @@
 		8EE098D91FC31EB800C43D03 /* FacebookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE098D81FC31EB800C43D03 /* FacebookService.swift */; };
 		8EE098DB1FC32D0300C43D03 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE098DA1FC32D0300C43D03 /* UIAlertController+Extensions.swift */; };
 		8EE098DD1FC35E4B00C43D03 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE098DC1FC35E4B00C43D03 /* QuestionViewController.swift */; };
-		EBB36FC39464EEFC1BD1166D /* Pods_testdescubre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAF53937A639F477EFA0FBE /* Pods_testdescubre.framework */; };
+		B747549CB4BF5579794701C6 /* Pods_Travelea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4822EBDC89E67D339A61125 /* Pods_Travelea.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +83,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A12FAFECF45529BBD44966C /* Pods_Travelea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travelea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49092C161F70B20200DF323E /* FiltrarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrarVC.swift; sourceTree = "<group>"; };
 		495EDEDA1F72BE4A00B92B8B /* GuiaVirtualVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuiaVirtualVC.swift; sourceTree = "<group>"; };
 		495EDEDC1F72FA0700B92B8B /* PuntoDeInteresDetalleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuntoDeInteresDetalleVC.swift; sourceTree = "<group>"; };
@@ -95,20 +94,20 @@
 		49ACD4B31F5F013C00CCA9EA /* Travelea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travelea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49ACD4B61F5F013D00CCA9EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49ACD4B81F5F013D00CCA9EA /* DescubreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescubreVC.swift; sourceTree = "<group>"; };
-		49ACD4BB1F5F013F00CCA9EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		49ACD4C01F5F014000CCA9EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		49ACD4C21F5F014000CCA9EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49ACD4C71F5F014100CCA9EA /* TraveleaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TraveleaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B042FD1F6B0FD400AD52D8 /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
-		4AAF53937A639F477EFA0FBE /* Pods_testdescubre.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testdescubre.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D48ADD78B89522F72831F41 /* Pods-Travelea.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travelea.release.xcconfig"; path = "Pods/Target Support Files/Pods-Travelea/Pods-Travelea.release.xcconfig"; sourceTree = "<group>"; };
 		6D1488241FB4E2650055685E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D1488281FB4F1BA0055685E /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		6D53F3221FB5DE3000D20102 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6D53F3261FB5EFC400D20102 /* CheckInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInVC.swift; sourceTree = "<group>"; };
-		83276F911B9B8161C6688165 /* Pods-testdescubre.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testdescubre.release.xcconfig"; path = "Pods/Target Support Files/Pods-testdescubre/Pods-testdescubre.release.xcconfig"; sourceTree = "<group>"; };
 		8E4E4F931FBDE93B008D29BD /* Eventos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Eventos.swift; sourceTree = "<group>"; };
 		8E4E4F961FBDF87A008D29BD /* RegistroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
 		8E4E4F981FBE06F9008D29BD /* UITextView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+extension.swift"; sourceTree = "<group>"; };
+		8E7DF4B61FC8A8C900E2AB33 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8E7DF4B81FC8A8D300E2AB33 /* Planea.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Planea.storyboard; sourceTree = "<group>"; };
+		8E7DF4BA1FC8A8DF00E2AB33 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8E7DF4BB1FC8A8DF00E2AB33 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E896C911FC7129D00828225 /* ChatMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMainViewController.swift; sourceTree = "<group>"; };
 		8E896C931FC7153300828225 /* TableroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableroViewController.swift; sourceTree = "<group>"; };
 		8E896C951FC7154300828225 /* NotasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotasViewController.swift; sourceTree = "<group>"; };
@@ -143,7 +142,6 @@
 		8E98D2641FBF18EF007ECF8C /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		8E98D2661FBF18F6007ECF8C /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		8E98D26B1FBF1A9A007ECF8C /* UserSelectChannelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSelectChannelTableViewCell.swift; sourceTree = "<group>"; };
-		8E98D26E1FBF1EF9007ECF8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = testdescubre/Base.lproj/Planea.storyboard; sourceTree = "<group>"; };
 		8E98D2711FBF21EF007ECF8C /* Descubre.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Descubre.storyboard; sourceTree = "<group>"; };
 		8E98D2731FBF2728007ECF8C /* Check.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Check.storyboard; sourceTree = "<group>"; };
 		8E98D2751FBF273B007ECF8C /* Perfil.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Perfil.storyboard; sourceTree = "<group>"; };
@@ -151,9 +149,8 @@
 		8EE098D81FC31EB800C43D03 /* FacebookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookService.swift; sourceTree = "<group>"; };
 		8EE098DA1FC32D0300C43D03 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		8EE098DC1FC35E4B00C43D03 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
-		BB86AC9F493E92B06914BA9A /* Pods-Travelea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travelea.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travelea/Pods-Travelea.debug.xcconfig"; sourceTree = "<group>"; };
-		CDF2DA1711C1E07D65BCE1A6 /* Pods-Travelea.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travelea.release.xcconfig"; path = "Pods/Target Support Files/Pods-Travelea/Pods-Travelea.release.xcconfig"; sourceTree = "<group>"; };
-		ED28A6E0261598D140C5AB58 /* Pods-testdescubre.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testdescubre.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testdescubre/Pods-testdescubre.debug.xcconfig"; sourceTree = "<group>"; };
+		D4822EBDC89E67D339A61125 /* Pods_Travelea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travelea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFAE2FE545695FF23FC52558 /* Pods-Travelea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travelea.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travelea/Pods-Travelea.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,8 +160,7 @@
 			files = (
 				49A6792C1FA421F00005E4BA /* CoreLocation.framework in Frameworks */,
 				6D53F3231FB5DE3000D20102 /* MapKit.framework in Frameworks */,
-				EBB36FC39464EEFC1BD1166D /* Pods_testdescubre.framework in Frameworks */,
-				72394C85D34F041AD45E29FE /* Pods_Travelea.framework in Frameworks */,
+				B747549CB4BF5579794701C6 /* Pods_Travelea.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,21 +179,9 @@
 			children = (
 				6D53F3221FB5DE3000D20102 /* MapKit.framework */,
 				49A6792B1FA421F00005E4BA /* CoreLocation.framework */,
-				4AAF53937A639F477EFA0FBE /* Pods_testdescubre.framework */,
-				0A12FAFECF45529BBD44966C /* Pods_Travelea.framework */,
+				D4822EBDC89E67D339A61125 /* Pods_Travelea.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		42B6AF001D4B64E0C0C73DBF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				ED28A6E0261598D140C5AB58 /* Pods-testdescubre.debug.xcconfig */,
-				83276F911B9B8161C6688165 /* Pods-testdescubre.release.xcconfig */,
-				BB86AC9F493E92B06914BA9A /* Pods-Travelea.debug.xcconfig */,
-				CDF2DA1711C1E07D65BCE1A6 /* Pods-Travelea.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		49092BEA1F6FE82A00DF323E /* Resources */ = {
@@ -227,8 +211,8 @@
 			children = (
 				49ACD4B51F5F013C00CCA9EA /* Travelea */,
 				49ACD4B41F5F013C00CCA9EA /* Products */,
-				42B6AF001D4B64E0C0C73DBF /* Pods */,
 				3D464DB188C939CC92D21377 /* Frameworks */,
+				A389A2420BA6158EAD2081F0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -244,6 +228,7 @@
 		49ACD4B51F5F013C00CCA9EA /* Travelea */ = {
 			isa = PBXGroup;
 			children = (
+				8E7DF4BB1FC8A8DF00E2AB33 /* Info.plist */,
 				8E896CAC1FC772A700828225 /* Travelea.entitlements */,
 				8E98D25E1FBF18C2007ECF8C /* GoogleService-Info.plist */,
 				49ACD4D61F5F02EA00CCA9EA /* Model */,
@@ -253,11 +238,9 @@
 				49092BEF1F6FEBE300DF323E /* extensions */,
 				8E98D2701FBF1F09007ECF8C /* Storyboard */,
 				6D1488241FB4E2650055685E /* Assets.xcassets */,
-				49ACD4C21F5F014000CCA9EA /* Info.plist */,
 				49ACD4B61F5F013D00CCA9EA /* AppDelegate.swift */,
 			);
-			name = Travelea;
-			path = testdescubre;
+			path = Travelea;
 			sourceTree = "<group>";
 		};
 		49ACD4D61F5F02EA00CCA9EA /* Model */ = {
@@ -381,15 +364,24 @@
 		8E98D2701FBF1F09007ECF8C /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				49ACD4BA1F5F013F00CCA9EA /* Main.storyboard */,
-				8E98D26D1FBF1EF9007ECF8C /* Planea.storyboard */,
+				8E7DF4BA1FC8A8DF00E2AB33 /* LaunchScreen.storyboard */,
+				8E7DF4B81FC8A8D300E2AB33 /* Planea.storyboard */,
+				8E7DF4B61FC8A8C900E2AB33 /* Main.storyboard */,
 				8E98D2711FBF21EF007ECF8C /* Descubre.storyboard */,
 				8E98D2731FBF2728007ECF8C /* Check.storyboard */,
 				8E98D2751FBF273B007ECF8C /* Perfil.storyboard */,
 				8E98D2771FBF2745007ECF8C /* Ruta.storyboard */,
-				49ACD4BF1F5F014000CCA9EA /* LaunchScreen.storyboard */,
 			);
 			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		A389A2420BA6158EAD2081F0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EFAE2FE545695FF23FC52558 /* Pods-Travelea.debug.xcconfig */,
+				5D48ADD78B89522F72831F41 /* Pods-Travelea.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,12 +391,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49ACD4D01F5F014100CCA9EA /* Build configuration list for PBXNativeTarget "Travelea" */;
 			buildPhases = (
-				E362E86B753A05E9DA665A92 /* [CP] Check Pods Manifest.lock */,
+				204B8A0D9057737AC617819F /* [CP] Check Pods Manifest.lock */,
 				49ACD4AF1F5F013C00CCA9EA /* Sources */,
 				49ACD4B01F5F013C00CCA9EA /* Frameworks */,
 				49ACD4B11F5F013C00CCA9EA /* Resources */,
-				DE1DF9BB60B9C1D483DE306D /* [CP] Embed Pods Frameworks */,
-				B25E994C3A19AFE75BE843D4 /* [CP] Copy Pods Resources */,
+				04B23B202AF7512810B249F1 /* [CP] Embed Pods Frameworks */,
+				6AECD3B172EAFA8A80C990CB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -491,15 +483,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49ACD4C11F5F014000CCA9EA /* LaunchScreen.storyboard in Resources */,
+				8E7DF4B71FC8A8C900E2AB33 /* Main.storyboard in Resources */,
 				8E98D2781FBF2745007ECF8C /* Ruta.storyboard in Resources */,
 				8E98D2721FBF21EF007ECF8C /* Descubre.storyboard in Resources */,
 				8E98D2761FBF273B007ECF8C /* Perfil.storyboard in Resources */,
-				8E98D26F1FBF1EF9007ECF8C /* Planea.storyboard in Resources */,
 				8E98D25F1FBF18C2007ECF8C /* GoogleService-Info.plist in Resources */,
 				6D1488251FB4E2650055685E /* Assets.xcassets in Resources */,
 				8E98D2741FBF2728007ECF8C /* Check.storyboard in Resources */,
-				49ACD4BC1F5F013F00CCA9EA /* Main.storyboard in Resources */,
+				8E7DF4BC1FC8A8DF00E2AB33 /* LaunchScreen.storyboard in Resources */,
+				8E7DF4B91FC8A8D300E2AB33 /* Planea.storyboard in Resources */,
+				8E7DF4BD1FC8A8DF00E2AB33 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,22 +506,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B25E994C3A19AFE75BE843D4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Travelea/Pods-Travelea-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DE1DF9BB60B9C1D483DE306D /* [CP] Embed Pods Frameworks */ = {
+		04B23B202AF7512810B249F1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -572,7 +550,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Travelea/Pods-Travelea-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E362E86B753A05E9DA665A92 /* [CP] Check Pods Manifest.lock */ = {
+		204B8A0D9057737AC617819F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -588,6 +566,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6AECD3B172EAFA8A80C990CB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Travelea/Pods-Travelea-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -666,34 +659,6 @@
 			targetProxy = 49ACD4C81F5F014100CCA9EA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		49ACD4BA1F5F013F00CCA9EA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				49ACD4BB1F5F013F00CCA9EA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		49ACD4BF1F5F014000CCA9EA /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				49ACD4C01F5F014000CCA9EA /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		8E98D26D1FBF1EF9007ECF8C /* Planea.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8E98D26E1FBF1EF9007ECF8C /* Base */,
-			);
-			name = Planea.storyboard;
-			path = ..;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		49ACD4CE1F5F014100CCA9EA /* Debug */ = {
@@ -793,7 +758,7 @@
 		};
 		49ACD4D11F5F014100CCA9EA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB86AC9F493E92B06914BA9A /* Pods-Travelea.debug.xcconfig */;
+			baseConfigurationReference = EFAE2FE545695FF23FC52558 /* Pods-Travelea.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Travelea.entitlements;
@@ -810,7 +775,7 @@
 		};
 		49ACD4D21F5F014100CCA9EA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CDF2DA1711C1E07D65BCE1A6 /* Pods-Travelea.release.xcconfig */;
+			baseConfigurationReference = 5D48ADD78B89522F72831F41 /* Pods-Travelea.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Travelea.entitlements;
