@@ -26,7 +26,9 @@ class SimpleMessageTableViewCell: UITableViewCell {
     }
     
     func loadInfo(_ message: MessageContent, actual: Bool){
-        
+        self.textInfo.text = message.mensaje
+        self.titlePrincipal.text = actual ? "Yo": message.usuario
+        starIcon.isHidden = !message.marker
     }
     
 }

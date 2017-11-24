@@ -19,7 +19,6 @@
 		49ACD4B91F5F013D00CCA9EA /* DescubreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ACD4B81F5F013D00CCA9EA /* DescubreVC.swift */; };
 		49ACD4BC1F5F013F00CCA9EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49ACD4BA1F5F013F00CCA9EA /* Main.storyboard */; };
 		49ACD4C11F5F014000CCA9EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49ACD4BF1F5F014000CCA9EA /* LaunchScreen.storyboard */; };
-		49ACD4CC1F5F014100CCA9EA /* testdescubreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ACD4CB1F5F014100CCA9EA /* testdescubreTests.swift */; };
 		49B042FE1F6B0FD400AD52D8 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B042FD1F6B0FD400AD52D8 /* constants.swift */; };
 		6D1488251FB4E2650055685E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D1488241FB4E2650055685E /* Assets.xcassets */; };
 		6D1488291FB4F1BA0055685E /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1488281FB4F1BA0055685E /* CustomTabBarController.swift */; };
@@ -100,8 +99,6 @@
 		49ACD4C01F5F014000CCA9EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49ACD4C21F5F014000CCA9EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49ACD4C71F5F014100CCA9EA /* TraveleaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TraveleaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		49ACD4CB1F5F014100CCA9EA /* testdescubreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testdescubreTests.swift; sourceTree = "<group>"; };
-		49ACD4CD1F5F014100CCA9EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49B042FD1F6B0FD400AD52D8 /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		4AAF53937A639F477EFA0FBE /* Pods_testdescubre.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testdescubre.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D1488241FB4E2650055685E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -229,7 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				49ACD4B51F5F013C00CCA9EA /* Travelea */,
-				49ACD4CA1F5F014100CCA9EA /* TraveleaTests */,
 				49ACD4B41F5F013C00CCA9EA /* Products */,
 				42B6AF001D4B64E0C0C73DBF /* Pods */,
 				3D464DB188C939CC92D21377 /* Frameworks */,
@@ -262,16 +258,6 @@
 			);
 			name = Travelea;
 			path = testdescubre;
-			sourceTree = "<group>";
-		};
-		49ACD4CA1F5F014100CCA9EA /* TraveleaTests */ = {
-			isa = PBXGroup;
-			children = (
-				49ACD4CB1F5F014100CCA9EA /* testdescubreTests.swift */,
-				49ACD4CD1F5F014100CCA9EA /* Info.plist */,
-			);
-			name = TraveleaTests;
-			path = testdescubreTests;
 			sourceTree = "<group>";
 		};
 		49ACD4D61F5F02EA00CCA9EA /* Model */ = {
@@ -668,7 +654,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49ACD4CC1F5F014100CCA9EA /* testdescubreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

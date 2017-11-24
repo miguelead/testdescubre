@@ -16,6 +16,7 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let gcmMessageIDKey = "gcm.message_id"
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
@@ -94,10 +95,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
     @objc(userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:) @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print("didReceiveRemoteNotification fetchCompletionHandler")
-        //PushNotificationService.shared.appState = UIApplication.shared.applicationState
-        _ = response.notification.request.content.userInfo
-        //PushNotificationService.shared.notificationReceived(notification: userInfo, completionOS10: completionHandler)
-        
     }
     
 }

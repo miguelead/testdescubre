@@ -25,7 +25,9 @@ class NoteMessageTableViewCell: UITableViewCell {
     }
     
     func loadInfo(_ message: MessageContent){
-        
+        self.titlePrincipal.text = message.usuario
+        self.info.text = message.mensaje
+        self.fechaMensaje.text = message.fechaEvento
     }
     
 }

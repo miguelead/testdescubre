@@ -467,7 +467,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r2b-NT-Io5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r2b-NT-Io5">
                                 <rect key="frame" x="0.0" y="128.5" width="320" height="351.5"/>
                                 <color key="backgroundColor" red="0.99576550720000001" green="0.78306084870000003" blue="0.034013021740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -498,13 +498,13 @@
                                                             <color key="textColor" red="0.0026629283089999998" green="0.40736240150000003" blue="0.51872229579999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoria" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Uf4-GT-N8H">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoria" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Uf4-GT-N8H">
                                                             <rect key="frame" x="84.5" y="32" width="55.5" height="16.5"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="12"/>
                                                             <color key="textColor" red="0.02803528123" green="0.70613318680000003" blue="0.62498122450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Direccion" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="aQR-eB-CVW">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Direccion" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="aQR-eB-CVW">
                                                             <rect key="frame" x="84.5" y="48.5" width="46.5" height="15.5"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
                                                             <color key="textColor" red="0.74202448129999998" green="0.74259525540000004" blue="0.74211281539999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -522,16 +522,17 @@
                                                     <constraints>
                                                         <constraint firstItem="Uf4-GT-N8H" firstAttribute="leading" secondItem="6cT-ir-d3n" secondAttribute="leading" id="58n-3q-tLL"/>
                                                         <constraint firstItem="Uf4-GT-N8H" firstAttribute="top" secondItem="6cT-ir-d3n" secondAttribute="bottom" id="9v7-6A-elB"/>
-                                                        <constraint firstItem="9A5-K0-wP8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aQR-eB-CVW" secondAttribute="trailing" constant="2" id="Loq-1V-ty7"/>
+                                                        <constraint firstItem="9A5-K0-wP8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aQR-eB-CVW" secondAttribute="trailing" constant="3" id="Loq-1V-ty7"/>
                                                         <constraint firstItem="6cT-ir-d3n" firstAttribute="leading" secondItem="IDf-GY-lWJ" secondAttribute="trailing" constant="10" id="PXH-Ua-Y6d"/>
-                                                        <constraint firstItem="9A5-K0-wP8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6cT-ir-d3n" secondAttribute="trailing" constant="1" id="Sbc-0b-Ax2"/>
-                                                        <constraint firstItem="9A5-K0-wP8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Uf4-GT-N8H" secondAttribute="trailing" constant="2" id="UgA-xj-2u6"/>
+                                                        <constraint firstItem="9A5-K0-wP8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6cT-ir-d3n" secondAttribute="trailing" constant="3" id="Sbc-0b-Ax2"/>
+                                                        <constraint firstItem="9A5-K0-wP8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Uf4-GT-N8H" secondAttribute="trailing" constant="3" id="UgA-xj-2u6"/>
                                                         <constraint firstItem="aQR-eB-CVW" firstAttribute="leading" secondItem="Uf4-GT-N8H" secondAttribute="leading" id="Wrp-FA-vHn"/>
                                                         <constraint firstItem="IDf-GY-lWJ" firstAttribute="centerY" secondItem="2CY-Mv-RjO" secondAttribute="centerY" id="XEv-Sn-bzc"/>
                                                         <constraint firstItem="IDf-GY-lWJ" firstAttribute="height" secondItem="2CY-Mv-RjO" secondAttribute="height" multiplier="0.7" id="YaV-xp-pRV"/>
                                                         <constraint firstItem="6cT-ir-d3n" firstAttribute="top" secondItem="IDf-GY-lWJ" secondAttribute="top" id="dKN-5f-q5i"/>
                                                         <constraint firstItem="IDf-GY-lWJ" firstAttribute="leading" secondItem="2CY-Mv-RjO" secondAttribute="leading" constant="10" id="gp1-Sg-TH2"/>
                                                         <constraint firstItem="aQR-eB-CVW" firstAttribute="top" secondItem="Uf4-GT-N8H" secondAttribute="bottom" id="iSz-cA-ePT"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="aQR-eB-CVW" secondAttribute="bottom" constant="1" id="pSI-jB-OrA"/>
                                                         <constraint firstItem="9A5-K0-wP8" firstAttribute="centerY" secondItem="IDf-GY-lWJ" secondAttribute="centerY" id="pni-gI-fN1"/>
                                                         <constraint firstAttribute="trailing" secondItem="9A5-K0-wP8" secondAttribute="trailing" constant="10" id="zKH-n7-BOA"/>
                                                     </constraints>

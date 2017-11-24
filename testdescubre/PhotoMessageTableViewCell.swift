@@ -24,7 +24,9 @@ class PhotoMessageTableViewCell: UITableViewCell {
     }
     
     func loadInfo(_ message: MessageContent, actual: Bool){
-        
+        self.titlePrincipal.text = actual ? "Yo": message.usuario
+        if let imageUrl = message.imagenUrl, let url = URL(string: imageUrl){
+            self.imagenPrincipal.kf.setImage(with: url)
+        }
     }
-    
 }

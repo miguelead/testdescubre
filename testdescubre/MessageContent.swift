@@ -15,11 +15,12 @@ class MessageContent {
     var mensaje:String = ""
     var usuario: String!
     var imagenUrl:String?
+    var fechaEvento:String?
     var punto:PuntoDeInteres?
     var poi: String?
     var marker: Bool = false
     
-    init(uid: String, user_id: String, mensaje: String = "", usuario: String = "Desconocido", imagenUrl: String? = nil, punto:PuntoDeInteres? = nil, poi: String? = nil, marker: Bool = false) {
+    init(uid: String, user_id: String, mensaje: String = "", usuario: String = "Desconocido", imagenUrl: String? = nil, punto:PuntoDeInteres? = nil, poi: String? = nil, marker: Bool = false, fecha: String? = nil) {
         self.uid = uid
         self.user_id = user_id
         self.usuario = usuario
@@ -28,5 +29,6 @@ class MessageContent {
         self.punto = punto
         self.poi = poi
         self.marker = marker
+        self.fechaEvento = fecha
     }
 }

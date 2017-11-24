@@ -16,14 +16,15 @@ class puntodeinteresTableroCell: UITableViewCell {
     @IBOutlet weak var direccion: UILabel!
     @IBOutlet weak var precio: UILabel!
     @IBOutlet weak var distancia: UILabel!
-    @IBOutlet weak var markbook: UIButton!
     @IBOutlet weak var imageLugar: UIImageView!
     @IBOutlet weak var likesCount: UILabel!
+    @IBOutlet weak var markbook: UIButton?
+    @IBOutlet weak var userInfoLabel: UILabel?
     var puntodeinteres : PuntoDeInteresTablero!
 
     
     
-    func configureCell(_ puntodeinteres: PuntoDeInteresTablero, lat: Double, lon: Double){
+    func configureCell(_ puntodeinteres: PuntoDeInteresTablero, lat: Double, lon: Double, userLabel: String = "Desconocido"){
         self.puntodeinteres = puntodeinteres
         titulo.text = self.puntodeinteres._titulo
         categoria.text = self.puntodeinteres._categoria
@@ -45,24 +46,25 @@ class puntodeinteresTableroCell: UITableViewCell {
         }
         if puntodeinteres._bookmark{
             let image = #imageLiteral(resourceName: "hifivalen25-11").withRenderingMode(.alwaysTemplate)
-            markbook.setImage(image, for: .normal)
+            markbook?.setImage(image, for: .normal)
         } else {
             let image = #imageLiteral(resourceName: "hifivalen25-9").withRenderingMode(.alwaysTemplate)
-            markbook.setImage(image, for: .normal)
+            markbook?.setImage(image, for: .normal)
         }
-        markbook.tintColor = UIColor.hexStringToUIColor(hex: "00B19C")
+        userInfoLabel?.text = userLabel
+        markbook?.tintColor = UIColor.hexStringToUIColor(hex: "00B19C")
     }
     
     @IBAction func markbookLocation(_ sender: UIButton) {
         if !puntodeinteres._bookmark{
             let image = #imageLiteral(resourceName: "hifivalen25-11").withRenderingMode(.alwaysTemplate)
-            markbook.setImage(image, for: .normal)
+            markbook?.setImage(image, for: .normal)
         } else {
             let image = #imageLiteral(resourceName: "hifivalen25-9").withRenderingMode(.alwaysTemplate)
-            markbook.setImage(image, for: .normal)
+            markbook?.setImage(image, for: .normal)
         }
-        self.puntodeinteres._bookmark = !self.puntodeinteres._bookmark
-         markbook.tintColor = UIColor.hexStringToUIColor(hex: "00B19C")
+         self.puntodeinteres._bookmark = !self.puntodeinteres._bookmark
+         markbook?.tintColor = UIColor.hexStringToUIColor(hex: "00B19C")
     }
     
     
