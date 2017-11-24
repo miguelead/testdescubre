@@ -14,7 +14,7 @@ class NoteMessageTableViewCell: UITableViewCell {
     @IBOutlet weak var info: UILabel!
     @IBOutlet weak var fechaMensaje: UILabel!
  
-    var Message: MessageContent!
+    var message: MessageContent!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,6 +25,7 @@ class NoteMessageTableViewCell: UITableViewCell {
     }
     
     func loadInfo(_ message: MessageContent){
+        self.message = message
         self.titlePrincipal.text = message.usuario
         self.info.text = message.mensaje
         self.fechaMensaje.text = message.fechaEvento

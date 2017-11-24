@@ -29,6 +29,7 @@
 		8E7DF4B91FC8A8D300E2AB33 /* Planea.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E7DF4B81FC8A8D300E2AB33 /* Planea.storyboard */; };
 		8E7DF4BC1FC8A8DF00E2AB33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E7DF4BA1FC8A8DF00E2AB33 /* LaunchScreen.storyboard */; };
 		8E7DF4BD1FC8A8DF00E2AB33 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E7DF4BB1FC8A8DF00E2AB33 /* Info.plist */; };
+		8E7DF4C31FC8CC3500E2AB33 /* CheckInMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7DF4C21FC8CC3500E2AB33 /* CheckInMessageTableViewCell.swift */; };
 		8E896C921FC7129D00828225 /* ChatMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E896C911FC7129D00828225 /* ChatMainViewController.swift */; };
 		8E896C941FC7153300828225 /* TableroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E896C931FC7153300828225 /* TableroViewController.swift */; };
 		8E896C961FC7154300828225 /* NotasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E896C951FC7154300828225 /* NotasViewController.swift */; };
@@ -109,6 +110,7 @@
 		8E7DF4BA1FC8A8DF00E2AB33 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E7DF4BB1FC8A8DF00E2AB33 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E7DF4C11FC8AE5300E2AB33 /* Travelea.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Travelea.entitlements; sourceTree = "<group>"; };
+		8E7DF4C21FC8CC3500E2AB33 /* CheckInMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInMessageTableViewCell.swift; sourceTree = "<group>"; };
 		8E896C911FC7129D00828225 /* ChatMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMainViewController.swift; sourceTree = "<group>"; };
 		8E896C931FC7153300828225 /* TableroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableroViewController.swift; sourceTree = "<group>"; };
 		8E896C951FC7154300828225 /* NotasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotasViewController.swift; sourceTree = "<group>"; };
@@ -267,7 +269,6 @@
 				8E98D25C1FBF18B3007ECF8C /* DataChannelCell.swift */,
 				496B75151F6717CB00FD4942 /* puntodeinteresCell.swift */,
 				8E8F2DAA1FC872E0003349B8 /* puntoInteresCheck.swift */,
-				8E896C971FC71E6D00828225 /* puntodeinteresTableroCell.swift */,
 				8E90297C1FBCBEFD00C964CC /* OfertasCell.swift */,
 				6D1488281FB4F1BA0055685E /* CustomTabBarController.swift */,
 				8E9029711FBC97CF00C964CC /* EmptyBackgroundView.swift */,
@@ -311,8 +312,10 @@
 			isa = PBXGroup;
 			children = (
 				8E896CA21FC72D6C00828225 /* SimpleMessageTableViewCell.swift */,
+				8E7DF4C21FC8CC3500E2AB33 /* CheckInMessageTableViewCell.swift */,
 				8E896CA41FC7321700828225 /* PhotoMessageTableViewCell.swift */,
 				8E896CA61FC7334400828225 /* NoteMessageTableViewCell.swift */,
+				8E896C971FC71E6D00828225 /* puntodeinteresTableroCell.swift */,
 				8E896CA81FC7356F00828225 /* PhotoCollectionViewCell.swift */,
 				8E896CAA1FC7365F00828225 /* CollecionPhotoCollectionViewCell.swift */,
 			);
@@ -617,6 +620,7 @@
 				49A679301FA589FD0005E4BA /* ElegirMapaVC.swift in Sources */,
 				49ACD4B71F5F013D00CCA9EA /* AppDelegate.swift in Sources */,
 				8E90296E1FBC8ABD00C964CC /* CurrentUser.swift in Sources */,
+				8E7DF4C31FC8CC3500E2AB33 /* CheckInMessageTableViewCell.swift in Sources */,
 				8E98D2611FBF18D7007ECF8C /* UIIView+extensions.swift in Sources */,
 				8E8F2DAB1FC872E0003349B8 /* puntoInteresCheck.swift in Sources */,
 				49A76F121F792AD800215741 /* OpcionesFiltrar.swift in Sources */,

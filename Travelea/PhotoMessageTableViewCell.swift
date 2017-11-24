@@ -12,8 +12,9 @@ class PhotoMessageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titlePrincipal: UILabel!
     @IBOutlet weak var imagenPrincipal: UIImageView!
+    @IBOutlet weak var separador: UIView!
     
-    var Message: MessageContent!
+    var message: MessageContent!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,10 +24,13 @@ class PhotoMessageTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func loadInfo(_ message: MessageContent, actual: Bool){
+    func loadInfo(_ message: MessageContent, actual: Bool, inicio:Bool = true, final: Bool = true){
+        self.message = message
         self.titlePrincipal.text = actual ? "Yo": message.usuario
         if let imageUrl = message.imagenUrl, let url = URL(string: imageUrl){
             self.imagenPrincipal.kf.setImage(with: url)
         }
+        separador.isHidden = !inicio
+        titlePrincipal.isHidden = !final
     }
 }

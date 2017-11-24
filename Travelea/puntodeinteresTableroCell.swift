@@ -24,7 +24,7 @@ class puntodeinteresTableroCell: UITableViewCell {
 
     
     
-    func configureCell(_ puntodeinteres: PuntoDeInteresTablero, lat: Double, lon: Double, userLabel: String = "Desconocido"){
+    func configureCell(_ puntodeinteres: PuntoDeInteresTablero, lat: Double, lon: Double, userLabel: String = "Desconocido",  inicio: Bool = true){
         self.puntodeinteres = puntodeinteres
         titulo.text = self.puntodeinteres._titulo
         categoria.text = self.puntodeinteres._categoria
@@ -52,6 +52,7 @@ class puntodeinteresTableroCell: UITableViewCell {
             markbook?.setImage(image, for: .normal)
         }
         userInfoLabel?.text = userLabel
+        userInfoLabel?.isHidden = !inicio
         markbook?.tintColor = UIColor.hexStringToUIColor(hex: "00B19C")
     }
     

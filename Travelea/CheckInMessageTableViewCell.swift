@@ -8,12 +8,11 @@
 
 import UIKit
 
-class SimpleMessageTableViewCell: UITableViewCell {
+class CheckInMessageTableViewCell: UITableViewCell {
 
 
     @IBOutlet weak var textInfo: UILabel!
     @IBOutlet weak var titlePrincipal: UILabel!
-    @IBOutlet weak var starIcon: UIImageView!
     @IBOutlet weak var separador: UIView!
     var message: MessageContent!
     override func awakeFromNib() {
@@ -27,9 +26,8 @@ class SimpleMessageTableViewCell: UITableViewCell {
     
     func loadInfo(_ message: MessageContent, actual: Bool, inicio:Bool = true, final: Bool = true){
         self.message = message
-        self.textInfo.text = message.mensaje
+        self.textInfo.text = message.poi ?? "Ningun sitio"
         self.titlePrincipal.text = actual ? "Yo": message.usuario
-        starIcon.isHidden = !message.marker
         titlePrincipal.isHidden = !inicio
         separador.isHidden = !final
     }
