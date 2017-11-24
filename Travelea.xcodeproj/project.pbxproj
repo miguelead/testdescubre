@@ -108,6 +108,7 @@
 		8E7DF4B81FC8A8D300E2AB33 /* Planea.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Planea.storyboard; sourceTree = "<group>"; };
 		8E7DF4BA1FC8A8DF00E2AB33 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E7DF4BB1FC8A8DF00E2AB33 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E7DF4C11FC8AE5300E2AB33 /* Travelea.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Travelea.entitlements; sourceTree = "<group>"; };
 		8E896C911FC7129D00828225 /* ChatMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMainViewController.swift; sourceTree = "<group>"; };
 		8E896C931FC7153300828225 /* TableroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableroViewController.swift; sourceTree = "<group>"; };
 		8E896C951FC7154300828225 /* NotasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotasViewController.swift; sourceTree = "<group>"; };
@@ -121,7 +122,6 @@
 		8E896CA61FC7334400828225 /* NoteMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteMessageTableViewCell.swift; sourceTree = "<group>"; };
 		8E896CA81FC7356F00828225 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		8E896CAA1FC7365F00828225 /* CollecionPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollecionPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
-		8E896CAC1FC772A700828225 /* Travelea.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Travelea.entitlements; sourceTree = SOURCE_ROOT; };
 		8E8F2DAA1FC872E0003349B8 /* puntoInteresCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = puntoInteresCheck.swift; sourceTree = "<group>"; };
 		8E90296D1FBC8ABD00C964CC /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		8E90296F1FBC8C3400C964CC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -187,13 +187,14 @@
 		49092BEA1F6FE82A00DF323E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8E98D25E1FBF18C2007ECF8C /* GoogleService-Info.plist */,
+				8E7DF4BB1FC8A8DF00E2AB33 /* Info.plist */,
 				49B042FD1F6B0FD400AD52D8 /* constants.swift */,
-				8EE098D81FC31EB800C43D03 /* FacebookService.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		49092BEF1F6FEBE300DF323E /* extensions */ = {
+		49092BEF1F6FEBE300DF323E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				8E98D2661FBF18F6007ECF8C /* UIImage+Gif.swift */,
@@ -203,7 +204,7 @@
 				8E896C991FC71FAD00828225 /* Date+extensions.swift */,
 				8E896C9B1FC71FD600828225 /* String+extensions.swift */,
 			);
-			name = extensions;
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		49ACD4AA1F5F013B00CCA9EA = {
@@ -228,14 +229,13 @@
 		49ACD4B51F5F013C00CCA9EA /* Travelea */ = {
 			isa = PBXGroup;
 			children = (
-				8E7DF4BB1FC8A8DF00E2AB33 /* Info.plist */,
-				8E896CAC1FC772A700828225 /* Travelea.entitlements */,
-				8E98D25E1FBF18C2007ECF8C /* GoogleService-Info.plist */,
+				8E7DF4C11FC8AE5300E2AB33 /* Travelea.entitlements */,
+				8E7DF4C01FC8AA5600E2AB33 /* Service */,
 				49ACD4D61F5F02EA00CCA9EA /* Model */,
 				49ACD4D71F5F02F100CCA9EA /* View */,
 				49ACD4D81F5F02F600CCA9EA /* Controller */,
 				49092BEA1F6FE82A00DF323E /* Resources */,
-				49092BEF1F6FEBE300DF323E /* extensions */,
+				49092BEF1F6FEBE300DF323E /* Extensions */,
 				8E98D2701FBF1F09007ECF8C /* Storyboard */,
 				6D1488241FB4E2650055685E /* Assets.xcassets */,
 				49ACD4B61F5F013D00CCA9EA /* AppDelegate.swift */,
@@ -297,6 +297,14 @@
 				8EE098DC1FC35E4B00C43D03 /* QuestionViewController.swift */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		8E7DF4C01FC8AA5600E2AB33 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8EE098D81FC31EB800C43D03 /* FacebookService.swift */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 		8E896CA11FC72D2200828225 /* cellChat */ = {
@@ -433,7 +441,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
-				ORGANIZATIONNAME = "Miguel Alvarez";
+				ORGANIZATIONNAME = MomentumLab;
 				TargetAttributes = {
 					49ACD4B21F5F013C00CCA9EA = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -761,9 +769,9 @@
 			baseConfigurationReference = EFAE2FE545695FF23FC52558 /* Pods-Travelea.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Travelea.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Travelea/Travelea.entitlements;
 				DEVELOPMENT_TEAM = 67P4A8SJ5P;
-				INFOPLIST_FILE = testdescubre/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Travelea/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.momentumlab.Travelea;
@@ -778,9 +786,9 @@
 			baseConfigurationReference = 5D48ADD78B89522F72831F41 /* Pods-Travelea.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Travelea.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Travelea/Travelea.entitlements;
 				DEVELOPMENT_TEAM = 67P4A8SJ5P;
-				INFOPLIST_FILE = testdescubre/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Travelea/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.momentumlab.Travelea;

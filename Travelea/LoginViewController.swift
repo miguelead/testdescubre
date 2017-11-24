@@ -20,11 +20,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var facebookButtom: UIButton!
     var locManager = CLLocationManager()
     var locationActual: CLLocationCoordinate2D! = defaultLocation
-    var tokenFacebook: String?
-  
-    
-    
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.emailField.delegate = self

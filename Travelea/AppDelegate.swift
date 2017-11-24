@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseMessaging
 import FBSDKCoreKit
 import UserNotifications
 import IQKeyboardManagerSwift
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         IQKeyboardManager.sharedManager().enable = true
         FirebaseApp.configure()
+        Messaging.messaging().delegate = self
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         if let window = window, CurrentUser.shared != nil{
             self.registerForPushNotifications()
@@ -81,8 +83,25 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         print("didReceiveRemoteNotification fetchCompletionHandler")
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
+        // Print full message.
+        print(userInfo)
+        completionHandler(UIBackgroundFetchResult.newData)
 
     }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
+        
+        // Print full message.
+        print(userInfo)
+    }
+    
+   
     
     // MARK: - IOS 10 OR High Push notification method
     @objc(userNotificationCenter:willPresentNotification:withCompletionHandler:) @available(iOS 10.0, *)
@@ -98,3 +117,17 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
     }
     
 }
+
+
+extension AppDelegate : MessagingDelegate {
+    // [START refresh_token]
+    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+    }
+  
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        print("Received data message: \(remoteMessage.appData)")
+    }
+}
+
+
