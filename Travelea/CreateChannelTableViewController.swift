@@ -67,7 +67,7 @@ class CreateChannelTableViewController: UIViewController, UINavigationController
             } else{
                 self.indicator.stopAnimating()
                 UIAlertController.presentViewController(title: "Registro Exitoso", message: "La sala de chat se registro con exito", view: self, OkLabel: "Aceptar", successEvent: { evento in
-                    self.navigationController?.popViewController(animated: true)
+                    _ =  self.navigationController?.popViewController(animated: true)
                 })
             }
         } else {
@@ -83,7 +83,7 @@ class CreateChannelTableViewController: UIViewController, UINavigationController
         guard let data = UIImagePNGRepresentation(image) as NSData? else {
             self.indicator.stopAnimating()
             UIAlertController.presentViewController(title: "Registro casi Exitoso", message: "Se registro la sala de chat, pero la imagen no pudo ser cargada", view: self, OkLabel: "Aceptar", successEvent: { evento in
-                self.navigationController?.popViewController(animated: true)
+                _ =  self.navigationController?.popViewController(animated: true)
             })
             return
         }
@@ -93,19 +93,19 @@ class CreateChannelTableViewController: UIViewController, UINavigationController
             guard let meta = metadata else {
                 self.indicator.stopAnimating()
                 UIAlertController.presentViewController(title: "Registro casi Exitoso", message: "Se registro la sala de chat, pero la imagen no pudo ser cargada", view: self, OkLabel: "Aceptar", successEvent: { evento in
-                    self.navigationController?.popViewController(animated: true)
+                    _ = self.navigationController?.popViewController(animated: true)
                 })
                 return
             }
             self.indicator.stopAnimating()
             self.channelRef.child(id).child("icon").setValue(meta.downloadURL()?.absoluteString ?? meta.path ?? "")
             UIAlertController.presentViewController(title: "Registro Exitoso", message: "La sala de chat se registro con exito", view: self, OkLabel: "Aceptar", successEvent: { evento in
-                self.navigationController?.popViewController(animated: true)
+                _ = self.navigationController?.popViewController(animated: true)
             })
         }
     }
     @IBAction func cancelOperation(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

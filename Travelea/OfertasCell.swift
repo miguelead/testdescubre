@@ -27,6 +27,9 @@ class OfertasCell: UITableViewCell {
         empresa.text = oferta._empresa
         tipo.text = oferta._tipo
         fecha.text = oferta._fechaInicial + " al " + oferta._fechaFinal
+        if !oferta._photo.isEmpty,let url = URL(string: oferta._photo){
+            self.EmpresaImage.kf.setImage(with: url)
+        }
     }
     
     func configureCell(_ evento: Eventos, lat: Double, lon: Double){
@@ -36,5 +39,8 @@ class OfertasCell: UITableViewCell {
         empresa.text = evento._empresa
         tipo.text = evento._tipo
         fecha.text = evento._fechaInicial + " al " + evento._fechaFinal
+        if !evento._photo.isEmpty,let url = URL(string: evento._photo){
+            self.EmpresaImage.kf.setImage(with: url)
+        }
     }
 }

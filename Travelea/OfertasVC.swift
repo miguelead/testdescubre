@@ -11,7 +11,7 @@ import Alamofire
 import CoreLocation
 
 class OfertasVC: UIViewController {
-
+    
     var delegate: DescubreFilterVC?
     
     @IBOutlet weak var tableView: UITableView!
@@ -45,6 +45,13 @@ class OfertasVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //        listaOfertas.append(Ofertas.init(id: 1, idEmpresa: 1, empresa: "Empresa 1", titulo: "2x1 en birras", categoria: "prueba", fechaInicial: "10 dic", fechaFinal: "11 dic", tipo: "tipo", descripcion: "ven con tus amigos mas cheveres", photo: "prueba"))
+        //        listaOfertas.append(Ofertas.init(id: 2, idEmpresa: 1, empresa: "Empresa 1", titulo: "2x1 en birras", categoria: "prueba", fechaInicial: "10 dic", fechaFinal: "11 dic", tipo: "tipo", descripcion: "ven con tus amigos mas cheveres", photo: "prueba"))
+        //        listaOfertas.append(Ofertas.init(id: 3, idEmpresa: 1, empresa: "Empresa 1", titulo: "2x1 en birras", categoria: "prueba", fechaInicial: "10 dic", fechaFinal: "11 dic", tipo: "tipo", descripcion: "ven con tus amigos mas cheveres", photo: "prueba"))
+        //        listaOfertas.append(Ofertas.init(id: 4, idEmpresa: 1, empresa: "Empresa 1", titulo: "2x1 en birras", categoria: "prueba", fechaInicial: "10 dic", fechaFinal: "11 dic", tipo: "tipo", descripcion: "ven con tus amigos mas cheveres", photo: "prueba"))
+        //
+        
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.filtrosLabel.text = ""
@@ -55,7 +62,7 @@ class OfertasVC: UIViewController {
         }
         obtenerLocalizacionActual()
     }
-
+    
     func obtenerLocalizacionActual(){
         locManager.delegate = self
         locManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -65,38 +72,81 @@ class OfertasVC: UIViewController {
     }
     
     func consultaApi(){
-       self.refreshControl.endRefreshing()
+        self.refreshControl.endRefreshing()
         
-        guard
-            let ordenarPor = filtroSeleccionado["ordenarpor"] as? Int,
-            let filtrarPor = filtroSeleccionado["filtrarpor"] as? Int
-            else {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                self.refreshControl.endRefreshing()
-                return
+//        guard
+//            let ordenarPor = filtroSeleccionado["ordenarpor"] as? Int,
+//            let filtrarPor = filtroSeleccionado["filtrarpor"] as? Int
+//            else {
+//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//                self.refreshControl.endRefreshing()
+//                return
+//        }
+        
+//        var ordenarporParam : String = ""
+//        if  ordenarPor == 1 {ordenarporParam = "Rating" }
+//        if  ordenarPor == 2 {ordenarporParam = "Distancia"}
+//        if  ordenarPor == 3 {ordenarporParam = "Precio"}
+//        if  ordenarPor == 4 {ordenarporParam = "Popularidad"}
+//        
+//        var filtrarporParam : String = ""
+//        if filtrarPor == 1 {filtrarporParam = "Ver"}
+//        if filtrarPor == 2 {filtrarporParam = "Comer"}
+//        if filtrarPor == 3 {filtrarporParam = "Dormir"}
+//        if filtrarPor == 4 {filtrarporParam = "Servicios"}
+        
+        
+        let ruta = kRutaSecundaria + "/base/api/promocion/"
+        
+        Alamofire.request(ruta, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            
+            self.refreshControl.endRefreshing()
+            
+            guard let result = response.result.value as? [[String:Any]]
+                else {
+                    if self.listaOfertas.isEmpty{
+                        self.addBackgroundImage()
+                    } else {
+                        self.tableView.backgroundView = nil
+                    }
+                    return
+            }
+            
+            self.listaOfertas.removeAll()
+            
+            
+            for elemento in result {
+                if  let id = elemento["id"] as? Int,
+                    let titulo = elemento["descripcion"] as? String,
+                    let idEmpresa = elemento["idEmpresa"] as? Int,
+                    let empresa = elemento["empresa"] as? String,
+                    let categoria = elemento["categoria"] as? String,
+                    let fechaInicial = elemento["fechaInicial"] as? String,
+                    let fechaFinal = elemento["fechaFinal"] as? String,
+                    let tipo = elemento["tipo"] as? String,
+                    let descripcion = elemento["descripcion"] as? String
+                {
+                    let temporal = Ofertas.init(id: id, idEmpresa: idEmpresa, empresa: empresa, titulo: titulo, categoria: categoria, fechaInicial: fechaInicial, fechaFinal: fechaFinal, tipo: tipo, descripcion: descripcion, photo: elemento["photo"] as? String ?? "")
+                    self.listaOfertas.append(temporal)
+                }
+                
+            }
+            
+            if self.listaOfertas.isEmpty{
+                self.addBackgroundImage()
+            } else {
+                self.filtrosLabel.text = "Ofertas cerca de ti"
+                //                self.filtrosLabel.text = "Ofertas de " + filtrarporParam + " ordenados por " + ordenarporParam
+                self.tableView.backgroundView = nil
+            }
+            self.tableView.reloadData()
         }
         
-        var ordenarporParam : String = ""
-        if  ordenarPor == 1 {ordenarporParam = "Rating" }
-        if  ordenarPor == 2 {ordenarporParam = "Distancia"}
-        if  ordenarPor == 3 {ordenarporParam = "Precio"}
-        if  ordenarPor == 4 {ordenarporParam = "Popularidad"}
         
-        var filtrarporParam : String = ""
-        if filtrarPor == 1 {filtrarporParam = "Ver"}
-        if filtrarPor == 2 {filtrarporParam = "Comer"}
-        if filtrarPor == 3 {filtrarporParam = "Dormir"}
-        if filtrarPor == 4 {filtrarporParam = "Servicios"}
         
-        if self.listaOfertas.isEmpty{
-            self.addBackgroundImage()
-        } else {
-            self.filtrosLabel.text = "Ofertas de " + filtrarporParam + " ordenados por " + ordenarporParam
-            self.tableView.backgroundView = nil
-        }
-       self.tableView.reloadData()
     }
-
+    
     func addBackgroundImage(){
         let image = #imageLiteral(resourceName: "emptystate-12").withRenderingMode(.alwaysTemplate)
         let topMessage = "Descubre Nuevas Ofertas"

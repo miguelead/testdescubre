@@ -39,6 +39,10 @@ class PuntodeinteresCell: UITableViewCell {
             let image = #imageLiteral(resourceName: "hifivalen25-9").withRenderingMode(.alwaysTemplate)
             markbook.setImage(image, for: .normal)
         }
+        
+        if !puntodeinteres._photo.isEmpty,let url = URL(string: puntodeinteres._photo){
+            self.imageLugar.kf.setImage(with: url)
+        }
         markbook.tintColor = UIColor.hexStringToUIColor(hex: "00B19C")
     }
     

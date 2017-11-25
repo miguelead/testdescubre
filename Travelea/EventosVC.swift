@@ -20,6 +20,19 @@ class EventosVC: UIViewController {
     var locManager = CLLocationManager()
     var currentLocation: CLLocation!
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.hexStringToUIColor(hex: "11A791")
+        refreshControl.addTarget(self, action: #selector(self.handleRefresh), for: UIControlEvents.valueChanged)
+        return refreshControl
+    }()
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        obtenerLocalizacionActual()
+    }
+    
+    
     var filtroSeleccionado : [String:Any] = [
         "mapa": false,
         "desdelat": 0.0,
@@ -31,6 +44,15 @@ class EventosVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.backgroundView = refreshControl
+        }
+        calendar.appearance.headerTitleFont = UIFont.init(name: "Avenir-Heavy", size: 15)
+        calendar.appearance.titleFont = UIFont.init(name: "Avenir-Medium", size: 13)
+        calendar.appearance.subtitleFont = UIFont.init(name: "Avenir-Medium", size: 13)
+        calendar.appearance.weekdayFont = UIFont.init(name: "Avenir-Medium", size: 13)
         self.calendar.locale = Locale(identifier: "es")
         obtenerLocalizacionActual()
     }
@@ -43,31 +65,61 @@ class EventosVC: UIViewController {
     }
     
     func consultaApi(){
+        self.refreshControl.endRefreshing()
+//        guard
+//            let ordenarPor = filtroSeleccionado["ordenarpor"] as? Int,
+//            let filtrarPor = filtroSeleccionado["filtrarpor"] as? Int
+//            else {
+//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//                self.refreshControl.endRefreshing()
+//                return
+//        }
         
-        guard
-            let ordenarPor = filtroSeleccionado["ordenarpor"] as? Int,
-            let filtrarPor = filtroSeleccionado["filtrarpor"] as? Int
-            else {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                return
+//        var ordenarporParam : String = ""
+//        if  ordenarPor == 1 {ordenarporParam = "Rating" }
+//        if  ordenarPor == 2 {ordenarporParam = "Distancia"}
+//        if  ordenarPor == 3 {ordenarporParam = "Precio"}
+//        if  ordenarPor == 4 {ordenarporParam = "Popularidad"}
+//        
+//        var filtrarporParam : String = ""
+//        if filtrarPor == 1 {filtrarporParam = "Ver"}
+//        if filtrarPor == 2 {filtrarporParam = "Comer"}
+//        if filtrarPor == 3 {filtrarporParam = "Dormir"}
+//        if filtrarPor == 4 {filtrarporParam = "Servicios"}
+        
+        
+        let ruta = KRutaMain + "/base/api/event/"
+        
+        Alamofire.request(ruta, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            self.refreshControl.endRefreshing()
+            
+            guard let result = response.result.value as? [[String:Any]]
+                else {
+                    return
+            }
+            
+            self.listaEventos.removeAll()
+            
+            for elemento in result {
+                if  let id = elemento["id"] as? Int,
+                    let titulo = elemento["name"] as? String,
+                    let empresa = elemento["place"] as? [String:Any],
+                    let empresa_nombre = empresa["name"] as? String,
+                    let categoria = elemento["category"] as? String,
+                    let fechaInicial = elemento["begin_date"] as? String,
+                    let fechaFinal = elemento["end_date"] as? String,
+                    let tipo = elemento["type"] as? String,
+                    let descripcion = elemento["description"] as? String{
+                    let temporal = Eventos.init(id: id, idEmpresa: 1, empresa: empresa_nombre, titulo: titulo, categoria: categoria, fechaInicial: fechaInicial, fechaFinal: fechaFinal, tipo: tipo, descripcion: descripcion, photo: elemento["photo"] as? String ?? "")
+                    self.listaEventos.append(temporal)
+                }
+            }
+            self.tableView.reloadData()
         }
-        
-        var ordenarporParam : String = ""
-        if  ordenarPor == 1 {ordenarporParam = "Rating" }
-        if  ordenarPor == 2 {ordenarporParam = "Distancia"}
-        if  ordenarPor == 3 {ordenarporParam = "Precio"}
-        if  ordenarPor == 4 {ordenarporParam = "Popularidad"}
-        
-        var filtrarporParam : String = ""
-        if filtrarPor == 1 {filtrarporParam = "Ver"}
-        if filtrarPor == 2 {filtrarporParam = "Comer"}
-        if filtrarPor == 3 {filtrarporParam = "Dormir"}
-        if filtrarPor == 4 {filtrarporParam = "Servicios"}
-        
-        print(ordenarporParam)
-        print(filtrarporParam)
-        self.tableView.reloadData()
     }
+
     
 }
 

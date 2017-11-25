@@ -195,7 +195,7 @@ class FiltrarVC: UIViewController, ConfirmarElegirCiudadDelegate {
     
     @IBAction func guardarBtn(_ sender: UIBarButtonItem) {
         delegate?.guardarFiltrar(data: filtroSeleccionado)
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
       }
     
     
