@@ -33,3 +33,4 @@ class CheckInMessageTableViewCell: UITableViewCell {
     }
     
 }
+

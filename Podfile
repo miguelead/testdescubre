@@ -19,4 +19,5 @@ target 'Travelea' do
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
     pod 'IQKeyboardManagerSwift'
+    pod 'SwiftBackgroundLocation'
 end

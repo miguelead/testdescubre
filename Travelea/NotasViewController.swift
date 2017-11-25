@@ -11,13 +11,62 @@ import Firebase
 
 class NotasViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    
     var channelRef: DatabaseReference!
-    var mensaje: [MessageContent] = []
-    var resorce: [String] = []
+    fileprivate lazy var recomendRef: DatabaseQuery = self.channelRef.child("message").queryEqual(toValue: true, childKey: "favorite")
+    fileprivate lazy var imageRef: DatabaseQuery = self.channelRef.child("message").queryOrdered(byChild: "imagenUrl")
+    fileprivate var recomendRefHandle: DatabaseHandle?
+    fileprivate var imageRefHandle: DatabaseHandle?
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    fileprivate var mensaje: [MessageContent] = []
+    fileprivate var resorce: [URL] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        observeChannels()
+    }
+    
+    deinit {
+        if let recomendRefHandle = recomendRefHandle {
+            recomendRef.removeObserver(withHandle: recomendRefHandle)
+        }
+        if let imageRefHandle = imageRefHandle {
+            imageRef.removeObserver(withHandle: imageRefHandle)
+        }
+    }
+    
+    private func observeChannels() {
+        recomendRefHandle = recomendRef.observe(.value, with: { (snapshots) in
+            self.mensaje = []
+            for child in snapshots.children.allObjects  as? [DataSnapshot] ?? []{
+                    let child_info = child.value as? Dictionary<String, AnyObject>
+                    if let index = self.mensaje.index(where: { mensaje in return mensaje.uid == child.key}){
+                        self.mensaje[index] = MessageContent(id: child.key, data: child_info)
+                    } else {
+                        self.mensaje.append(MessageContent(id: child.key, data: child_info))
+                    }
+                }
+                self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+            }
+        )
+        
+        imageRefHandle = imageRef.observe(.value, with: { (snapshots) in
+            self.resorce = []
+            for child in snapshots.children.allObjects  as? [DataSnapshot] ?? []{
+                let child_info = child.value as? Dictionary<String, AnyObject>
+                if let url_path = child_info?["imagenUrl"] as? String, let url = URL(string: url_path){
+                    if let index = self.mensaje.index(where: { mensaje in return mensaje.uid == child.key}){
+                        self.resorce[index] = url
+                    } else {
+                        self.resorce.append(url)
+                    }
+                }
+            }
+            self.tableView.reloadSections(IndexSet(integer: self.mensaje.isEmpty ? 0 : 1), with: .automatic)
+        }
+        )
     }
 }
 

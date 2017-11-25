@@ -12,7 +12,7 @@ import CoreLocation
 
 class PuntoDeInteresTablero {
     
-    var _POIId: Int
+    var _POIId: String
     var _titulo: String
     var _categoria: String
     var _direccion: String
@@ -27,7 +27,7 @@ class PuntoDeInteresTablero {
     var _date: String = ""
     
     //ID,TITULO,TIPO,CAT1,DIRECCION,LAT,LON,PRECIO,RECOM_INDEX,CERCAN_INDEX,POPULAR_INDEX
-    init(POIId: Int, titulo: String, categoria: String, direccion: String,
+    init(POIId: String, titulo: String, categoria: String, direccion: String,
          lat: String, lon: String, precio: String, recom_index: Float, photo: String, info: String = "", like: Int, date: String){
         _POIId = POIId
         _titulo = titulo
@@ -40,6 +40,21 @@ class PuntoDeInteresTablero {
         _photo = photo
         _info = info
         _likes = like
+        _date = date
+    }
+    
+    init(id: String, data: [String:Any], name: String = "", likes: Int = 0, date: String = "") {
+         _POIId = id
+        _titulo = data["name"] as? String ?? ""
+        _categoria = data["category"] as? String ?? ""
+        _direccion = data["address"] as? String ?? ""
+        _lat = String(data["lat"] as? Float ?? 0.0)
+        _lon = String(data["lng"] as? Float ?? 0.0)
+        _precio = data["price"] as? String ?? ""
+        _recom_index = data["rating"] as? Float ?? 00
+        _photo = data["photo"] as? String ?? ""
+        _info = name
+        _likes = likes
         _date = date
     }
     

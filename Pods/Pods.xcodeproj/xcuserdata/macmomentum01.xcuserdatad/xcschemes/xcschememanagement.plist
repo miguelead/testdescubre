@@ -74,6 +74,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftBackgroundLocation.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,6 +87,21 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>089A0FD0EF306E929A94FA7FC4F09D29</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0B09F55823CFE393699EA58581C97EF6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>20FC7EC2DCF603851EA18455E4CE1D17</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2F0C0F810568D3E82219429D9D870F04</key>
 		<dict>
 			<key>primary</key>
@@ -107,17 +127,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>94737B70112879E2524596A89AA699B3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9502FB01641FBABB78522037E882757B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9769D742E2DAE2BACD3F5C3F0A7FF9BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,7 +157,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E3138DF2552BF78309C68D97AF6D3B0B</key>
+		<key>CA53B2B8F5D7566874D4B5E8D1432AF4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

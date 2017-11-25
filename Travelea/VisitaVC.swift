@@ -63,7 +63,6 @@ class VisitaVC: UIViewController{
         locManager.desiredAccuracy = kCLLocationAccuracyBest
         locManager.requestWhenInUseAuthorization()
         locManager.requestLocation()
-    
     }
     
     func consultaApi(){

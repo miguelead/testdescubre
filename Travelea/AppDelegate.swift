@@ -73,6 +73,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data){
         let token = String(format: "%@", deviceToken as CVarArg)
         print("didRegisterForRemoteNotificationsWithDeviceToken", token)
+        PushNotificationService.addPushConectionService()
     }
     
 
@@ -88,6 +89,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         }
         // Print full message.
         print(userInfo)
+        PushNotificationService.notificationReceived(notification: userInfo, completion: completionHandler)
         completionHandler(UIBackgroundFetchResult.newData)
 
     }
@@ -96,9 +98,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
-        // Print full message.
         print(userInfo)
+        PushNotificationService.notificationReceived(notification: userInfo)
     }
     
    
@@ -106,14 +107,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
     // MARK: - IOS 10 OR High Push notification method
     @objc(userNotificationCenter:willPresentNotification:withCompletionHandler:) @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter,  willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (_ options:   UNNotificationPresentationOptions) -> Void) {
-        let userInfo = notification.request.content.userInfo
-        print("\(userInfo)")
         completionHandler(.alert)
     }
     
     @objc(userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:) @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print("didReceiveRemoteNotification fetchCompletionHandler")
+        let userInfo = response.notification.request.content.userInfo
+        PushNotificationService.notificationReceived(notification: userInfo, completionIOS10: completionHandler)
     }
     
 }
@@ -123,6 +124,7 @@ extension AppDelegate : MessagingDelegate {
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
+        PushNotificationService.addPushConectionService()
     }
   
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {

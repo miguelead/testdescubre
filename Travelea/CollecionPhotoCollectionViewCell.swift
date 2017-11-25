@@ -11,7 +11,7 @@ import UIKit
 class CollecionPhotoTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var imagesList: [String] = []
+    var imagesList: [URL] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,8 +25,7 @@ class CollecionPhotoTableViewCell: UITableViewCell, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath as IndexPath) as! PhotoCollectionViewCell
-        let imageUrl = URL(string: imagesList[indexPath.row])
-        cell.imagenIcon.kf.setImage(with: imageUrl)
+        cell.imagenIcon.kf.setImage(with: imagesList[indexPath.row])
         return cell
     }
     

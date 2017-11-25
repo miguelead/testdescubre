@@ -100,6 +100,8 @@ class ChatViewController: UIViewController {
     @IBAction func eventCamera(_ sender: Any) {
     }
     
+    @IBAction func sendMenssage(_ sender: Any) {
+    }
   
   private func observeTyping() {
     let typingIndicatorRef = channelRef!.child("typingIndicator")

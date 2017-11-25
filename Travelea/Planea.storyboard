@@ -550,6 +550,9 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button" image="enviar"/>
                                         </button>
+                                        <connections>
+                                            <action selector="sendMenssage:" destination="FXa-5c-9jU" id="YJA-Ov-aAa"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem title="Item" width="27" style="plain" id="DD1-ib-DUU">
                                         <inset key="imageInsets" minX="10" minY="10" maxX="10" maxY="10"/>

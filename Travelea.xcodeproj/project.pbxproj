@@ -52,6 +52,8 @@
 		8E9029781FBCB44600C964CC /* OfertasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9029771FBCB44600C964CC /* OfertasVC.swift */; };
 		8E90297B1FBCBCEB00C964CC /* Ofertas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90297A1FBCBCEB00C964CC /* Ofertas.swift */; };
 		8E90297D1FBCBEFD00C964CC /* OfertasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90297C1FBCBEFD00C964CC /* OfertasCell.swift */; };
+		8E91356C1FC9ACAB00B0D197 /* PushNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E91356B1FC9ACAB00B0D197 /* PushNotificationService.swift */; };
+		8E91356E1FC9BE5600B0D197 /* NSNotification+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E91356D1FC9BE5600B0D197 /* NSNotification+extension.swift */; };
 		8E98D2541FBF1856007ECF8C /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98D2521FBF1856007ECF8C /* ChatViewController.swift */; };
 		8E98D2551FBF1856007ECF8C /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98D2531FBF1856007ECF8C /* ChannelListViewController.swift */; };
 		8E98D2591FBF1899007ECF8C /* NameChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98D2581FBF1899007ECF8C /* NameChannelTableViewCell.swift */; };
@@ -133,6 +135,8 @@
 		8E9029771FBCB44600C964CC /* OfertasVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfertasVC.swift; sourceTree = "<group>"; };
 		8E90297A1FBCBCEB00C964CC /* Ofertas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ofertas.swift; sourceTree = "<group>"; };
 		8E90297C1FBCBEFD00C964CC /* OfertasCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfertasCell.swift; sourceTree = "<group>"; };
+		8E91356B1FC9ACAB00B0D197 /* PushNotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationService.swift; sourceTree = "<group>"; };
+		8E91356D1FC9BE5600B0D197 /* NSNotification+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotification+extension.swift"; sourceTree = "<group>"; };
 		8E98D2521FBF1856007ECF8C /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		8E98D2531FBF1856007ECF8C /* ChannelListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
 		8E98D2581FBF1899007ECF8C /* NameChannelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameChannelTableViewCell.swift; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 				8EE098DA1FC32D0300C43D03 /* UIAlertController+Extensions.swift */,
 				8E896C991FC71FAD00828225 /* Date+extensions.swift */,
 				8E896C9B1FC71FD600828225 /* String+extensions.swift */,
+				8E91356D1FC9BE5600B0D197 /* NSNotification+extension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 		8E7DF4C01FC8AA5600E2AB33 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				8E91356B1FC9ACAB00B0D197 /* PushNotificationService.swift */,
 				8EE098D81FC31EB800C43D03 /* FacebookService.swift */,
 			);
 			name = Service;
@@ -537,6 +543,7 @@
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftBackgroundLocation/SwiftBackgroundLocation.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -554,6 +561,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftBackgroundLocation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,6 +625,7 @@
 				8E98D2631FBF18DF007ECF8C /* Users.swift in Sources */,
 				49ACD4B91F5F013D00CCA9EA /* DescubreVC.swift in Sources */,
 				495EDEDB1F72BE4A00B92B8B /* GuiaVirtualVC.swift in Sources */,
+				8E91356E1FC9BE5600B0D197 /* NSNotification+extension.swift in Sources */,
 				49A679301FA589FD0005E4BA /* ElegirMapaVC.swift in Sources */,
 				49ACD4B71F5F013D00CCA9EA /* AppDelegate.swift in Sources */,
 				8E90296E1FBC8ABD00C964CC /* CurrentUser.swift in Sources */,
@@ -645,6 +654,7 @@
 				8E896CA31FC72D6C00828225 /* SimpleMessageTableViewCell.swift in Sources */,
 				8E98D2541FBF1856007ECF8C /* ChatViewController.swift in Sources */,
 				8E9029781FBCB44600C964CC /* OfertasVC.swift in Sources */,
+				8E91356C1FC9ACAB00B0D197 /* PushNotificationService.swift in Sources */,
 				8E896CA91FC7356F00828225 /* PhotoCollectionViewCell.swift in Sources */,
 				8E896C961FC7154300828225 /* NotasViewController.swift in Sources */,
 				8E896C981FC71E6D00828225 /* puntodeinteresTableroCell.swift in Sources */,
