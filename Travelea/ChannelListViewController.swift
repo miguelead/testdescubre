@@ -74,9 +74,9 @@ class ChannelListViewController: UIViewController {
                             info = lst_mssage.keys.contains("photo") ? "Ha enviado una imagen" : last_message?["text"] as? String
                         }
                         if let index = self.channels.index(where: { channel in return channel.id == child.key}){
-                            self.channels[index] = Channel(id: child.key, name: name, owner: last_message?["senderName"] as? String, details: info, image: channelData?["icon"] as? String)
+                            self.channels[index] = Channel(id: child.key, name: name, owner: last_message?["user"] as? String, details: info, image: channelData?["icon"] as? String)
                         } else {
-                            self.channels.append(Channel(id: child.key, name: name, owner: last_message?["senderName"] as? String, details: info, image: channelData?["icon"] as? String))
+                            self.channels.append(Channel(id: child.key, name: name, owner: last_message?["user"] as? String, details: info, image: channelData?["icon"] as? String))
                         }
                     }
                 if self.channels.isEmpty{
@@ -117,8 +117,10 @@ extension ChannelListViewController: UITableViewDelegate, UITableViewDataSource{
     cell.titleLabel.text = channels[indexPath.row].name
     if !channels[indexPath.row].owner.isEmpty{
         cell.ownerData.text = channels[indexPath.row].owner
-    } else {
+    } else if channels[indexPath.row].details.isEmpty{
         cell.ownerData.text = "La sala acaba de ser creada"
+    } else {
+        cell.ownerData.text = "Desconocido"
     }
     if !channels[indexPath.row].image.isEmpty, let url = URL(string: channels[indexPath.row].image){
         cell.userIcon.kf.setImage(with: url)

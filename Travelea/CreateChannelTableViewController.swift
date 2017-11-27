@@ -99,6 +99,7 @@ class CreateChannelTableViewController: UIViewController, UINavigationController
             }
             self.indicator.stopAnimating()
             self.channelRef.child(id).child("icon").setValue(meta.downloadURL()?.absoluteString ?? meta.path ?? "")
+            self.channelRef.child(id).child("images").setValue([id: meta.downloadURL()?.absoluteString ?? meta.path ?? ""])
             UIAlertController.presentViewController(title: "Registro Exitoso", message: "La sala de chat se registro con exito", view: self, OkLabel: "Aceptar", successEvent: { evento in
                 _ = self.navigationController?.popViewController(animated: true)
             })
@@ -115,7 +116,7 @@ class CreateChannelTableViewController: UIViewController, UINavigationController
         usersRefHandle = usersRef.observe(.childAdded, with: { (snapshot) -> Void in
             let channelData = snapshot.value as! Dictionary<String, AnyObject>
             let id = snapshot.key
-            if let name = channelData["name"] as? String, name.characters.count > 0, id != CurrentUser.shared?._id ?? ""  {
+            if let name = channelData["username"] as? String, name.characters.count > 0, id != CurrentUser.shared?._id ?? ""  {
                 self.userslist.append(Users(id: id, name: name, image: channelData["icon"] as? String))
                 self.tableView.reloadData()
             }

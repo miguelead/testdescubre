@@ -29,9 +29,7 @@ class ChatViewController: UIViewController {
   
   @IBOutlet weak var chatBar: UITextField!
   @IBOutlet weak var tableView: UITableView!
-  @IBOutlet weak var checkInButtom: UIBarButtonItem!
-  @IBOutlet weak var cameraButtom: UIBarButtonItem!
-    
+
   var channelRef: DatabaseReference!
   fileprivate lazy var messageRef: DatabaseReference = self.channelRef.child("messages")
   fileprivate lazy var userIsTypingRef: DatabaseReference = self.channelRef.child("typingIndicator").child(CurrentUser.shared?._id ?? "")
@@ -82,8 +80,14 @@ class ChatViewController: UIViewController {
   private func observeMessages() {
     let messageQuery = messageRef.queryLimited(toLast:25)
     newMessageRefHandle = messageQuery.observe(.childAdded, with: { (snapshot) -> Void in
-      _ = snapshot.value as! Dictionary<String, String>
-    
+        let messageData = snapshot.value as! Dictionary<String, Any>
+        if let id = messageData["user_id"] as? String, let name = messageData["usuario"] as? String, let text = messageData["text"] as? String, text.characters.count > 0, let date =  messageData["date"] as? String{
+            self.messages.append(MessageContent(id: snapshot.key, user_id: id, mensaje: text, usuario: name, fecha: date))
+        } else if let id = messageData["user_id"] as? String, let name = messageData["usuario"] as? String, let date =  messageData["date"] as? String, let url = messageData["imagenUrl"] as? String  {
+            self.messages.append(MessageContent(id: snapshot.key, user_id: id, usuario: name, imagenUrl: url, fecha: date))
+        } else {
+            print("todavia no")
+        }
     })
     
   }
@@ -109,29 +113,30 @@ class ChatViewController: UIViewController {
     
     @IBAction func sendMenssage(_ sender: Any) {
        guard let user = CurrentUser.shared, let text = chatBar.text, !text.isEmpty  else {
-            UIAlertController.presentViewController(title: "Error", message: "No se pudo enviar el mensaje", view: self, OkLabel: "Aceptar", successEvent: { evento in
-                _ =  self.navigationController?.popViewController(animated: true)
-            })
+            UIAlertController.presentViewController(title: "Error", message: "No se pudo enviar el mensaje", view: self)
             return
         }
-      let message = messageRef.childByAutoId()
-      message
-              .setValue([ "text": text,
+      messageRef.childByAutoId().setValue([ "text": text,
                          "date": Date().formatDate(format: kFullTime2),
                          "user_id": user._id,
                          "user": user._username])
+        self.chatBar.resignFirstResponder()
+        self.chatBar.text = ""
+        AudioServicesPlaySystemSound(1001)
+        isTyping = false
+    }
+    
+    private func observeTyping() {
+        let typingIndicatorRef = channelRef!.child("typingIndicator")
+        userIsTypingRef = typingIndicatorRef.child(CurrentUser.shared?._id ?? "")
+        userIsTypingRef.onDisconnectRemoveValue()
+        usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqual(toValue: true)
+        
+        usersTypingQuery.observe(.value) { (data: DataSnapshot) in
+            if data.childrenCount == 1 && self.isTyping {
+                return
             }
-    
-  private func observeTyping() {
-    let typingIndicatorRef = channelRef!.child("typingIndicator")
-    userIsTypingRef = typingIndicatorRef.child(CurrentUser.shared?._id ?? "")
-    userIsTypingRef.onDisconnectRemoveValue()
-    usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqual(toValue: true)
-    
-    usersTypingQuery.observe(.value) { (data: DataSnapshot) in
-        if data.childrenCount == 1 && self.isTyping {
-            return
-        }
+            
         }
     }
 
@@ -181,8 +186,7 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
             return
         }
         let message = messageRef.childByAutoId()
-        let storageRef = Storage.storage().reference()
-        let riversRef = storageRef.child("channels/\(self.channel.id)/message/\(message.key).jpg")
+        let riversRef = Storage.storage().reference().child("channels/\(self.channel.id)/message/\(message.key).jpg")
         _ = riversRef.putData(data as Data, metadata: nil) { (metadata, error) in
             guard let meta = metadata else {
                 UIAlertController.presentViewController(title: "Error", message: "No se pudo enviar el mensaje", view: self, OkLabel: "Aceptar", successEvent: { evento in
@@ -195,13 +199,15 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
                          "date": Date().formatDate(format: kFullTime2),
                          "user_id": user._id,
                          "user": user._username])
+            self.channelRef.child("images").child(message.key).setValue(meta.downloadURL()?.absoluteString ?? meta.path ?? "")
+            AudioServicesPlaySystemSound(1001)
             }
+    
+    
   }
 }
 
-
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
-    // MARK: UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -213,20 +219,25 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let mensaje = messages[indexPath.row]
-        if let actualUser = CurrentUser.shared?._id, actualUser == mensaje.user_id{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "simpleMessageB", for: indexPath) as! SimpleMessageTableViewCell
-            cell.textInfo.text = mensaje.mensaje
-            cell.titlePrincipal.text = "Yo"
-            cell.starIcon.image = UIImage()
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "simpleMessageA", for: indexPath) as! SimpleMessageTableViewCell
-            cell.textInfo.text = mensaje.mensaje
-            cell.titlePrincipal.text = mensaje.usuario
-            cell.starIcon.image = UIImage()
-            return cell
+        let type = MessageContent.getType(body: mensaje, id: CurrentUser.shared?._id ?? "")
+        let separatorFlag: (Bool,Bool) = MessageContent.getFormatSeparator(list: messages, index: indexPath.row)
+        switch type {
+            case .checkIn(let type):
+                let cell = tableView.dequeueReusableCell(withIdentifier: "checkIn" + (type ? "B" : "A"), for: indexPath) as! CheckInMessageTableViewCell
+                cell.loadInfo(mensaje, actual: type, inicio: separatorFlag.0, final: separatorFlag.1)
+                return cell
+            case .board(let type, let punto):
+                let cell = tableView.dequeueReusableCell(withIdentifier: "tableroCell" + (type ? "B" : "A"), for: indexPath) as! puntodeinteresTableroCell
+                cell.configureCell(punto, lat: 0.0, lon: 0.0, userLabel: type ? "yo" : mensaje.usuario, inicio: separatorFlag.0)
+                return cell
+            case .image(let type):
+                let cell = tableView.dequeueReusableCell(withIdentifier: "photoMensaje" + (type ? "B" : "A"), for: indexPath) as! PhotoMessageTableViewCell
+                cell.loadInfo(mensaje, actual: type, inicio: separatorFlag.0, final: separatorFlag.1)
+                return cell
+            case .simple(let type):
+                let cell = tableView.dequeueReusableCell(withIdentifier: "simpleMessage" + (type ? "B" : "A"), for: indexPath) as! SimpleMessageTableViewCell
+                cell.loadInfo(mensaje, actual: type, inicio: separatorFlag.0, final: separatorFlag.1)
+                return cell
         }
-        
     }
-    
 }

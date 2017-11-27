@@ -120,19 +120,11 @@ class GuiaVirtualVC: UIViewController {
                 }
             }
             if self.listapuntodeinteres.isEmpty{
-                
                 let mensaje = (response["mensaje"] as? String ?? "No se han encontrado lugares con esos terminos") + "\n"
                     + (response["preguntaSimilar"] as? String ?? "")
-                
-                print(mensaje)
-                
                 self.addBackgroundImage(mensaje: mensaje)
             } else {
-                
                 self.tableView.backgroundView = nil
-             let mensajeparaimprimir = (response["mensaje"] as? String ?? "No se han encontrado lugares con esos terminos") + "\n" + (response["preguntaSimilar"] as? String ?? "")
-                
-                print (mensajeparaimprimir)
             }
             self.tableView.reloadData()
         }

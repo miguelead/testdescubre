@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import CoreLocation
+import AVFoundation
 
 class TableroViewController: UIViewController {
 

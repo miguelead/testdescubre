@@ -37,6 +37,7 @@ class ChatMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = channels.name
+        self.navigationController?.navigationBar.tintColor = UIColor.hexStringToUIColor(hex: "11A791")
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.selectorTab.selectedSegmentIndex = 1
         self.updateView(forSegment: 1)

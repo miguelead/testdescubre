@@ -69,9 +69,11 @@ class PefilTVC: UITableViewController {
     
     
     func actualizarAPI(opcion: Int, actualizar: Bool) {
-      
+        guard let user = CurrentUser.shared else{
+            return
+        }
         var body:[String: Any] = [:]
-        body["user_id"] = 6
+        body["user_id"] = user._uid
         if opcion == 1 {
             if actualizar == true{
                 body["notification_flag_sites"] = 1
