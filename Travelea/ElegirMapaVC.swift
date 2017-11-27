@@ -44,7 +44,7 @@ class ElegirMapaVC: UIViewController, CLLocationManagerDelegate {
         
         if delegate != nil {
             delegate?.confirmarElegirCiudad(data: filtroSeleccionado)
-            self.navigationController?.popViewController(animated: true)
+            _ = self.navigationController?.popViewController(animated: true)
         }
         
         

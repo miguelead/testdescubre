@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+<<<<<<< HEAD:Travelea/Info.plist
+=======
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Para poder agregar subir imagenes que se usaran solo dentro de la app</string>
+>>>>>>> 3d1664f55821c5a8f0fecfeb21bfb71cac3418a6:Travelea/Info.plist
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>

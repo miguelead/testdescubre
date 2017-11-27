@@ -16,7 +16,11 @@ import Alamofire
 class RegistroViewController: UIViewController {
 
     @IBOutlet weak var navBar: UINavigationBar!
+<<<<<<< HEAD
     @IBOutlet weak var name: UITextField!
+=======
+    @IBOutlet weak var repeat_password: UITextField!
+>>>>>>> 3d1664f55821c5a8f0fecfeb21bfb71cac3418a6
     @IBOutlet weak var mail: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var username: UITextField!
@@ -38,7 +42,12 @@ class RegistroViewController: UIViewController {
         if let mail = mail.text, !mail.isEmpty,
             let password = password.text, !password.isEmpty,
             let username = username.text, !username.isEmpty,
+<<<<<<< HEAD
             let name = name.text, !name.isEmpty{
+=======
+            let repeat_password = repeat_password.text, !repeat_password.isEmpty,
+            repeat_password == password{
+>>>>>>> 3d1664f55821c5a8f0fecfeb21bfb71cac3418a6
             self.indicadorView.startAnimating()
             Auth.auth().createUser(withEmail: mail, password: password) { (user, error) in
                 guard let user = user, error == nil else {
@@ -51,6 +60,7 @@ class RegistroViewController: UIViewController {
                 changeRequest?.displayName = username
                 changeRequest?.commitChanges { _ in }
                 let ref = Database.database().reference()
+<<<<<<< HEAD
                 var content = ["name": name , "FirstTime": false,"username": username, "mail": mail] as [String : Any]
                 if let url = user.photoURL{
                     content["icon"] = url.absoluteString
@@ -58,6 +68,11 @@ class RegistroViewController: UIViewController {
                  ref.child("users").child(user.uid).setValue(content)
                 CurrentUser.shared = CurrentUser(user: user, customData: ["name": name])
                 
+=======
+                var content = ["FirstTime": false,"username": username, "mail": mail, "puntos": 0, "checkIn": 0, "guardados":0] as [String : Any]
+                 ref.child("users").child(user.uid).setValue(content)
+                CurrentUser.shared = CurrentUser(user: user, customData: ["puntos": 0, "checkIn": 0, "guardados":0])
+>>>>>>> 3d1664f55821c5a8f0fecfeb21bfb71cac3418a6
                 let body: [String: Any] = [
                     "email": mail,
                     "username": username,
@@ -99,8 +114,13 @@ extension RegistroViewController{
                         } catch let signOutError as NSError {
                             print ("Error signing out: %@", signOutError)
                         }
+<<<<<<< HEAD
                     })
                     CurrentUser.shared = nil
+=======
+                        dismiss(animated: true, completion: nil)
+                    })
+>>>>>>> 3d1664f55821c5a8f0fecfeb21bfb71cac3418a6
                     return
             }
             CurrentUser.shared?._uid = "\(userId)"

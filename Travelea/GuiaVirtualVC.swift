@@ -120,18 +120,28 @@ class GuiaVirtualVC: UIViewController {
                 }
             }
             if self.listapuntodeinteres.isEmpty{
-                self.addBackgroundImage()
+                
+                let mensaje = (response["mensaje"] as? String ?? "No se han encontrado lugares con esos terminos") + "\n"
+                    + (response["preguntaSimilar"] as? String ?? "")
+                
+                print(mensaje)
+                
+                self.addBackgroundImage(mensaje: mensaje)
             } else {
+                
                 self.tableView.backgroundView = nil
+             let mensajeparaimprimir = (response["mensaje"] as? String ?? "No se han encontrado lugares con esos terminos") + "\n" + (response["preguntaSimilar"] as? String ?? "")
+                
+                print (mensajeparaimprimir)
             }
             self.tableView.reloadData()
         }
         }
     
-    func addBackgroundImage(){
+    func addBackgroundImage(mensaje: String = "No se han encontrado lugares con esos terminos"){
         let image = #imageLiteral(resourceName: "hifivalen25-8").withRenderingMode(.alwaysTemplate)
         let topMessage = "¿Necesitas ayuda?"
-        let bottomMessage = "No se han encontrado lugares con esos terminos"
+        let bottomMessage = mensaje
         let emptyBackgroundView = EmptyBackgroundView(image: image, top: topMessage, bottom: bottomMessage)
         self.tableView.backgroundView = emptyBackgroundView
     }

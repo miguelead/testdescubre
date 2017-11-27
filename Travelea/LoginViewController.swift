@@ -90,6 +90,7 @@ class LoginViewController: UIViewController {
             }
             let ref = Database.database().reference()
             ref.child("users").child(user.uid).observeSingleEvent(of: .value, with: { snapshot in
+<<<<<<< HEAD
                  var customData: [String:Any] = [:]
                 let value = snapshot.value as? NSDictionary
                 if let name = value?["name"]{
@@ -101,6 +102,17 @@ class LoginViewController: UIViewController {
                     if let url = user.photoURL{
                         content["icon"] = url.absoluteString
                     }
+=======
+                var customData: [String:Any] = [:]
+                let value = snapshot.value as? NSDictionary
+                customData["puntos"] = value?["puntos"] as? Int ?? 0
+                customData["checkIn"] = value?["checkIn"] as? Int ?? 0
+                customData["guardados"] = value?["guardados"] as? Int ?? 0
+                
+                CurrentUser.shared = CurrentUser(user: user, customData: customData)
+                if value?["FirstTime"] == nil{
+                    var content = ["FirstTime": false,"username": user.displayName ?? "","mail": mail, "puntos": 0, "checkIn": 0, "guardados":0] as [String : Any]
+>>>>>>> 3d1664f55821c5a8f0fecfeb21bfb71cac3418a6
                     ref.child("users").child(user.uid).setValue(content)
                 }
                 let body: [String: Any] = [
@@ -139,6 +151,7 @@ class LoginViewController: UIViewController {
                 ref.child("users").child(user.uid).observeSingleEvent(of: .value, with: { snapshot in
                     var customData: [String:Any] = [:]
                     let value = snapshot.value as? NSDictionary
+<<<<<<< HEAD
                     if let name = value?["name"]{
                         customData["name"] = name
                     }
@@ -146,6 +159,15 @@ class LoginViewController: UIViewController {
                     let body: [String: Any] = [
                         "email": mail,
                         "username": user.displayName ?? customData["name"] ?? "",
+=======
+                    customData["puntos"] = value?["puntos"] as? Int ?? 0
+                    customData["checkIn"] = value?["checkIn"] as? Int ?? 0
+                    customData["guardados"] = value?["guardados"] as? Int ?? 0
+                    CurrentUser.shared = CurrentUser(user: user, customData: customData)
+                    let body: [String: Any] = [
+                        "email": mail,
+                        "username": user.displayName ?? "",
+>>>>>>> 3d1664f55821c5a8f0fecfeb21bfb71cac3418a6
                         "firebase_token": user.uid,
                         "lat": self.locationActual.latitude,
                         "lng": self.locationActual.longitude]
@@ -193,6 +215,10 @@ extension LoginViewController{
             self.loadingView.stopAnimating()
             if let firstTime = value?["FirstTime"] as? Bool, firstTime{
                 AppDelegate.getAppDelegate().registerForPushNotifications()
+<<<<<<< HEAD
+=======
+                AppDelegate.getAppDelegate().setBackgroundManagerLocation()
+>>>>>>> 3d1664f55821c5a8f0fecfeb21bfb71cac3418a6
                 self.performSegue(withIdentifier: "sucessfulLogin", sender: nil)
             } else {
                 self.performSegue(withIdentifier: "facebookEndRegister", sender: nil)

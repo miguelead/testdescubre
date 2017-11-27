@@ -12,12 +12,21 @@ import FirebaseMessaging
 import FBSDKCoreKit
 import UserNotifications
 import IQKeyboardManagerSwift
+<<<<<<< HEAD
+=======
+import SwiftBackgroundLocation
+>>>>>>> 3d1664f55821c5a8f0fecfeb21bfb71cac3418a6
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
+<<<<<<< HEAD
+=======
+    var locationManager = TrackingHeadingLocationManager()
+    var backgroundLocationManager = BackgroundLocationManager(regionConfig: RegionConfig(regionRadius: 200.0))
+>>>>>>> 3d1664f55821c5a8f0fecfeb21bfb71cac3418a6
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
@@ -27,6 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         if let window = window, CurrentUser.shared != nil{
             self.registerForPushNotifications()
+<<<<<<< HEAD
+=======
+            self.setBackgroundManagerLocation()
+>>>>>>> 3d1664f55821c5a8f0fecfeb21bfb71cac3418a6
             window.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabMainController")
         }
         return true
@@ -40,6 +53,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     class func getAppDelegate() -> AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
+<<<<<<< HEAD
+=======
+
+    func setBackgroundManagerLocation(){
+        locationManager.manager(for: .always, completion: { result in
+            if case let .Success(manager) = result {
+                manager.startUpdatingLocation(isHeadingEnabled: true) { result in
+                    if case let .Success(locationHeading) = result, let location = locationHeading.location {
+                        PushNotificationService.updateLocationDevice(lat: location.coordinate.latitude, long: location.coordinate.longitude)
+                    }
+                }
+            }
+
+        })
+    }
+
+>>>>>>> 3d1664f55821c5a8f0fecfeb21bfb71cac3418a6
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate{

@@ -519,9 +519,15 @@
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <color key="backgroundColor" red="0.0" green="0.69521206619999998" blue="0.61002546550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
+<<<<<<< HEAD
                                     <barButtonItem title="Item" width="30" style="plain" id="mEG-Bo-Ytp">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="TVN-Ah-lGy">
                                             <rect key="frame" x="16" y="9.5" width="30" height="25"/>
+=======
+                                    <barButtonItem title="Item" width="27" style="plain" id="mEG-Bo-Ytp">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="TVN-Ah-lGy">
+                                            <rect key="frame" x="16" y="9.5" width="27" height="25"/>
+>>>>>>> 3d1664f55821c5a8f0fecfeb21bfb71cac3418a6
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <state key="normal" image="check21">
@@ -536,7 +542,11 @@
                                     <barButtonItem width="1" style="plain" systemItem="fixedSpace" id="SHx-IJ-5Pw"/>
                                     <barButtonItem style="plain" id="pYB-Cw-tjM">
                                         <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="14" id="Shi-n8-eY3">
+<<<<<<< HEAD
                                             <rect key="frame" x="57" y="7" width="180" height="30"/>
+=======
+                                            <rect key="frame" x="54" y="7" width="180" height="30"/>
+>>>>>>> 3d1664f55821c5a8f0fecfeb21bfb71cac3418a6
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -544,11 +554,19 @@
                                         </textField>
                                     </barButtonItem>
                                     <barButtonItem width="1" style="plain" systemItem="fixedSpace" id="qqX-fH-R8C"/>
+<<<<<<< HEAD
                                     <barButtonItem image="enviar" style="plain" id="fh0-PQ-tSH">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bOp-Hb-l4e">
                                             <rect key="frame" x="248" y="9.5" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button" image="enviar"/>
+=======
+                                    <barButtonItem image="enviar" width="27" style="plain" id="fh0-PQ-tSH">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bOp-Hb-l4e">
+                                            <rect key="frame" x="245" y="9.5" width="27" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="enviar"/>
+>>>>>>> 3d1664f55821c5a8f0fecfeb21bfb71cac3418a6
                                         </button>
                                         <connections>
                                             <action selector="sendMenssage:" destination="FXa-5c-9jU" id="YJA-Ov-aAa"/>
@@ -557,7 +575,11 @@
                                     <barButtonItem title="Item" width="27" style="plain" id="DD1-ib-DUU">
                                         <inset key="imageInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8g7-lC-z29">
+<<<<<<< HEAD
                                             <rect key="frame" x="283" y="9.5" width="27" height="25"/>
+=======
+                                            <rect key="frame" x="282" y="9.5" width="27" height="25"/>
+>>>>>>> 3d1664f55821c5a8f0fecfeb21bfb71cac3418a6
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <state key="normal" image="hifivalen08"/>
