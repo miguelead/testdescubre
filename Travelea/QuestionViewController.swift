@@ -102,6 +102,7 @@ class QuestionViewController: UIViewController {
             let ref = Database.database().reference()
             ref.child("users/\(user._id)/FirstTime").setValue(true)
             AppDelegate.getAppDelegate().registerForPushNotifications()
+            AppDelegate.getAppDelegate().setBackgroundManagerLocation()
             self.performSegue(withIdentifier: "sucessfulLogin", sender: nil)
         }
     }

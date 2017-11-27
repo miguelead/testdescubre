@@ -38,9 +38,9 @@ class PefilTVC: UITableViewController {
         if let url = CurrentUser.shared?._userPhoto {
             self.avatarImg.kf.setImage(with: url)
         }
-        self.checkIn.text = "0"
-        self.puntos.text = "0"
-        self.visitas.text = "0"
+        self.checkIn.text = "\(CurrentUser.shared?._checkIn ?? 0)"
+        self.puntos.text = "\(CurrentUser.shared?._puntos ?? 0)"
+        self.visitas.text = "\(CurrentUser.shared?._guardados ?? 0)"
         
     }
     

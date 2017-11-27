@@ -14,7 +14,6 @@ class RutaDeInteres {
     var _titulo: String
     var _categoria: String
     var _autor: String
-  
     var _photo : String
     
     init(ROIId: Int, titulo: String, categoria: String, autor: String, photo: String){

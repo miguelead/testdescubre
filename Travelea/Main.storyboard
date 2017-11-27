@@ -298,13 +298,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="97Z-zw-she">
                                 <rect key="frame" x="32" y="146" width="256" height="34.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre real" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkg-n4-2J2">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repita la contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkg-n4-2J2">
                                         <rect key="frame" x="0.0" y="0.0" width="69.5" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" restorationIdentifier="real_name" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="us4-hE-pCS">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" restorationIdentifier="repeat_password" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="us4-hE-pCS">
                                         <rect key="frame" x="0.0" y="15.5" width="256" height="17"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -417,7 +417,7 @@
                     <connections>
                         <outlet property="indicadorView" destination="Y4s-Nx-Vbx" id="N70-SA-M7K"/>
                         <outlet property="mail" destination="nre-OA-Jze" id="j9r-wG-TTh"/>
-                        <outlet property="name" destination="us4-hE-pCS" id="39M-RJ-IY8"/>
+                        <outlet property="repeat_password" destination="us4-hE-pCS" id="39M-RJ-IY8"/>
                         <outlet property="navBar" destination="hvN-rw-fN8" id="bOv-PT-5KO"/>
                         <outlet property="password" destination="5nS-l4-msE" id="r0s-Em-1x0"/>
                         <outlet property="username" destination="0hO-pP-h4T" id="frC-zu-UXM"/>

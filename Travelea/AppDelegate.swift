@@ -12,12 +12,15 @@ import FirebaseMessaging
 import FBSDKCoreKit
 import UserNotifications
 import IQKeyboardManagerSwift
+import SwiftBackgroundLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
+    var locationManager = TrackingHeadingLocationManager()
+    var backgroundLocationManager = BackgroundLocationManager(regionConfig: RegionConfig(regionRadius: 200.0))
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
@@ -27,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         if let window = window, CurrentUser.shared != nil{
             self.registerForPushNotifications()
+            self.setBackgroundManagerLocation()
             window.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabMainController")
         }
         return true
@@ -40,6 +44,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     class func getAppDelegate() -> AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
+
+    func setBackgroundManagerLocation(){
+        locationManager.manager(for: .always, completion: { result in
+            if case let .Success(manager) = result {
+                manager.startUpdatingLocation(isHeadingEnabled: true) { result in
+                    if case let .Success(locationHeading) = result, let location = locationHeading.location {
+                        PushNotificationService.updateLocationDevice(lat: location.coordinate.latitude, long: location.coordinate.longitude)
+                    }
+                }
+            }
+
+        })
+    }
+
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate{

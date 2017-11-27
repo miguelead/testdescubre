@@ -34,7 +34,6 @@ class ChatViewController: UIViewController {
     
   var channelRef: DatabaseReference!
   fileprivate lazy var messageRef: DatabaseReference = self.channelRef.child("messages")
-  fileprivate lazy var storageRef: StorageReference = Storage.storage().reference(forURL: "gs://testfirebase-bcb3a.appspot.com")
   fileprivate lazy var userIsTypingRef: DatabaseReference = self.channelRef.child("typingIndicator").child(CurrentUser.shared?._id ?? "")
   fileprivate lazy var usersTypingQuery: DatabaseQuery = self.channelRef.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
 
@@ -45,11 +44,7 @@ class ChatViewController: UIViewController {
     
   fileprivate var messages: [MessageContent] = []
   fileprivate var localTyping = false
-  var channel: Channel? {
-    didSet {
-      title = channel?.name
-    }
-  }
+  var channel: Channel!
 
   var isTyping: Bool {
     get {
@@ -98,9 +93,33 @@ class ChatViewController: UIViewController {
     
     
     @IBAction func eventCamera(_ sender: Any) {
+       if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.navigationBar.tintColor = UIColor.hexStringToUIColor(hex: "07B49F")
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = true
+            imagePicker.modalPresentationStyle = .overFullScreen
+            self.present(imagePicker, animated: true, completion: nil)
+        } else {
+            UIAlertController.presentViewController(title: "", message: "La aplicacion no posee el permiso de la galeria, activalo en configuraciones", view: self)
+        }
     }
     
     @IBAction func sendMenssage(_ sender: Any) {
+       guard let user = CurrentUser.shared else {
+            UIAlertController.presentViewController(title: "Error", message: "No se pudo enviar el mensaje", view: self, OkLabel: "Aceptar", successEvent: { evento in
+                _ =  self.navigationController?.popViewController(animated: true)
+            })
+            return
+        }
+      let message = messageRef.childByAutoId()
+      self.message
+              .setValue(["imagenUrl": meta.downloadURL()?.absoluteString ?? meta.path ?? "",
+                         "date": Date().formatDate(format: kFullTime2),
+                         "user_id": user_id,
+                         "user": user._username])
+            }
     }
   
   private func observeTyping() {
@@ -132,15 +151,51 @@ extension ChatViewController: UITextFieldDelegate{
 }
 
 
-// MARK: Image Picker Delegate
+// MARK: Image Picker Delegate -- Event with Image
 extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
   func imagePickerController(_ picker: UIImagePickerController,
                              didFinishPickingMediaWithInfo info: [String : Any]) {
+    var chosenImage : UIImage? = nil
+        if let chosenEditedImage = info[UIImagePickerControllerEditedImage] as? UIImage{
+            chosenImage = chosenEditedImage
+        }else if let chosenOriginalImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            chosenImage = chosenOriginalImage
+        }
+        if let chosenImage = chosenImage{
+          self.uploadImage(image: chosenImage)
+        }
     picker.dismiss(animated: true, completion:nil)
 }
 
   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
     picker.dismiss(animated: true, completion:nil)
+  }
+
+ func uploadImage(image: UIImage){
+        guard let data = UIImagePNGRepresentation(image) as NSData?, let user = CurrentUser.shared else {
+            UIAlertController.presentViewController(title: "Error", message: "No se pudo enviar el mensaje", view: self, OkLabel: "Aceptar", successEvent: { evento in
+                _ =  self.navigationController?.popViewController(animated: true)
+            })
+            return
+        }
+        let message = messageRef.childByAutoId()
+        let storageRef = Storage.storage().reference()
+        let riversRef = storageRef.child("channels/\(self.channel.id)/message/\(message.key).jpg")
+        _ = riversRef.putData(data as Data, metadata: nil) { (metadata, error) in
+            guard let meta = metadata else {
+                UIAlertController.presentViewController(title: "Error", message: "No se pudo enviar el mensaje", view: self, OkLabel: "Aceptar", successEvent: { evento in
+                    _ = self.navigationController?.popViewController(animated: true)
+                })
+                return
+            }
+
+            self.message
+              .setValue(["imagenUrl": meta.downloadURL()?.absoluteString ?? meta.path ?? "",
+                         "date": Date().formatDate(format: kFullTime2),
+                         "user_id": user_id,
+                         "user": user._username])
+            }
   }
 }
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
@@ -162,7 +217,6 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
             cell.titlePrincipal.text = "Yo"
             cell.starIcon.image = UIImage()
             return cell
-            
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "simpleMessageA", for: indexPath) as! SimpleMessageTableViewCell
             cell.textInfo.text = mensaje.mensaje

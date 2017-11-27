@@ -37,6 +37,9 @@ class puntodeinteresTableroCell: UITableViewCell {
             self.distancia.text = "\(distanciaMetros)m"
         }
         
+        if !puntodeinteres._photo.isEmpty,let url = URL(string: puntodeinteres._photo){
+            self.imageLugar.kf.setImage(with: url)
+        }
         likesCount.text = "\(self.puntodeinteres._likes)"
         
         if !self.puntodeinteres._date.isEmpty{
