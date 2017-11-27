@@ -20,7 +20,7 @@ class rutacell: UITableViewCell {
         self.puntoderuta = puntoderuta
         titulo.text = self.puntoderuta._titulo
         categoria.text = self.puntoderuta._categoria
-        autor.text = self.puntoderuta._autor
+        autor.text = self.puntoderuta._autor + " , " + self.puntoderuta._autorcat
         if !puntoderuta._photo.isEmpty, let url = URL(string: puntoderuta._photo){
             self.imagenLugar.kf.setImage(with: url)
         }

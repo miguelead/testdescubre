@@ -14,12 +14,15 @@ class RutaDeInteres {
     var _titulo: String
     var _categoria: String
     var _autor: String
+    var _autorcat : String
     var _photo : String
     
-    init(ROIId: Int, titulo: String, categoria: String, autor: String, photo: String){
+    
+    init(ROIId: Int, titulo: String, categoria: String, autor: String, autorcat: String, photo: String){
         _ROIId = ROIId
         _titulo = titulo
         _autor = autor
+        _autorcat = autorcat
         _categoria = categoria
         _photo = photo
     }

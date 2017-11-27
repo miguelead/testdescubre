@@ -28,6 +28,43 @@ class PuntoDeInteresDetalleVC: UIViewController {
     var punto: PuntoDeInteres!
     var distanciaActual: CLLocationCoordinate2D!
     
+    @IBAction func testCheckin(_ sender: Any) {
+    
+            let user_id = CurrentUser.shared?._uid
+            var body:[String: Any] = [:]
+            body["comment"] = "test"
+            body["tourist_id"] = user_id
+            body["poi_id"] = self.punto._POIId
+        
+        
+            let ruta = KRutaMain + "/perfil/API/checkin/"
+//            self.loading.startAnimating()
+            Alamofire.request(ruta, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+//                self.loading.stopAnimating()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                guard 200...300 ~= (response.response?.statusCode ?? -999)
+                    else {
+                        UIAlertController.presentViewController(title: "Error", message: "No se pudo hacer Check In en el sitio", view: self)
+                        return
+                }
+                
+                UIAlertController.presentViewController(title: "", message: "¡Felicidades haz hecho Check In en el lugar!", view: self, successEvent: {_ in
+                    print("test")
+                
+                
+                })
+            }
+        
+    
+    }
+    
+
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if punto._bookmark{

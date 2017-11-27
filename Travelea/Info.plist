@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Para poder agregar subir imagenes que se usaran solo dentro de la app</string>
-	<key>FirebaseAppDelegateProxyEnabled</key>
-	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>es</string>
 	<key>CFBundleDisplayName</key>
@@ -39,6 +35,8 @@
 	<string>1943949852525448</string>
 	<key>FacebookDisplayName</key>
 	<string>Travelea</string>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<true/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -57,6 +55,8 @@
 	<string>Para poder enviarte notificaciones de lugares cheveres!</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Para poder recomendarte lugares cerca de ti</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Para poder agregar subir imagenes que se usaran solo dentro de la app</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
