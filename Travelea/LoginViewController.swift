@@ -98,7 +98,7 @@ class LoginViewController: UIViewController {
                 
                 CurrentUser.shared = CurrentUser(user: user, customData: customData)
                 if value?["FirstTime"] == nil{
-                    var content = ["FirstTime": false,"username": user.displayName ?? "","mail": mail, "puntos": 0, "checkIn": 0, "guardados":0] as [String : Any]
+                    let content = ["FirstTime": false,"username": user.displayName ?? "","mail": mail, "puntos": 0, "checkIn": 0, "guardados":0] as [String : Any]
                     ref.child("users").child(user.uid).setValue(content)
                 }
                 let body: [String: Any] = [

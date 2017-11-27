@@ -64,7 +64,7 @@ class PuntoDeInteresDetalleVC: UIViewController {
         } else {
             self.distanciaLbl.text = "\(distanciaMetros)m"
         }
-        if !punto._photo.isEmpty, let url = URL(punto._photo){
+        if !punto._photo.isEmpty, let url = URL(string: punto._photo){
             self.imagenLugar.kf.setImage(with: url)
         }
         self.categoriaLbl.text = punto._categoria

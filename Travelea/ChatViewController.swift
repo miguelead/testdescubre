@@ -108,17 +108,17 @@ class ChatViewController: UIViewController {
     }
     
     @IBAction func sendMenssage(_ sender: Any) {
-       guard let user = CurrentUser.shared else {
+       guard let user = CurrentUser.shared, let text = chatBar.text, !text.isEmpty  else {
             UIAlertController.presentViewController(title: "Error", message: "No se pudo enviar el mensaje", view: self, OkLabel: "Aceptar", successEvent: { evento in
                 _ =  self.navigationController?.popViewController(animated: true)
             })
             return
         }
       let message = messageRef.childByAutoId()
-      self.message
-              .setValue(["imagenUrl": meta.downloadURL()?.absoluteString ?? meta.path ?? "",
+      message
+              .setValue([ "text": text,
                          "date": Date().formatDate(format: kFullTime2),
-                         "user_id": user_id,
+                         "user_id": user._id,
                          "user": user._username])
             }
     
@@ -191,10 +191,9 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
                 return
             }
 
-            self.message
-              .setValue(["imagenUrl": meta.downloadURL()?.absoluteString ?? meta.path ?? "",
+            message.setValue(["imagenUrl": meta.downloadURL()?.absoluteString ?? meta.path ?? "",
                          "date": Date().formatDate(format: kFullTime2),
-                         "user_id": user_id,
+                         "user_id": user._id,
                          "user": user._username])
             }
   }

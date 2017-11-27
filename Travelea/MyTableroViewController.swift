@@ -14,7 +14,7 @@ class MyTableroViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var userId: String!
-    fileprivate lazy var boardRef: DatabaseReference = Database.database().reference().child("users").child(userId).child("board")
+    fileprivate lazy var boardRef: DatabaseReference = Database.database().reference().child("users")
     fileprivate lazy var placeRef: DatabaseReference = Database.database().reference().child("places_register")
     var listapuntodeinteres: [PuntoDeInteresTablero] = []
     fileprivate var channelRefHandle: DatabaseHandle?
@@ -51,8 +51,9 @@ class MyTableroViewController: UIViewController {
     }
     
     private func observeChannels() {
-        channelRefHandle = boardRef.observe(.value, with: { (snapshots) in
+        channelRefHandle = boardRef.child(userId).child("board").observe(.value, with: { (snapshots) in
             self.listapuntodeinteres = []
+            let child_info = snapshots.value as? Dictionary<String, AnyObject>
             for child in snapshots.children.allObjects  as? [DataSnapshot] ?? []{
                 self.channel_placeRefHandle = self.placeRef.child(child.key).observe(.value, with: { (snapshot) -> Void in
                     let tableData = snapshot.value as? Dictionary<String, AnyObject>

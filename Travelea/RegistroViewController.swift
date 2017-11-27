@@ -52,7 +52,7 @@ class RegistroViewController: UIViewController {
                 changeRequest?.displayName = username
                 changeRequest?.commitChanges { _ in }
                 let ref = Database.database().reference()
-                var content = ["FirstTime": false,"username": username, "mail": mail, "puntos": 0, "checkIn": 0, "guardados":0] as [String : Any]
+                let content = ["FirstTime": false,"username": username, "mail": mail, "puntos": 0, "checkIn": 0, "guardados":0] as [String : Any]
                  ref.child("users").child(user.uid).setValue(content)
                 CurrentUser.shared = CurrentUser(user: user, customData: ["puntos": 0, "checkIn": 0, "guardados":0])
                 let body: [String: Any] = [
@@ -96,7 +96,7 @@ extension RegistroViewController{
                         } catch let signOutError as NSError {
                             print ("Error signing out: %@", signOutError)
                         }
-                        dismiss(animated: true, completion: nil)
+                        self.dismiss(animated: true, completion: nil)
                     })
                     return
             }
