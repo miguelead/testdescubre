@@ -1,5 +1,5 @@
 //
-//  TableroViewController.swift
+//  MyTableroViewController.swift
 //  Travelea
 //
 //  Created by Momentum Lab 1 on 11/23/17.
@@ -13,7 +13,7 @@ import CoreLocation
 class MyTableroViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var userId:String!
+    var userId: String!
     fileprivate lazy var boardRef: DatabaseReference = Database.database().reference().child("users").child(userId).child("board")
     fileprivate lazy var placeRef: DatabaseReference = Database.database().reference().child("places_register")
     var listapuntodeinteres: [PuntoDeInteresTablero] = []

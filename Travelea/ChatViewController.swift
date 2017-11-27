@@ -60,6 +60,8 @@ class ChatViewController: UIViewController {
     super.viewDidLoad()
     self.chatBar.delegate = self
     self.navigationController?.navigationBar.tintColor = UIColor.hexStringToUIColor(hex: "01B29D")
+    self.tableView.rowHeight = UITableViewAutomaticDimension
+    self.tableView.estimatedRowHeight = 500
     observeMessages()
   }
   
@@ -78,9 +80,7 @@ class ChatViewController: UIViewController {
   }
   
   private func observeMessages() {
-    messageRef = channelRef!.child("messages")
     let messageQuery = messageRef.queryLimited(toLast:25)
-    
     newMessageRefHandle = messageQuery.observe(.childAdded, with: { (snapshot) -> Void in
       _ = snapshot.value as! Dictionary<String, String>
     
@@ -89,6 +89,7 @@ class ChatViewController: UIViewController {
   }
     
     @IBAction func eventCheckIn(_ sender: Any) {
+        UIAlertController.presentViewController(title: "", message: "No hay ningun lugar disponible para hacer checkIn", view: self)
     }
     
     
@@ -120,8 +121,7 @@ class ChatViewController: UIViewController {
                          "user_id": user_id,
                          "user": user._username])
             }
-    }
-  
+    
   private func observeTyping() {
     let typingIndicatorRef = channelRef!.child("typingIndicator")
     userIsTypingRef = typingIndicatorRef.child(CurrentUser.shared?._id ?? "")
@@ -134,6 +134,7 @@ class ChatViewController: UIViewController {
         }
         }
     }
+
 }
   
  
@@ -198,6 +199,8 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
             }
   }
 }
+
+
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
     // MARK: UITableViewDataSource
     
@@ -227,8 +230,4 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
         
     }
     
-    // MARK: UITableViewDelegate
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    }
 }

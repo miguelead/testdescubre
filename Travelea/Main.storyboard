@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G17023" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9iZ-f0-kav">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G1036" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9iZ-f0-kav">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -104,8 +104,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spF-T2-WkF">
-                                        <rect key="frame" x="64" y="274.5" width="30.5" height="16.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spF-T2-WkF">
+                                        <rect key="frame" x="64" y="274.5" width="39.5" height="16.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -265,16 +265,16 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="0P0-KY-je5">
-                                <rect key="frame" x="32.5" y="90" width="256" height="41.5"/>
+                                <rect key="frame" x="32.5" y="90" width="256" height="44.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre de usuario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDj-yW-ltY">
-                                        <rect key="frame" x="0.0" y="0.0" width="108" height="14.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="105.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="username" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0hO-pP-h4T">
-                                        <rect key="frame" x="0.0" y="15.5" width="256" height="17"/>
+                                        <rect key="frame" x="0.0" y="17.5" width="256" height="17"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -283,7 +283,7 @@
                                         </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ub7-fb-l9l">
-                                        <rect key="frame" x="0.0" y="40.5" width="256" height="1"/>
+                                        <rect key="frame" x="0.0" y="43.5" width="256" height="1"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="eEK-9q-iyf"/>
@@ -295,48 +295,17 @@
                                     <constraint firstItem="ub7-fb-l9l" firstAttribute="width" secondItem="0hO-pP-h4T" secondAttribute="width" id="htO-eS-uW8"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="97Z-zw-she">
-                                <rect key="frame" x="32" y="146" width="256" height="34.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repita la contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkg-n4-2J2">
-                                        <rect key="frame" x="0.0" y="0.0" width="69.5" height="14.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" restorationIdentifier="repeat_password" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="us4-hE-pCS">
-                                        <rect key="frame" x="0.0" y="15.5" width="256" height="17"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="guU-av-ZTK" id="V7H-YQ-hGw"/>
-                                        </connections>
-                                    </textField>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4mK-F2-xjL">
-                                        <rect key="frame" x="0.0" y="33.5" width="256" height="1"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="aEq-OP-U3J"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="us4-hE-pCS" firstAttribute="width" secondItem="97Z-zw-she" secondAttribute="width" id="2bj-4i-mKg"/>
-                                    <constraint firstItem="4mK-F2-xjL" firstAttribute="width" secondItem="us4-hE-pCS" secondAttribute="width" id="DXf-2f-UyM"/>
-                                </constraints>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="hP6-i6-09D">
-                                <rect key="frame" x="32" y="195.5" width="256" height="34.5"/>
+                                <rect key="frame" x="32.5" y="144.5" width="256" height="36.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="correo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wz-c4-Qcl">
-                                        <rect key="frame" x="0.0" y="0.0" width="37" height="14.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="35.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nre-OA-Jze">
-                                        <rect key="frame" x="0.0" y="15.5" width="256" height="17"/>
+                                        <rect key="frame" x="0.0" y="17.5" width="256" height="17"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -345,7 +314,7 @@
                                         </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9OS-SS-C58">
-                                        <rect key="frame" x="0.0" y="33.5" width="256" height="1"/>
+                                        <rect key="frame" x="0.0" y="35.5" width="256" height="1"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="zP6-21-sNf"/>
@@ -358,16 +327,16 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="aJk-eL-tTW">
-                                <rect key="frame" x="32" y="245" width="256" height="34.5"/>
+                                <rect key="frame" x="32.5" y="196" width="256" height="36.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HjW-0v-fp4">
-                                        <rect key="frame" x="0.0" y="0.0" width="65" height="14.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5nS-l4-msE">
-                                        <rect key="frame" x="0.0" y="15.5" width="256" height="17"/>
+                                        <rect key="frame" x="0.0" y="17.5" width="256" height="17"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -376,7 +345,7 @@
                                         </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKV-KM-8Hx">
-                                        <rect key="frame" x="0.0" y="33.5" width="256" height="1"/>
+                                        <rect key="frame" x="0.0" y="35.5" width="256" height="1"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="k9D-Nz-iIJ"/>
@@ -392,13 +361,43 @@
                                 <rect key="frame" x="141.5" y="221.5" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="97Z-zw-she">
+                                <rect key="frame" x="32.5" y="242.5" width="256" height="36.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repita la contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkg-n4-2J2">
+                                        <rect key="frame" x="0.0" y="0.0" width="110.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" restorationIdentifier="repeat_password" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="us4-hE-pCS">
+                                        <rect key="frame" x="0.0" y="17.5" width="256" height="17"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="guU-av-ZTK" id="V7H-YQ-hGw"/>
+                                        </connections>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4mK-F2-xjL">
+                                        <rect key="frame" x="0.0" y="35.5" width="256" height="1"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="aEq-OP-U3J"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="us4-hE-pCS" firstAttribute="width" secondItem="97Z-zw-she" secondAttribute="width" id="2bj-4i-mKg"/>
+                                    <constraint firstItem="4mK-F2-xjL" firstAttribute="width" secondItem="us4-hE-pCS" secondAttribute="width" id="DXf-2f-UyM"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.99607843139999996" green="0.7843137255" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="aJk-eL-tTW" firstAttribute="top" secondItem="hP6-i6-09D" secondAttribute="bottom" constant="15" id="1jA-Mh-uIg"/>
                             <constraint firstItem="hvN-rw-fN8" firstAttribute="top" secondItem="PaN-rQ-af6" secondAttribute="top" id="6Hn-dW-omb"/>
                             <constraint firstItem="hvN-rw-fN8" firstAttribute="leading" secondItem="PaN-rQ-af6" secondAttribute="leading" id="8E4-sc-e4n"/>
-                            <constraint firstItem="hP6-i6-09D" firstAttribute="top" secondItem="97Z-zw-she" secondAttribute="bottom" constant="15" id="Ayo-CB-zJ4"/>
                             <constraint firstItem="97Z-zw-she" firstAttribute="leading" secondItem="0P0-KY-je5" secondAttribute="leading" id="Bsu-uN-48J"/>
                             <constraint firstItem="97Z-zw-she" firstAttribute="width" secondItem="0P0-KY-je5" secondAttribute="width" id="Fad-qo-uQM"/>
                             <constraint firstItem="Y4s-Nx-Vbx" firstAttribute="centerX" secondItem="PaN-rQ-af6" secondAttribute="centerX" id="OYW-fF-CtU"/>
@@ -406,20 +405,21 @@
                             <constraint firstItem="hP6-i6-09D" firstAttribute="width" secondItem="97Z-zw-she" secondAttribute="width" id="SrL-0x-OWx"/>
                             <constraint firstAttribute="trailing" secondItem="hvN-rw-fN8" secondAttribute="trailing" id="UKE-8U-rbe"/>
                             <constraint firstItem="0P0-KY-je5" firstAttribute="width" secondItem="PaN-rQ-af6" secondAttribute="width" multiplier="0.8" id="XN7-As-osD"/>
-                            <constraint firstItem="97Z-zw-she" firstAttribute="top" secondItem="0P0-KY-je5" secondAttribute="bottom" constant="15" id="YY8-cb-jDl"/>
+                            <constraint firstItem="97Z-zw-she" firstAttribute="top" secondItem="aJk-eL-tTW" secondAttribute="bottom" constant="10" id="ZPD-le-KOf"/>
                             <constraint firstItem="hP6-i6-09D" firstAttribute="leading" secondItem="97Z-zw-she" secondAttribute="leading" id="fle-4u-5VV"/>
                             <constraint firstItem="0P0-KY-je5" firstAttribute="centerX" secondItem="PaN-rQ-af6" secondAttribute="centerX" id="i88-DS-9Ng"/>
                             <constraint firstItem="Y4s-Nx-Vbx" firstAttribute="centerY" secondItem="PaN-rQ-af6" secondAttribute="centerY" id="mtl-5i-gfG"/>
                             <constraint firstItem="aJk-eL-tTW" firstAttribute="width" secondItem="hP6-i6-09D" secondAttribute="width" id="n46-on-7Yo"/>
                             <constraint firstItem="0P0-KY-je5" firstAttribute="top" secondItem="hvN-rw-fN8" secondAttribute="bottom" constant="30" id="q00-jf-vSo"/>
+                            <constraint firstItem="hP6-i6-09D" firstAttribute="top" secondItem="0P0-KY-je5" secondAttribute="bottom" constant="10" id="rvf-h1-Pbb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="indicadorView" destination="Y4s-Nx-Vbx" id="N70-SA-M7K"/>
                         <outlet property="mail" destination="nre-OA-Jze" id="j9r-wG-TTh"/>
-                        <outlet property="repeat_password" destination="us4-hE-pCS" id="39M-RJ-IY8"/>
                         <outlet property="navBar" destination="hvN-rw-fN8" id="bOv-PT-5KO"/>
                         <outlet property="password" destination="5nS-l4-msE" id="r0s-Em-1x0"/>
+                        <outlet property="repeat_password" destination="us4-hE-pCS" id="39M-RJ-IY8"/>
                         <outlet property="username" destination="0hO-pP-h4T" id="frC-zu-UXM"/>
                         <segue destination="RKO-b9-j1P" kind="show" identifier="endRegisterEvent" id="TQ4-tB-c7l"/>
                     </connections>
@@ -791,8 +791,8 @@ Selecciona al menos   lugares</string>
         <image name="rutas24" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bWE-6z-yxj"/>
         <segue reference="Yv6-Jm-VCs"/>
+        <segue reference="TQ4-tB-c7l"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.066666666666666666" green="0.65490196078431373" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
 </document>
