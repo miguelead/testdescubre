@@ -527,11 +527,11 @@
                                             <state key="normal" image="check21">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="eventCheckIn:" destination="FXa-5c-9jU" eventType="touchUpInside" id="o7f-NE-13v"/>
+                                            </connections>
                                         </button>
                                         <color key="tintColor" red="0.97211371527777779" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="eventCheckIn:" destination="FXa-5c-9jU" id="wP6-8x-0Nn"/>
-                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem width="1" style="plain" systemItem="fixedSpace" id="SHx-IJ-5Pw"/>
                                     <barButtonItem style="plain" id="pYB-Cw-tjM">
@@ -549,10 +549,10 @@
                                             <rect key="frame" x="245" y="9.5" width="27" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="enviar"/>
+                                            <connections>
+                                                <action selector="sendMenssage:" destination="FXa-5c-9jU" eventType="touchUpInside" id="F6T-8e-211"/>
+                                            </connections>
                                         </button>
-                                        <connections>
-                                            <action selector="sendMenssage:" destination="FXa-5c-9jU" id="YJA-Ov-aAa"/>
-                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem title="Item" width="27" style="plain" id="DD1-ib-DUU">
                                         <inset key="imageInsets" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -561,11 +561,11 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <state key="normal" image="hifivalen08"/>
+                                            <connections>
+                                                <action selector="eventCamera:" destination="FXa-5c-9jU" eventType="touchUpInside" id="gPj-fI-jEn"/>
+                                            </connections>
                                         </button>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="eventCamera:" destination="FXa-5c-9jU" id="WqP-se-uOy"/>
-                                        </connections>
                                     </barButtonItem>
                                 </items>
                                 <color key="barTintColor" red="0.027450980390000001" green="0.70588235290000001" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1185,9 +1185,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
-                        <outlet property="cameraButtom" destination="DD1-ib-DUU" id="zNs-hk-ZZu"/>
                         <outlet property="chatBar" destination="Shi-n8-eY3" id="q46-3R-Rgj"/>
-                        <outlet property="checkInButtom" destination="mEG-Bo-Ytp" id="JMG-xp-Pef"/>
                         <outlet property="tableView" destination="19E-is-ekc" id="PIV-pm-4rD"/>
                     </connections>
                 </viewController>
@@ -1207,43 +1205,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T32-i1-3jE">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="300" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="T32-i1-3jE">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <color key="backgroundColor" red="0.96573919057846069" green="0.96302896738052368" blue="0.97264713048934937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="NoteMessageTableViewCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoteMessageTableViewCell" rowHeight="63" id="DTs-el-nwI" customClass="NoteMessageTableViewCell" customModule="Travelea" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="63"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="NoteMessageTableViewCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoteMessageTableViewCell" rowHeight="80" id="DTs-el-nwI" customClass="NoteMessageTableViewCell" customModule="Travelea" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="30" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DTs-el-nwI" id="e9H-SP-ZXS">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wW5-Jq-elC">
-                                                    <rect key="frame" x="237.5" y="10" width="62.5" height="22"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="wW5-Jq-elC">
+                                                    <rect key="frame" x="245.5" y="10" width="54.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="14"/>
                                                     <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="texto" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avc-RM-qOr">
-                                                    <rect key="frame" x="262.5" y="32" width="32.5" height="19.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="texto" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avc-RM-qOr">
+                                                    <rect key="frame" x="262.5" y="29.5" width="32.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fecha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCu-RT-giB">
-                                                    <rect key="frame" x="28" y="11.5" width="36" height="19.5"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="14"/>
+                                                    <rect key="frame" x="28" y="11.5" width="30.5" height="16.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="12"/>
                                                     <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="wW5-Jq-elC" firstAttribute="top" secondItem="e9H-SP-ZXS" secondAttribute="top" constant="10" id="3LZ-03-QUb"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="avc-RM-qOr" secondAttribute="bottom" constant="20" id="Lec-27-MGB"/>
+                                                <constraint firstItem="wW5-Jq-elC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QCu-RT-giB" secondAttribute="trailing" constant="2" id="PRB-c5-Aog"/>
                                                 <constraint firstItem="avc-RM-qOr" firstAttribute="top" secondItem="wW5-Jq-elC" secondAttribute="bottom" id="W6m-vR-5eP"/>
                                                 <constraint firstItem="avc-RM-qOr" firstAttribute="trailing" secondItem="wW5-Jq-elC" secondAttribute="trailing" constant="-5" id="X2z-mT-caR"/>
                                                 <constraint firstAttribute="trailing" secondItem="wW5-Jq-elC" secondAttribute="trailing" constant="20" id="fCo-AW-0hY"/>
                                                 <constraint firstItem="QCu-RT-giB" firstAttribute="centerY" secondItem="wW5-Jq-elC" secondAttribute="centerY" id="gEn-CO-IUK"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="avc-RM-qOr" secondAttribute="bottom" constant="10" id="hEU-v3-eIi"/>
                                                 <constraint firstItem="QCu-RT-giB" firstAttribute="leading" secondItem="e9H-SP-ZXS" secondAttribute="leadingMargin" constant="20" id="rPL-xa-d00"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1251,36 +1250,35 @@
                                         <connections>
                                             <outlet property="fechaMensaje" destination="QCu-RT-giB" id="OrT-UB-kCV"/>
                                             <outlet property="info" destination="avc-RM-qOr" id="bcH-cC-flb"/>
-                                            <outlet property="textInfo" destination="avc-RM-qOr" id="X1L-mN-aV3"/>
                                             <outlet property="titlePrincipal" destination="wW5-Jq-elC" id="dkd-0B-Qrk"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CollecionPhotoTableViewCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CollecionPhotoTableViewCell" rowHeight="170" id="Yg7-rc-9dt" customClass="CollecionPhotoTableViewCell" customModule="Travelea" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="91" width="320" height="170"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CollecionPhotoTableViewCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CollecionPhotoTableViewCell" id="Yg7-rc-9dt" customClass="CollecionPhotoTableViewCell" customModule="Travelea" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="110" width="320" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yg7-rc-9dt" id="aQS-4k-Kaj">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rmx-fj-SUe">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                                                     <color key="backgroundColor" red="0.96573919057846069" green="0.96302896738052368" blue="0.97264713048934937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pNq-4S-aNF">
-                                                        <size key="itemSize" width="106" height="92"/>
+                                                        <size key="itemSize" width="100" height="100"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="PhotoCollectionViewCell" reuseIdentifier="imagenView" id="USj-4v-Dge" customClass="PhotoCollectionViewCell" customModule="Travelea" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="106" height="92"/>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="PhotoCollectionViewCell" reuseIdentifier="PhotoCollectionViewCell" id="USj-4v-Dge" customClass="PhotoCollectionViewCell" customModule="Travelea" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                <rect key="frame" x="0.0" y="0.0" width="106" height="92"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xj3-PJ-WoR">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="106" height="92"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xj3-PJ-WoR">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                                     </imageView>
                                                                 </subviews>
                                                             </view>

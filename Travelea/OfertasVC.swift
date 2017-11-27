@@ -96,7 +96,7 @@ class OfertasVC: UIViewController {
 //        if filtrarPor == 4 {filtrarporParam = "Servicios"}
         
         
-        let ruta = kRutaSecundaria + "/base/api/promocion/"
+        let ruta = KRutaMain + "/base/api/promocion/"
         
         Alamofire.request(ruta, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false

@@ -64,11 +64,28 @@ class PushNotificationService {
         guard let user = CurrentUser.shared else {
                 return
         }
-        return
-        let  ruta = KRutaMain + "/base/api/user/location"
-        let body: [String : Any] = ["lat": lat, "long": long, "user_id": user._uid]
+        
+        let  ruta = KRutaMain + "/recomendacion/concepto/"
+        let body: [String : Any] = [
+            "usuarioActivo": user._uid,
+            "ciudad": "5",
+            "coordenada":[
+                "lat": lat,
+                "lon": long
+            ],
+            "kmAlrededor":"10",
+            "hora": "",
+            "conceptos": [""],
+            "caracteristicas": [""],
+            "N": "10",
+            "ordenamiento": "Rating",
+            "sitios": [],
+            "descubre":"1",
+            "auto" : "0"
+        ]
         Alamofire.request(ruta, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             guard 200...300 ~= (response.response?.statusCode ?? -999) else {
+
                 return
             }
       

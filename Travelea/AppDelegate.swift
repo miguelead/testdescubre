@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
-    var locationManager = TrackingHeadingLocationManager()
     var backgroundLocationManager = BackgroundLocationManager(regionConfig: RegionConfig(regionRadius: 200.0))
 
 
@@ -46,16 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func setBackgroundManagerLocation(){
-        locationManager.manager(for: .always, completion: { result in
-            if case let .Success(manager) = result {
-                manager.startUpdatingLocation(isHeadingEnabled: true) { result in
-                    if case let .Success(locationHeading) = result, let location = locationHeading.location {
-                        PushNotificationService.updateLocationDevice(lat: location.coordinate.latitude, long: location.coordinate.longitude)
-                    }
-                }
+        backgroundLocationManager.startBackground() { result in
+            if case let .Success(location) = result {
+                PushNotificationService.updateLocationDevice(lat: location.coordinate.latitude, long: location.coordinate.longitude)
             }
-
-        })
+        }
     }
 
 }

@@ -511,9 +511,9 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark-08-8" translatesAutoresizingMaskIntoConstraints="NO" id="9A5-K0-wP8">
-                                                            <rect key="frame" x="258" y="36" width="20" height="20"/>
+                                                            <rect key="frame" x="262" y="38" width="16" height="16"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="20" id="V2v-PX-OKr"/>
+                                                                <constraint firstAttribute="width" constant="16" id="V2v-PX-OKr"/>
                                                                 <constraint firstAttribute="width" secondItem="9A5-K0-wP8" secondAttribute="height" multiplier="1:1" id="gnd-VM-IFY"/>
                                                             </constraints>
                                                         </imageView>
@@ -522,10 +522,10 @@
                                                     <constraints>
                                                         <constraint firstItem="Uf4-GT-N8H" firstAttribute="leading" secondItem="6cT-ir-d3n" secondAttribute="leading" id="58n-3q-tLL"/>
                                                         <constraint firstItem="Uf4-GT-N8H" firstAttribute="top" secondItem="6cT-ir-d3n" secondAttribute="bottom" id="9v7-6A-elB"/>
-                                                        <constraint firstItem="9A5-K0-wP8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aQR-eB-CVW" secondAttribute="trailing" constant="3" id="Loq-1V-ty7"/>
+                                                        <constraint firstItem="9A5-K0-wP8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aQR-eB-CVW" secondAttribute="trailing" constant="5" id="Loq-1V-ty7"/>
                                                         <constraint firstItem="6cT-ir-d3n" firstAttribute="leading" secondItem="IDf-GY-lWJ" secondAttribute="trailing" constant="10" id="PXH-Ua-Y6d"/>
-                                                        <constraint firstItem="9A5-K0-wP8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6cT-ir-d3n" secondAttribute="trailing" constant="3" id="Sbc-0b-Ax2"/>
-                                                        <constraint firstItem="9A5-K0-wP8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Uf4-GT-N8H" secondAttribute="trailing" constant="3" id="UgA-xj-2u6"/>
+                                                        <constraint firstItem="9A5-K0-wP8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6cT-ir-d3n" secondAttribute="trailing" constant="5" id="Sbc-0b-Ax2"/>
+                                                        <constraint firstItem="9A5-K0-wP8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Uf4-GT-N8H" secondAttribute="trailing" constant="5" id="UgA-xj-2u6"/>
                                                         <constraint firstItem="aQR-eB-CVW" firstAttribute="leading" secondItem="Uf4-GT-N8H" secondAttribute="leading" id="Wrp-FA-vHn"/>
                                                         <constraint firstItem="IDf-GY-lWJ" firstAttribute="centerY" secondItem="2CY-Mv-RjO" secondAttribute="centerY" id="XEv-Sn-bzc"/>
                                                         <constraint firstItem="IDf-GY-lWJ" firstAttribute="height" secondItem="2CY-Mv-RjO" secondAttribute="height" multiplier="0.7" id="YaV-xp-pRV"/>
@@ -791,8 +791,8 @@ Selecciona al menos   lugares</string>
         <image name="rutas24" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yv6-Jm-VCs"/>
         <segue reference="TQ4-tB-c7l"/>
+        <segue reference="Brn-rX-cRm"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.066666666666666666" green="0.65490196078431373" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
 </document>
