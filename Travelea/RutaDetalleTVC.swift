@@ -10,12 +10,13 @@ import UIKit
 
 class RutaDetalleTVC: UITableViewController {
     
+    var autorruta: AutorRutaDeInteresDetalle!
+    var listaderutas: RutaDeInteresDetalle!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-       
-
     }
 
     override func didReceiveMemoryWarning() {
