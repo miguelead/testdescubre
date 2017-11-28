@@ -88,7 +88,7 @@ class PefilTVC: UITableViewController {
                 body["notification_flag_events"] = 0
             }
         }
-        let ruta = "http://192.168.0.101:8000/base/api/update/"
+        let ruta = KRutaMain + "/base/api/update/"
         Alamofire.request(ruta, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
@@ -122,6 +122,8 @@ class PefilTVC: UITableViewController {
                 print ("Error signing out: %@", signOutError)
             }
             AppDelegate.getAppDelegate().unregisterForPushNotifications()
+        } else if segue.identifier == "MyTablero", let vc = segue.destination as? MyTableroViewController{
+            vc.userId = CurrentUser.shared?._id ?? "0"
         }
         
     }

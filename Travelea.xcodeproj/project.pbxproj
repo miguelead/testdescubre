@@ -67,6 +67,10 @@
 		8E91356C1FC9ACAB00B0D197 /* PushNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E91356B1FC9ACAB00B0D197 /* PushNotificationService.swift */; };
 		8E91356E1FC9BE5600B0D197 /* NSNotification+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E91356D1FC9BE5600B0D197 /* NSNotification+extension.swift */; };
 		8E913B9E1FCC448600A8BCB8 /* MyTableroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E913B9D1FCC448600A8BCB8 /* MyTableroViewController.swift */; };
+		8E913BA01FCD8D4100A8BCB8 /* MarkBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E913B9F1FCD8D4100A8BCB8 /* MarkBookViewController.swift */; };
+		8E913BA21FCD8DAD00A8BCB8 /* MarkbookSelectedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E913BA11FCD8DAD00A8BCB8 /* MarkbookSelectedTableViewCell.swift */; };
+		8E913BA61FCD8E2600A8BCB8 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E913BA51FCD8E2600A8BCB8 /* HelpViewController.swift */; };
+		8E913BA81FCD8FED00A8BCB8 /* TermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E913BA71FCD8FED00A8BCB8 /* TermViewController.swift */; };
 		8E98D2541FBF1856007ECF8C /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98D2521FBF1856007ECF8C /* ChatViewController.swift */; };
 		8E98D2551FBF1856007ECF8C /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98D2531FBF1856007ECF8C /* ChannelListViewController.swift */; };
 		8E98D2591FBF1899007ECF8C /* NameChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98D2581FBF1899007ECF8C /* NameChannelTableViewCell.swift */; };
@@ -162,6 +166,10 @@
 		8E91356B1FC9ACAB00B0D197 /* PushNotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationService.swift; sourceTree = "<group>"; };
 		8E91356D1FC9BE5600B0D197 /* NSNotification+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotification+extension.swift"; sourceTree = "<group>"; };
 		8E913B9D1FCC448600A8BCB8 /* MyTableroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableroViewController.swift; sourceTree = "<group>"; };
+		8E913B9F1FCD8D4100A8BCB8 /* MarkBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkBookViewController.swift; sourceTree = "<group>"; };
+		8E913BA11FCD8DAD00A8BCB8 /* MarkbookSelectedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkbookSelectedTableViewCell.swift; sourceTree = "<group>"; };
+		8E913BA51FCD8E2600A8BCB8 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpViewController.swift; path = "../../../ios-TuCampitoApp-clients/ElCampitoApp/Modules/Profile/Presentator/HelpViewController.swift"; sourceTree = "<group>"; };
+		8E913BA71FCD8FED00A8BCB8 /* TermViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TermViewController.swift; path = "../../../ios-TuCampitoApp-clients/ElCampitoApp/Modules/Profile/Presentator/TermViewController.swift"; sourceTree = "<group>"; };
 		8E98D2521FBF1856007ECF8C /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		8E98D2531FBF1856007ECF8C /* ChannelListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
 		8E98D2581FBF1899007ECF8C /* NameChannelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameChannelTableViewCell.swift; sourceTree = "<group>"; };
@@ -315,6 +323,7 @@
 				8E9029711FBC97CF00C964CC /* EmptyBackgroundView.swift */,
 				8E90297C1FBCBEFD00C964CC /* OfertasCell.swift */,
 				8E98D2581FBF1899007ECF8C /* NameChannelTableViewCell.swift */,
+				8E913BA11FCD8DAD00A8BCB8 /* MarkbookSelectedTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -376,6 +385,7 @@
 				495EDEDC1F72FA0700B92B8B /* PuntoDeInteresDetalleVC.swift */,
 				49092C161F70B20200DF323E /* FiltrarVC.swift */,
 				49A6792F1FA589FD0005E4BA /* ElegirMapaVC.swift */,
+				8E913B9F1FCD8D4100A8BCB8 /* MarkBookViewController.swift */,
 			);
 			name = Descubre;
 			sourceTree = "<group>";
@@ -407,6 +417,8 @@
 				8E913B9D1FCC448600A8BCB8 /* MyTableroViewController.swift */,
 				6DC53AA11FC9EEF20036C5EE /* PefilTVC.swift */,
 				6DC53AA31FC9EEFC0036C5EE /* BuzonPerfilTVC.swift */,
+				8E913BA51FCD8E2600A8BCB8 /* HelpViewController.swift */,
+				8E913BA71FCD8FED00A8BCB8 /* TermViewController.swift */,
 			);
 			name = Perfil;
 			sourceTree = "<group>";
@@ -672,6 +684,7 @@
 				8E4E4F941FBDE93B008D29BD /* Eventos.swift in Sources */,
 				8E896C921FC7129D00828225 /* ChatMainViewController.swift in Sources */,
 				8E98D2551FBF1856007ECF8C /* ChannelListViewController.swift in Sources */,
+				8E913BA21FCD8DAD00A8BCB8 /* MarkbookSelectedTableViewCell.swift in Sources */,
 				8E896C9C1FC71FD600828225 /* String+extensions.swift in Sources */,
 				6D5D7D9C1FCC98CF00012C2E /* AutorRutaDeInteresDetalle.swift in Sources */,
 				6DC53A9E1FC9EE700036C5EE /* rutacell.swift in Sources */,
@@ -696,6 +709,7 @@
 				8E98D2541FBF1856007ECF8C /* ChatViewController.swift in Sources */,
 				8E9029781FBCB44600C964CC /* OfertasVC.swift in Sources */,
 				6D5D7D941FCC891E00012C2E /* RutaDeInteresDetalle.swift in Sources */,
+				8E913BA01FCD8D4100A8BCB8 /* MarkBookViewController.swift in Sources */,
 				8E91356C1FC9ACAB00B0D197 /* PushNotificationService.swift in Sources */,
 				8E896CA91FC7356F00828225 /* PhotoCollectionViewCell.swift in Sources */,
 				6DC53A9C1FC9EE530036C5EE /* Rutas.swift in Sources */,
@@ -703,8 +717,10 @@
 				8E896C981FC71E6D00828225 /* puntodeinteresTableroCell.swift in Sources */,
 				6DC53AA21FC9EEF20036C5EE /* PefilTVC.swift in Sources */,
 				6D53F3271FB5EFC400D20102 /* CheckInVC.swift in Sources */,
+				8E913BA61FCD8E2600A8BCB8 /* HelpViewController.swift in Sources */,
 				8E896CA71FC7334400828225 /* NoteMessageTableViewCell.swift in Sources */,
 				8EE098DB1FC32D0300C43D03 /* UIAlertController+Extensions.swift in Sources */,
+				8E913BA81FCD8FED00A8BCB8 /* TermViewController.swift in Sources */,
 				496B75141F66CDFE00FD4942 /* puntodeinteres.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

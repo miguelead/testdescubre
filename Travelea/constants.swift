@@ -15,6 +15,8 @@ let kLimitPag = 15
 let kRuta = "http://192.168.0.101:8001/api"
 let kRutaSecundaria = "http://192.168.0.101:8000"
 let KRutaMain = "http://emprenomina.com"
+let kpolicyWebURL = "http://www.elcampitorefugio.org/terms-of-service"
+let kTermWebURL = "http://www.elcampitorefugio.org/terms-of-service"
 
 // Date keys
 let kYesterdayTime = "Ayer"

@@ -35,8 +35,7 @@ class PuntoDeInteresDetalleVC: UIViewController {
             body["comment"] = "test"
             body["tourist_id"] = user_id
             body["poi_id"] = self.punto._POIId
-        
-        
+    
             let ruta = KRutaMain + "/perfil/API/checkin/"
 //            self.loading.startAnimating()
             Alamofire.request(ruta, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
