@@ -48,4 +48,5 @@ class CollecionPhotoTableViewCell: UITableViewCell, UICollectionViewDataSource, 
         let itemHeight = itemWidth
         return CGSize(width: itemWidth, height: itemHeight)
     }
+    
 }

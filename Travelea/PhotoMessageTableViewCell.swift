@@ -12,8 +12,7 @@ class PhotoMessageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titlePrincipal: UILabel!
     @IBOutlet weak var imagenPrincipal: UIImageView!
-    @IBOutlet weak var separador: UIView!
-    
+ 
     var message: MessageContent!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +29,5 @@ class PhotoMessageTableViewCell: UITableViewCell {
         if let imageUrl = message.imagenUrl, let url = URL(string: imageUrl){
             self.imagenPrincipal.kf.setImage(with: url)
         }
-        separador.isHidden = !inicio
-        titlePrincipal.isHidden = !final
     }
 }

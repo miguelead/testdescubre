@@ -106,11 +106,11 @@ extension NotasViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0, mensaje.isEmpty {
-            return resorce.count
+            return 1
         } else if section == 0{
             return mensaje.count
         } else{
-            return resorce.count
+            return 1
         }
     }
     
@@ -137,7 +137,7 @@ extension NotasViewController: UITableViewDataSource, UITableViewDelegate{
     func getHeight(itemsPerRow: CGFloat = 3.0, hardCodedPadding: CGFloat = 0.0) -> CGFloat{
         let itemHeight = tableView.bounds.size.width - (2.0) - ((itemsPerRow-1) * 1.0)
         let totalRow = ceil(Double(CGFloat(resorce.count) / itemsPerRow))
-        let totalTopBottomOffset: CGFloat = 2.0
+        let totalTopBottomOffset: CGFloat = 1.0
         let totalSpacing = CGFloat(totalRow - 1) * hardCodedPadding
         let totalHeight  = ((itemHeight * CGFloat(totalRow)) + totalTopBottomOffset + totalSpacing)
         return totalHeight

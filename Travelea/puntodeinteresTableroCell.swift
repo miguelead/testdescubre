@@ -55,7 +55,7 @@ class puntodeinteresTableroCell: UITableViewCell {
             markbook?.setImage(image, for: .normal)
         }
         userInfoLabel?.text = userLabel
-        userInfoLabel?.isHidden = !inicio
+        //userInfoLabel?.isHidden = !inicio
         markbook?.tintColor = UIColor.hexStringToUIColor(hex: "00B19C")
     }
     

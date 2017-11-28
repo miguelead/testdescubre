@@ -47,7 +47,7 @@ class CreateChannelTableViewController: UIViewController, UINavigationController
     }
     
     @IBAction func createChannel(_ sender: Any) {
-        if let name = nameChannel, name.characters.count > 5, !userSelect.isEmpty{
+        if let name = nameChannel, name.characters.count > 0, !userSelect.isEmpty{
             self.indicator.startAnimating()
             var userMap = self.userSelect.reduce([String:[String: Any]](), { (list, user) -> [String:Any] in
                 var ret = list
