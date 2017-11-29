@@ -34,7 +34,6 @@ class HelpViewController: UIViewController {
      */
     func applyLocalization(){
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.title = "Ayuda"
     }

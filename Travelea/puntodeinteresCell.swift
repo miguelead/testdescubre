@@ -8,6 +8,9 @@
 
 import UIKit
 
+protocol PuntoDeInteresDelegate {
+    func moveMarkBook(punto: PuntoDeInteres)
+}
 class PuntodeinteresCell: UITableViewCell {
 
     @IBOutlet weak var titulo: UILabel!
@@ -18,6 +21,7 @@ class PuntodeinteresCell: UITableViewCell {
     @IBOutlet weak var markbook: UIButton!
     @IBOutlet weak var imageLugar: UIImageView!
     var puntodeinteres : PuntoDeInteres!
+    var delegate: PuntoDeInteresDelegate?
 
     
     func configureCell(_ puntodeinteres: PuntoDeInteres, lat: Double, lon: Double){
@@ -32,14 +36,8 @@ class PuntodeinteresCell: UITableViewCell {
         } else {
             self.distancia.text = "\(distanciaMetros)m"
         }
-        if puntodeinteres._bookmark{
-            let image = #imageLiteral(resourceName: "hifivalen25-11").withRenderingMode(.alwaysTemplate)
-            markbook.setImage(image, for: .normal)
-        } else {
-            let image = #imageLiteral(resourceName: "hifivalen25-9").withRenderingMode(.alwaysTemplate)
-            markbook.setImage(image, for: .normal)
-        }
-        
+        let image = #imageLiteral(resourceName: "hifivalen25-9").withRenderingMode(.alwaysTemplate)
+        markbook.setImage(image, for: .normal)
         if !puntodeinteres._photo.isEmpty,let url = URL(string: puntodeinteres._photo){
             self.imageLugar.kf.setImage(with: url)
         }
@@ -47,15 +45,8 @@ class PuntodeinteresCell: UITableViewCell {
     }
     
     @IBAction func markbookLocation(_ sender: UIButton) {
-        if !puntodeinteres._bookmark{
-            let image = #imageLiteral(resourceName: "hifivalen25-11").withRenderingMode(.alwaysTemplate)
-            markbook.setImage(image, for: .normal)
-        } else {
-            let image = #imageLiteral(resourceName: "hifivalen25-9").withRenderingMode(.alwaysTemplate)
-            markbook.setImage(image, for: .normal)
-        }
-        self.puntodeinteres._bookmark = !self.puntodeinteres._bookmark
-         markbook.tintColor = UIColor.hexStringToUIColor(hex: "00B19C")
+        self.delegate?.moveMarkBook(punto: puntodeinteres)
+        
     }
    
 }

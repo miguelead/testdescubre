@@ -11,9 +11,10 @@ import UIKit
 class CheckInMessageTableViewCell: UITableViewCell {
 
 
+    @IBOutlet weak var topCell: NSLayoutConstraint!
+    @IBOutlet weak var topTitle: NSLayoutConstraint!
     @IBOutlet weak var textInfo: UILabel!
     @IBOutlet weak var titlePrincipal: UILabel!
-    @IBOutlet weak var separador: UIView!
     var message: MessageContent!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,8 +29,9 @@ class CheckInMessageTableViewCell: UITableViewCell {
         self.message = message
         self.textInfo.text = message.poi ?? "Ningun sitio"
         self.titlePrincipal.text = actual ? "Yo": message.usuario
-        titlePrincipal.isHidden = !inicio
-        separador.isHidden = !final
+        //titlePrincipal.isHidden = !inicio
+        //topTitle.isActive = inicio
+        //topCell.isActive = !inicio
     }
     
 }

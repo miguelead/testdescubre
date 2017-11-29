@@ -19,8 +19,7 @@ class MyTableroViewController: UIViewController {
     var listapuntodeinteres: [PuntoDeInteresTablero] = []
     fileprivate var channelRefHandle: DatabaseHandle?
     fileprivate var channel_placeRefHandle: DatabaseHandle?
-    var currentLocation: CLLocationCoordinate2D?
-    var locManager = CLLocationManager()
+
     
     deinit {
         if let refHandle = channelRefHandle {
@@ -31,19 +30,10 @@ class MyTableroViewController: UIViewController {
         }
     }
     
-    func obtenerLocalizacionActual(){
-        locManager.delegate = self
-        locManager.desiredAccuracy = kCLLocationAccuracyBest
-        locManager.requestWhenInUseAuthorization()
-        locManager.requestLocation()
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.reloadData()
         self.addBackgroundImage(message: "")
-        obtenerLocalizacionActual()
         observeChannels()
     }
     
@@ -89,7 +79,7 @@ extension MyTableroViewController: UITableViewDataSource, UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "puntodeinteresCell", for: indexPath) as! puntodeinteresTableroCell
         let puntos = listapuntodeinteres[indexPath.row]
         cell.selectionStyle = .none
-        cell.configureCell(puntos, lat: currentLocation?.latitude ?? defaultLocation.latitude,lon: currentLocation?.longitude ?? defaultLocation.longitude)
+        cell.configureCell(puntos)
         return cell
     }
     
@@ -99,18 +89,5 @@ extension MyTableroViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listapuntodeinteres.count
-    }
-}
-
-extension MyTableroViewController: CLLocationManagerDelegate{
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let last = locations.last{
-           self.currentLocation = last.coordinate
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("error localizacion")
-        
     }
 }

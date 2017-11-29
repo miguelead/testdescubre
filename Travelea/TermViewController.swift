@@ -34,9 +34,8 @@ class TermViewController: UIViewController {
      */
     func applyLocalization(){
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.title = "Terminos de condiciones"
+        self.title = "Terminos y condiciones"
     }
     
     override func viewWillDisappear(_ animated : Bool) {

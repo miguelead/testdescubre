@@ -157,6 +157,10 @@ class VisitaVC: UIViewController{
            let cell = sender as? PuntodeinteresCell{
             vc.punto = cell.puntodeinteres
             vc.distanciaActual = currentLocation ?? CLLocationCoordinate2D(latitude: (filtroSeleccionado["desdelat"] as? Double) ?? 0.0, longitude: (filtroSeleccionado["desdelon"] as? Double) ?? 0.0)
+        } else if segue.identifier == "bookMark",
+            let vc = segue.destination as? MarkBookViewController,
+            let punto = sender as? PuntoDeInteres{
+            vc.puntodeinteres = punto
         }
     }
     
@@ -185,6 +189,7 @@ extension VisitaVC: UITableViewDataSource, UITableViewDelegate{
         let puntos = listapuntodeinteres[indexPath.row]
         cell.selectionStyle = .none
         cell.configureCell(puntos, lat: (filtroSeleccionado["desdelat"] as? Double) ?? 0.0,lon: (filtroSeleccionado["desdelon"] as? Double) ?? 0.0)
+        cell.delegate = self
         return cell
     }
     
@@ -202,6 +207,12 @@ extension VisitaVC: DescubreFilterVC{
     func parseFilter(filter: [String:Any]){
         self.filtroSeleccionado = filter
         consultaApi()
+    }
+}
+
+extension VisitaVC: PuntoDeInteresDelegate{
+    func moveMarkBook(punto: PuntoDeInteres){
+        self.performSegue(withIdentifier: "bookMark", sender: punto)
     }
 }
 

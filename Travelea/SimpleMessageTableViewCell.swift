@@ -11,10 +11,12 @@ import UIKit
 class SimpleMessageTableViewCell: UITableViewCell {
 
 
+    @IBOutlet weak var topCell: NSLayoutConstraint!
+    @IBOutlet weak var topTitle: NSLayoutConstraint!
     @IBOutlet weak var textInfo: UILabel!
     @IBOutlet weak var titlePrincipal: UILabel!
     @IBOutlet weak var starIcon: UIImageView!
-    @IBOutlet weak var separador: UIView!
+  
     var message: MessageContent!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,8 +32,9 @@ class SimpleMessageTableViewCell: UITableViewCell {
         self.textInfo.text = message.mensaje
         self.titlePrincipal.text = actual ? "Yo": message.usuario
         starIcon.isHidden = !message.marker
-        titlePrincipal.isHidden = !inicio
-        separador.isHidden = !final
+        //titlePrincipal.isHidden = !inicio
+        //topTitle.isActive = inicio
+        //topCell.isActive = !inicio
     }
     
 }

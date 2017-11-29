@@ -50,6 +50,9 @@ class ChannelListViewController: UIViewController {
     if let refHandle = channelRefHandle {
       channelRef.removeObserver(withHandle: refHandle)
     }
+    if let channel_UserRefHandle = channel_UserRefHandle {
+        channel_UserRef.removeObserver(withHandle: channel_UserRefHandle)
+    }
   }
 
 
@@ -68,10 +71,18 @@ class ChannelListViewController: UIViewController {
             self.channelRefHandle = self.channelRef.child(child.key).observe(.value, with: { (snapshot) -> Void in
                     let channelData = snapshot.value as? Dictionary<String, AnyObject>
                     if let name = channelData?["name"] as? String, name.characters.count > 0 {
-                        var last_message = (channelData?["messages"] as? [String: Any])?.reversed().first?.value as? [String: Any]
+                        var last_message = channelData?["last_messages"] as? [String: Any]
                         var info :String? = nil
                         if let lst_mssage = last_message{
-                            info = lst_mssage.keys.contains("photo") ? "Ha enviado una imagen" : last_message?["text"] as? String
+                            if lst_mssage.keys.contains("imagenUrl"){
+                                info = "Ha enviado una imagen"
+                            } else if lst_mssage.keys.contains("poi"){
+                                info = "Ha hecho CheckIn"
+                            } else if lst_mssage.keys.contains("place"){
+                                info = "Ha enviado una ubicacion"
+                            } else {
+                                info = last_message?["text"] as? String
+                            }
                         }
                         if let index = self.channels.index(where: { channel in return channel.id == child.key}){
                             self.channels[index] = Channel(id: child.key, name: name, owner: last_message?["user"] as? String, details: info, image: channelData?["icon"] as? String)
