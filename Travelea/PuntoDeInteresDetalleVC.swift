@@ -19,7 +19,8 @@ class PuntoDeInteresDetalleVC: UIViewController {
     @IBOutlet weak var direccionLbl: UILabel!
     @IBOutlet weak var imagenLugar: UIImageView!
     @IBOutlet weak var descripcion: UILabel!
-    @IBOutlet weak var servicios: UILabel!
+//    @IBOutlet weak var servicios: UILabel!
+    
     @IBOutlet weak var caracteristicas: UILabel!
     @IBOutlet weak var llamarLabel: UIButton!
     @IBOutlet weak var contactarLabel: UIButton!
@@ -66,6 +67,8 @@ class PuntoDeInteresDetalleVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+         
         if punto._bookmark{
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hifivalen25-11"), style: .plain, target: self, action: #selector(updateStateBookMark))
             self.navigationItem.rightBarButtonItem?.tintColor = UIColor.hexStringToUIColor(hex: "11A791")
@@ -106,7 +109,7 @@ class PuntoDeInteresDetalleVC: UIViewController {
         self.categoriaLbl.text = punto._categoria
         self.direccionLbl.text = punto._direccion
         self.descripcion.text = punto._info
-        self.servicios.text = ""
+//        self.servicios.text = ""
         self.caracteristicas.text = ""
         self.llamarLabel.isEnabled = !punto._telf.isEmpty
         self.contactarLabel.isEnabled = !punto._mail.isEmpty
@@ -119,12 +122,30 @@ class PuntoDeInteresDetalleVC: UIViewController {
         
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            guard let result = response.result.value as? [String:Any]
-                else {
-                    return
-                }
+            guard let result = response.result.value as? [String:Any] else {
+                return
+            }
+        
+            self.descripcion.text = "\(result["description"]!)"
             
-            print(result)
+            var propiedades: [[String: Any]] = [[:]]
+            var propiedadestext: String = ""
+            propiedades = result["properties"] as! [[String : Any]]
+            print(propiedades.count)
+            var counter: Int = 0
+            for propDict in propiedades {
+                counter += 1
+                let propiedad = propDict["name"]
+                print("\(propiedad!)")
+                
+                if propiedades.count == counter{
+                    propiedadestext += "\(propiedad!)"
+                }else{
+                    propiedadestext += "\(propiedad!), "
+                }
+            }
+            self.caracteristicas.text = "\(propiedadestext)"
+
         }
     }
     

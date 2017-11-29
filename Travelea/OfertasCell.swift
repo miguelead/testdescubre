@@ -20,6 +20,8 @@ class OfertasCell: UITableViewCell {
     var oferta : Ofertas?
     var evento : Eventos?
     
+    
+    
     func configureCell(_ oferta: Ofertas, lat: Double, lon: Double){
         self.oferta = oferta
         tituloEvento.text = oferta._titulo
@@ -27,9 +29,15 @@ class OfertasCell: UITableViewCell {
         empresa.text = oferta._empresa
         tipo.text = oferta._tipo
         fecha.text = oferta._fechaInicial + " al " + oferta._fechaFinal
-        if !oferta._photo.isEmpty,let url = URL(string: oferta._photo){
-            self.EmpresaImage.kf.setImage(with: url)
-        }
+        
+//        if !oferta._photo.isEmpty,let url = URL(string: oferta._photo){
+//            self.EmpresaImage.kf.setImage(with: url)
+//        }
+
+        let url = URL(string: "https://s-ec.bstatic.com/images/hotel/max1024x768/221/2212834.jpg")
+        self.EmpresaImage.kf.setImage(with: url)
+        
+
     }
     
     func configureCell(_ evento: Eventos, lat: Double, lon: Double){
@@ -39,8 +47,15 @@ class OfertasCell: UITableViewCell {
         empresa.text = evento._empresa
         tipo.text = evento._tipo
         fecha.text = evento._fechaInicial + " al " + evento._fechaFinal
-        if !evento._photo.isEmpty,let url = URL(string: evento._photo){
+
+        //        if !oferta._photo.isEmpty,let url = URL(string: oferta._photo){
+        //            self.EmpresaImage.kf.setImage(with: url)
+        //        }
+        
+        let url = URL(string: "https://s-ec.bstatic.com/images/hotel/max1024x768/221/2212834.jpg")
             self.EmpresaImage.kf.setImage(with: url)
-        }
+        
+        
+        
     }
 }

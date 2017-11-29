@@ -15,9 +15,7 @@ class RutaDeInteresDetalle {
     var _titulo: String
     var _categoria: String
     var _direccion: String
-//    var _lat: String
-//    var _lon: String
-    
+ 
     var _photo : String
     var _telf : String = ""
     var _mail : String = ""
@@ -25,7 +23,7 @@ class RutaDeInteresDetalle {
     var _info: String = ""
     
     
-    init(titulo: String, categoria: String, direccion: String, photo: String, telf: String = "", mail: String = "", web: String = "", info: String = ""){
+    init(titulo: String, categoria: String, direccion: String, photo: String, telf: String = "", mail: String = "", web: String = "", info: String){
         
         _titulo = titulo
         _categoria = categoria

@@ -148,16 +148,16 @@
         <scene sceneID="QBn-7x-fuG">
             <objects>
                 <tableViewController id="89f-Ou-SNf" customClass="RutaDetalleTVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="241" sectionHeaderHeight="28" sectionFooterHeight="28" id="ql5-8v-yIW">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="400" sectionHeaderHeight="28" sectionFooterHeight="28" id="ql5-8v-yIW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="autorrutadetalle" rowHeight="252" id="OzT-cZ-9RO" customClass="autorrutadetallecell" customModule="Travelea" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="252"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="autorrutadetalle" rowHeight="230" id="OzT-cZ-9RO" customClass="autorrutadetallecell" customModule="Travelea" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="230"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OzT-cZ-9RO" id="yEb-TV-s2c">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="252"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="k1I-we-qUJ">
@@ -213,6 +213,7 @@
                                             </subviews>
                                         </stackView>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="FhF-MG-dV6" firstAttribute="leading" secondItem="yEb-TV-s2c" secondAttribute="leadingMargin" constant="10" id="86t-2s-zjO"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="k1I-we-qUJ" secondAttribute="trailing" constant="10" id="Cnn-cz-eVt"/>
@@ -233,18 +234,18 @@
                                     <outlet property="titulorutaLbl" destination="o74-lZ-zXS" id="QhM-zy-n1K"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="rutadetallecell" rowHeight="362" id="bRK-H6-ZYz" customClass="rutadetallecell" customModule="Travelea" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="280" width="320" height="362"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="rutadetallecell" rowHeight="450" id="bRK-H6-ZYz" customClass="rutadetallecell" customModule="Travelea" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="258" width="320" height="450"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bRK-H6-ZYz" id="vKg-ff-ulk">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="362"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="450"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kH6-Y0-j5Y">
-                                            <rect key="frame" x="16" y="18" width="288" height="326"/>
+                                            <rect key="frame" x="16" y="22.5" width="288" height="405"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tm9-vw-xkT">
-                                                    <rect key="frame" x="10" y="10" width="268" height="306"/>
+                                                <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tm9-vw-xkT">
+                                                    <rect key="frame" x="10" y="10" width="268" height="385"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="g4f-KJ-w5c">
                                                             <rect key="frame" x="0.0" y="0.0" width="268" height="60"/>
@@ -280,55 +281,48 @@
                                                                 </stackView>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mVr-8Q-c5j">
-                                                            <rect key="frame" x="0.0" y="70" width="268" height="195.5"/>
+                                                        <stackView autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mVr-8Q-c5j">
+                                                            <rect key="frame" x="0.0" y="70" width="268" height="224"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lgourmet_pic" translatesAutoresizingMaskIntoConstraints="NO" id="Scn-c6-XSA">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="otters-playful-169788211" translatesAutoresizingMaskIntoConstraints="NO" id="Scn-c6-XSA">
                                                                     <rect key="frame" x="0.0" y="0.0" width="268" height="125"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="Scn-c6-XSA" secondAttribute="height" multiplier="320:149" id="swc-eQ-vOg"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                            <real key="value" value="10"/>
+                                                                            <real key="value" value="1"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9T-XI-3ug">
-                                                                    <rect key="frame" x="0.0" y="135" width="268" height="60.5"/>
-                                                                    <attributedString key="attributedText">
-                                                                        <fragment>
-                                                                            <string key="content">Ligia es periodista y barista certificada. También es co-fundadora de la feria del café de oriente. Ligia es periodista y barista certificada. También es co-fundadora de la feria del café de oriente</string>
-                                                                            <attributes>
-                                                                                <color key="NSColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                <font key="NSFont" size="11" name="Avenir-Medium"/>
-                                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="15" tighteningFactorForTruncation="0.0"/>
-                                                                            </attributes>
-                                                                        </fragment>
-                                                                    </attributedString>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9T-XI-3ug">
+                                                                    <rect key="frame" x="0.0" y="135" width="268" height="89"/>
+                                                                    <string key="text">Ligia es periodista y barista certificada. También es co-fundadora de la feria del café de oriente. Ligia es periodista y barista certificada. También es co-fundadora de la feria del café de oriente</string>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="13"/>
+                                                                    <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="V7X-F4-bky">
-                                                            <rect key="frame" x="0.0" y="275.5" width="268" height="30.5"/>
+                                                        <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="V7X-F4-bky">
+                                                            <rect key="frame" x="0.0" y="304" width="268" height="81"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDF-GL-ZjE">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="30.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="81"/>
                                                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="13"/>
                                                                     <state key="normal" title="Llamar">
                                                                         <color key="titleColor" red="0.0039215686269999999" green="0.40784313729999999" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </state>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSl-5j-9td">
-                                                                    <rect key="frame" x="100.5" y="0.0" width="59" height="30.5"/>
+                                                                    <rect key="frame" x="100.5" y="0.0" width="59" height="81"/>
                                                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="13"/>
                                                                     <state key="normal" title="Contactar">
                                                                         <color key="titleColor" red="0.0039215686269999999" green="0.40784313729999999" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </state>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EFT-fB-lTy">
-                                                                    <rect key="frame" x="211" y="0.0" width="57" height="30.5"/>
+                                                                    <rect key="frame" x="211" y="0.0" width="57" height="81"/>
                                                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="13"/>
                                                                     <state key="normal" title="Sitio Web">
                                                                         <color key="titleColor" red="0.0039215686269999999" green="0.40784313729999999" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -392,7 +386,6 @@
     <resources>
         <image name="hifivalen25-9" width="26" height="26"/>
         <image name="lgourmet" width="553" height="556"/>
-        <image name="lgourmet_pic" width="800" height="800"/>
         <image name="otters-playful-169788211" width="400" height="240"/>
     </resources>
 </document>
