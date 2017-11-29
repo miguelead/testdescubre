@@ -1573,7 +1573,7 @@
         <image name="lgourmet_pic" width="800" height="800"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kXH-Yb-hxG"/>
         <segue reference="acW-7t-seN"/>
+        <segue reference="Bgh-0e-yE4"/>
     </inferredMetricsTieBreakers>
 </document>

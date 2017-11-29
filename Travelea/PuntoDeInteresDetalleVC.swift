@@ -35,11 +35,8 @@ class PuntoDeInteresDetalleVC: UIViewController {
             body["comment"] = "test"
             body["tourist_id"] = user_id
             body["poi_id"] = self.punto._POIId
-    
             let ruta = KRutaMain + "/perfil/API/checkin/"
-//            self.loading.startAnimating()
             Alamofire.request(ruta, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
-//                self.loading.stopAnimating()
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 guard 200...300 ~= (response.response?.statusCode ?? -999)
                     else {
@@ -53,26 +50,19 @@ class PuntoDeInteresDetalleVC: UIViewController {
                 
                 })
             }
-        
-    
     }
     
-
-    
-    
-    
-    
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       if segue.identifier == "bookMark",
+            let vc = segue.destination as? MarkBookViewController,
+            let punto = sender as? PuntoDeInteres{
+            vc.puntodeinteres = punto
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if punto._bookmark{
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hifivalen25-11"), style: .plain, target: self, action: #selector(updateStateBookMark))
-            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.hexStringToUIColor(hex: "11A791")
-        } else {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hifivalen25-9"), style: .plain, target: self, action: #selector(updateStateBookMark))
-            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.hexStringToUIColor(hex: "11A791")
-        }
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hifivalen25-9"), style: .plain, target: self, action: #selector(updateStateBookMark))
         self.fillData()
         UIApplication.shared.isNetworkActivityIndicatorVisible =  true
         self.consultaApi()
@@ -81,17 +71,11 @@ class PuntoDeInteresDetalleVC: UIViewController {
   
     
     func updateStateBookMark(){
-        if punto._bookmark{
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hifivalen25-9"), style: .plain, target: self, action: #selector(updateStateBookMark))
-            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.hexStringToUIColor(hex: "11A791")
-        } else {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hifivalen25-11"), style: .plain, target: self, action: #selector(updateStateBookMark))
-            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.hexStringToUIColor(hex: "11A791")
-        }
-        punto._bookmark = !punto._bookmark
+        self.performSegue(withIdentifier: "bookMark", sender: self.punto)
     }
     
     func fillData(){
+        self.navigationController?.title = punto._titulo
         self.tituloLbl.text = punto._titulo
         self.precioLbl.text = punto._precio
         let distanciaMetros = self.punto.distanciaActual(lat: distanciaActual.latitude, lon: distanciaActual.longitude)
@@ -116,14 +100,12 @@ class PuntoDeInteresDetalleVC: UIViewController {
     
     func consultaApi(){
         let url = KRutaMain + "/base/api/\(punto._POIId)"
-        
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             guard let result = response.result.value as? [String:Any]
                 else {
                     return
                 }
-            
             print(result)
         }
     }

@@ -40,7 +40,6 @@
 		8E7DF4B71FC8A8C900E2AB33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E7DF4B61FC8A8C900E2AB33 /* Main.storyboard */; };
 		8E7DF4B91FC8A8D300E2AB33 /* Planea.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E7DF4B81FC8A8D300E2AB33 /* Planea.storyboard */; };
 		8E7DF4BC1FC8A8DF00E2AB33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E7DF4BA1FC8A8DF00E2AB33 /* LaunchScreen.storyboard */; };
-		8E7DF4BD1FC8A8DF00E2AB33 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E7DF4BB1FC8A8DF00E2AB33 /* Info.plist */; };
 		8E7DF4C31FC8CC3500E2AB33 /* CheckInMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7DF4C21FC8CC3500E2AB33 /* CheckInMessageTableViewCell.swift */; };
 		8E896C921FC7129D00828225 /* ChatMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E896C911FC7129D00828225 /* ChatMainViewController.swift */; };
 		8E896C941FC7153300828225 /* TableroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E896C931FC7153300828225 /* TableroViewController.swift */; };
@@ -71,6 +70,7 @@
 		8E913BA21FCD8DAD00A8BCB8 /* MarkbookSelectedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E913BA11FCD8DAD00A8BCB8 /* MarkbookSelectedTableViewCell.swift */; };
 		8E913BA61FCD8E2600A8BCB8 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E913BA51FCD8E2600A8BCB8 /* HelpViewController.swift */; };
 		8E913BA81FCD8FED00A8BCB8 /* TermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E913BA71FCD8FED00A8BCB8 /* TermViewController.swift */; };
+		8E96F6651FCEED1B00DC0523 /* MyTableroViewControllerSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96F6641FCEED1B00DC0523 /* MyTableroViewControllerSelect.swift */; };
 		8E98D2541FBF1856007ECF8C /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98D2521FBF1856007ECF8C /* ChatViewController.swift */; };
 		8E98D2551FBF1856007ECF8C /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98D2531FBF1856007ECF8C /* ChannelListViewController.swift */; };
 		8E98D2591FBF1899007ECF8C /* NameChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98D2581FBF1899007ECF8C /* NameChannelTableViewCell.swift */; };
@@ -170,6 +170,7 @@
 		8E913BA11FCD8DAD00A8BCB8 /* MarkbookSelectedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkbookSelectedTableViewCell.swift; sourceTree = "<group>"; };
 		8E913BA51FCD8E2600A8BCB8 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		8E913BA71FCD8FED00A8BCB8 /* TermViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermViewController.swift; sourceTree = "<group>"; };
+		8E96F6641FCEED1B00DC0523 /* MyTableroViewControllerSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableroViewControllerSelect.swift; sourceTree = "<group>"; };
 		8E98D2521FBF1856007ECF8C /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		8E98D2531FBF1856007ECF8C /* ChannelListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
 		8E98D2581FBF1899007ECF8C /* NameChannelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameChannelTableViewCell.swift; sourceTree = "<group>"; };
@@ -393,6 +394,7 @@
 		8E90297E1FBCC60500C964CC /* Planes */ = {
 			isa = PBXGroup;
 			children = (
+				8E96F6641FCEED1B00DC0523 /* MyTableroViewControllerSelect.swift */,
 				8E98D25A1FBF18AB007ECF8C /* CreateChannelTableViewController.swift */,
 				8E98D2521FBF1856007ECF8C /* ChatViewController.swift */,
 				8E98D2531FBF1856007ECF8C /* ChannelListViewController.swift */,
@@ -554,7 +556,6 @@
 				8E7DF4BC1FC8A8DF00E2AB33 /* LaunchScreen.storyboard in Resources */,
 				8E7DF4B91FC8A8D300E2AB33 /* Planea.storyboard in Resources */,
 				6DC53AA81FC9F03E0036C5EE /* Ruta.storyboard in Resources */,
-				8E7DF4BD1FC8A8DF00E2AB33 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,6 +715,7 @@
 				8E896CA91FC7356F00828225 /* PhotoCollectionViewCell.swift in Sources */,
 				6DC53A9C1FC9EE530036C5EE /* Rutas.swift in Sources */,
 				8E896C961FC7154300828225 /* NotasViewController.swift in Sources */,
+				8E96F6651FCEED1B00DC0523 /* MyTableroViewControllerSelect.swift in Sources */,
 				8E896C981FC71E6D00828225 /* puntodeinteresTableroCell.swift in Sources */,
 				6DC53AA21FC9EEF20036C5EE /* PefilTVC.swift in Sources */,
 				6D53F3271FB5EFC400D20102 /* CheckInVC.swift in Sources */,

@@ -15,7 +15,6 @@ class puntodeinteresTableroCell: UITableViewCell {
     @IBOutlet weak var categoria: UILabel!
     @IBOutlet weak var direccion: UILabel!
     @IBOutlet weak var precio: UILabel!
-    @IBOutlet weak var distancia: UILabel!
     @IBOutlet weak var imageLugar: UIImageView!
     @IBOutlet weak var likesCount: UILabel!
     @IBOutlet weak var markbook: UIButton?
@@ -24,19 +23,13 @@ class puntodeinteresTableroCell: UITableViewCell {
 
     
     
-    func configureCell(_ puntodeinteres: PuntoDeInteresTablero, lat: Double, lon: Double, userLabel: String = "Desconocido",  inicio: Bool = true){
+    func configureCell(_ puntodeinteres: PuntoDeInteresTablero, userLabel: String = "Desconocido",  inicio: Bool = true){
         self.puntodeinteres = puntodeinteres
         titulo.text = self.puntodeinteres._titulo
         categoria.text = self.puntodeinteres._categoria
         direccion.text = self.puntodeinteres._direccion
         precio.text = self.puntodeinteres._precio
-        let distanciaMetros = self.puntodeinteres.distanciaActual(lat: lat, lon: lon)
-        if distanciaMetros >= 1000{
-            self.distancia.text = "\(Int(distanciaMetros / 1000))km"
-        } else {
-            self.distancia.text = "\(distanciaMetros)m"
-        }
-        
+       
         if !puntodeinteres._photo.isEmpty,let url = URL(string: puntodeinteres._photo){
             self.imageLugar.kf.setImage(with: url)
         }
@@ -55,7 +48,6 @@ class puntodeinteresTableroCell: UITableViewCell {
             markbook?.setImage(image, for: .normal)
         }
         userInfoLabel?.text = userLabel
-        //userInfoLabel?.isHidden = !inicio
         markbook?.tintColor = UIColor.hexStringToUIColor(hex: "00B19C")
     }
     

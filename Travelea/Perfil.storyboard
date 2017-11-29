@@ -485,12 +485,6 @@
                                                                 <color key="textColor" red="0.0" green="0.69411764710000001" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyL-Tj-V2s">
-                                                                <rect key="frame" x="266.5" y="61" width="11.5" height="18"/>
-                                                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="13"/>
-                                                                <color key="textColor" red="0.37895339729999999" green="0.37918323279999999" blue="0.39948910469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
                                                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" showsTouchWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDn-rK-Ogt">
                                                                 <rect key="frame" x="252" y="11" width="26" height="26"/>
                                                                 <constraints>
@@ -540,17 +534,13 @@
                                                             <constraint firstItem="QWD-35-sXJ" firstAttribute="height" secondItem="aES-bN-oKh" secondAttribute="height" multiplier="0.8" id="IR5-q9-l6b"/>
                                                             <constraint firstAttribute="trailing" secondItem="2rV-m8-9uP" secondAttribute="trailing" constant="10" id="IXJ-BO-X3t"/>
                                                             <constraint firstItem="uDn-rK-Ogt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UXU-XO-Vk1" secondAttribute="trailing" constant="10" id="IfE-uR-kXg"/>
-                                                            <constraint firstItem="2rV-m8-9uP" firstAttribute="top" secondItem="uyL-Tj-V2s" secondAttribute="bottom" id="MuI-nq-Up0"/>
                                                             <constraint firstItem="gUr-AF-9R1" firstAttribute="top" secondItem="pbB-LL-86B" secondAttribute="bottom" constant="-1" id="MxS-b5-o7M"/>
-                                                            <constraint firstItem="uDn-rK-Ogt" firstAttribute="trailing" secondItem="uyL-Tj-V2s" secondAttribute="trailing" id="T06-hZ-RzN"/>
                                                             <constraint firstItem="pbB-LL-86B" firstAttribute="leading" secondItem="Oj2-5i-4Jc" secondAttribute="leading" id="Wvw-cd-iji"/>
                                                             <constraint firstItem="Oj2-5i-4Jc" firstAttribute="leading" secondItem="UXU-XO-Vk1" secondAttribute="leading" id="b22-oT-Dnw"/>
-                                                            <constraint firstItem="uyL-Tj-V2s" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Oj2-5i-4Jc" secondAttribute="trailing" constant="5" id="dB8-dn-dNu"/>
+                                                            <constraint firstItem="uDn-rK-Ogt" firstAttribute="trailing" secondItem="2rV-m8-9uP" secondAttribute="trailing" id="bXV-fS-Deq"/>
                                                             <constraint firstItem="rh5-Pv-Nh8" firstAttribute="leading" secondItem="uSn-Id-Iqp" secondAttribute="trailing" id="jfS-RK-DTY"/>
-                                                            <constraint firstItem="uyL-Tj-V2s" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pbB-LL-86B" secondAttribute="trailing" constant="5" id="jwp-Ea-Nye"/>
                                                             <constraint firstItem="rh5-Pv-Nh8" firstAttribute="bottom" secondItem="uSn-Id-Iqp" secondAttribute="bottom" id="kKQ-e6-nmy"/>
                                                             <constraint firstItem="QWD-35-sXJ" firstAttribute="leading" secondItem="aES-bN-oKh" secondAttribute="leading" constant="10" id="m1o-uE-EgA"/>
-                                                            <constraint firstItem="uyL-Tj-V2s" firstAttribute="trailing" secondItem="2rV-m8-9uP" secondAttribute="trailing" id="pmk-M3-lvN"/>
                                                             <constraint firstItem="uSn-Id-Iqp" firstAttribute="width" secondItem="QWD-35-sXJ" secondAttribute="width" multiplier="0.4" id="sZ1-LH-pvp"/>
                                                             <constraint firstItem="UXU-XO-Vk1" firstAttribute="leading" secondItem="QWD-35-sXJ" secondAttribute="trailing" constant="10" id="vcl-uN-2Ht"/>
                                                             <constraint firstItem="QWD-35-sXJ" firstAttribute="centerY" secondItem="aES-bN-oKh" secondAttribute="centerY" id="xnk-Qt-ZWC"/>
@@ -578,7 +568,6 @@
                                             <connections>
                                                 <outlet property="categoria" destination="Oj2-5i-4Jc" id="E31-IK-TyE"/>
                                                 <outlet property="direccion" destination="pbB-LL-86B" id="DKD-Ua-zIb"/>
-                                                <outlet property="distancia" destination="uyL-Tj-V2s" id="d5B-6r-em7"/>
                                                 <outlet property="fecha" destination="gUr-AF-9R1" id="BsS-2O-Ew8"/>
                                                 <outlet property="imageLugar" destination="QWD-35-sXJ" id="4Dv-S9-rfu"/>
                                                 <outlet property="likesCount" destination="rh5-Pv-Nh8" id="xMC-DS-B5h"/>

@@ -243,7 +243,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
                 return cell
             case .board(let type, let punto):
                 let cell = tableView.dequeueReusableCell(withIdentifier: "tableroCell" + (type ? "B" : "A"), for: indexPath) as! puntodeinteresTableroCell
-                cell.configureCell(punto, lat: 0.0, lon: 0.0, userLabel: type ? "yo" : mensaje.usuario, inicio: separatorFlag.0)
+                cell.configureCell(punto, userLabel: type ? "yo" : mensaje.usuario, inicio: separatorFlag.0)
                 cell.selectionStyle = .none
                 return cell
             case .image(let type):

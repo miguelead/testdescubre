@@ -65,6 +65,10 @@ class GuiaVirtualVC: UIViewController {
             let cordinate = localizacionActual{
             vc.punto = cell.puntodeinteres
             vc.distanciaActual = cordinate
+        } else if segue.identifier == "bookMark",
+              let vc = segue.destination as? MarkBookViewController,
+              let punto = sender as? PuntoDeInteres{
+            vc.puntodeinteres = punto
         }
     }
     
@@ -148,6 +152,7 @@ extension GuiaVirtualVC: UITableViewDataSource, UITableViewDelegate{
         let puntos = listapuntodeinteres[indexPath.row]
         cell.selectionStyle = .none
         cell.configureCell(puntos, lat: localizacionActual?.latitude ?? 0.0,lon: localizacionActual?.longitude ?? 0.0)
+        cell.delegate = self
         return cell
     }
     
@@ -224,3 +229,11 @@ extension GuiaVirtualVC: UITextFieldDelegate{
             self.obtenerLocalizacionActual()
     }
 }
+
+
+extension GuiaVirtualVC: PuntoDeInteresDelegate{
+    func moveMarkBook(punto: PuntoDeInteres){
+        self.performSegue(withIdentifier: "bookMark", sender: punto)
+    }
+}
+

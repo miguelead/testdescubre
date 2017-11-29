@@ -50,6 +50,9 @@ class ChannelListViewController: UIViewController {
     if let refHandle = channelRefHandle {
       channelRef.removeObserver(withHandle: refHandle)
     }
+    if let channel_UserRefHandle = channel_UserRefHandle {
+        channel_UserRef.removeObserver(withHandle: channel_UserRefHandle)
+    }
   }
 
 
