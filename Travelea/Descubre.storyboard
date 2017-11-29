@@ -233,7 +233,6 @@
                         <outlet property="imagenLugar" destination="R9S-V9-qT8" id="QoG-dA-LwR"/>
                         <outlet property="llamarLabel" destination="zIy-Uo-2mu" id="eQv-81-sPh"/>
                         <outlet property="precioLbl" destination="HSL-ZX-ejl" id="sJu-NW-ozM"/>
-                        <outlet property="servicios" destination="20R-GS-syj" id="Zlc-r8-WoT"/>
                         <outlet property="sitioWeb" destination="hId-UX-aUL" id="l6G-dQ-MnP"/>
                         <outlet property="tituloLbl" destination="mik-fD-uhd" id="a2v-pF-CRH"/>
                     </connections>
@@ -914,7 +913,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mEv-RE-fBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5199" y="1006"/>
+            <point key="canvasLocation" x="5218" y="1344"/>
         </scene>
         <!--Descubre-->
         <scene sceneID="CAl-2G-4VA">

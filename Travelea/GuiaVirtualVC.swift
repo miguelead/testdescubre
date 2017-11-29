@@ -74,7 +74,7 @@ class GuiaVirtualVC: UIViewController {
             return
         }
         
-        var ruta = KRutaMain + ":8001/api/search?"
+        var ruta = kRuta + "/api/search?"
         ruta += "query=" + query
         ruta += "&lat=\(ubicacionActual.coordinate.latitude)"
         ruta += "&lng=\(ubicacionActual.coordinate.longitude)"

@@ -90,7 +90,7 @@ class VisitaVC: UIViewController{
         if filtrarPor == 3 {filtrarporParam = "Dormir"}
         if filtrarPor == 4 {filtrarporParam = "Servicios"}
 
-        var ruta = KRutaMain + ":8001/api/search?"
+        var ruta = kRuta + "/api/search?"
         ruta += "query=" + filtrarporParam
         ruta += "&lat=\(desdelatParam)"
         ruta += "&lng=\(desdelonParam)"
@@ -101,6 +101,7 @@ class VisitaVC: UIViewController{
         ruta += "&offset=\(self.listapuntodeinteres.count)"
         ruta += "&user_id=\(user._uid)"
         ruta += "&radius=\(hastakmParam)"
+        ruta += "&transport=car"
         
 
         Alamofire.request(ruta, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
