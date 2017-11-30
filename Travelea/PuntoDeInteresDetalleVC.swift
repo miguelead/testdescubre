@@ -12,6 +12,7 @@ import CoreLocation
 
 class PuntoDeInteresDetalleVC: UIViewController {
 
+    @IBOutlet weak var navigation: UINavigationItem!
     @IBOutlet weak var distanciaLbl: UILabel!
     @IBOutlet weak var precioLbl: UILabel!
     @IBOutlet weak var tituloLbl: UILabel!
@@ -77,7 +78,7 @@ class PuntoDeInteresDetalleVC: UIViewController {
     }
     
     func fillData(){
-        self.navigationController?.title = punto._titulo
+        navigation.title = punto._titulo
         self.tituloLbl.text = punto._titulo
         self.precioLbl.text = punto._precio
         let distanciaMetros = self.punto.distanciaActual(lat: distanciaActual.latitude, lon: distanciaActual.longitude)
@@ -106,26 +107,19 @@ class PuntoDeInteresDetalleVC: UIViewController {
                 return
             }
         
-            self.descripcion.text = "\(result["description"]!)"
-            
-            var propiedades: [[String: Any]] = [[:]]
+            self.descripcion.text = result["description"] as? String ?? ""
             var propiedadestext: String = ""
-            propiedades = result["properties"] as! [[String : Any]]
-            print(propiedades.count)
             var counter: Int = 0
+            let propiedades = result["properties"] as? [[String : Any]] ?? []
             for propDict in propiedades {
                 counter += 1
-                let propiedad = propDict["name"]
-                print("\(propiedad!)")
-                
                 if propiedades.count == counter{
-                    propiedadestext += "\(propiedad!)"
+                    propiedadestext += "\(propDict["name"] ?? "")"
                 }else{
-                    propiedadestext += "\(propiedad!), "
+                    propiedadestext += "\(propDict["name"] ?? ""), "
                 }
             }
             self.caracteristicas.text = "\(propiedadestext)"
-
         }
     }
     

@@ -12,7 +12,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Titulo del lugar-->
+        <!--Punto De Interes DetalleVC-->
         <scene sceneID="OZF-ea-Knc">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="Hp5-Xf-oPO" customClass="PuntoDeInteresDetalleVC" customModule="Travelea" customModuleProvider="target" sceneMemberID="viewController">
@@ -214,7 +214,7 @@
                             <constraint firstAttribute="trailing" secondItem="dek-cs-IXq" secondAttribute="trailing" id="ddH-uD-Zj5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Titulo del lugar" id="N5m-fM-53T">
+                    <navigationItem key="navigationItem" id="N5m-fM-53T">
                         <barButtonItem key="rightBarButtonItem" image="hifivalen25-9" id="uVO-BG-o1N">
                             <connections>
                                 <segue destination="NGL-RH-gSV" kind="show" identifier="bookMark" id="U1h-sx-5Hs"/>
@@ -232,6 +232,7 @@
                         <outlet property="distanciaLbl" destination="JPU-qI-i20" id="L98-e8-9W6"/>
                         <outlet property="imagenLugar" destination="R9S-V9-qT8" id="QoG-dA-LwR"/>
                         <outlet property="llamarLabel" destination="zIy-Uo-2mu" id="eQv-81-sPh"/>
+                        <outlet property="navigation" destination="N5m-fM-53T" id="7aa-1h-xv7"/>
                         <outlet property="precioLbl" destination="HSL-ZX-ejl" id="sJu-NW-ozM"/>
                         <outlet property="sitioWeb" destination="hId-UX-aUL" id="l6G-dQ-MnP"/>
                         <outlet property="tituloLbl" destination="mik-fD-uhd" id="a2v-pF-CRH"/>
@@ -844,18 +845,18 @@
                         <viewControllerLayoutGuide type="bottom" id="57u-5W-jRO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9ZN-Dr-d7O">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q8L-l3-d2f">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
                                 <color key="backgroundColor" red="0.97252601385116577" green="0.97326189279556274" blue="0.97263997793197632" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MarkbookSelectedTableViewCell" id="MrJ-6a-mad" customClass="MarkbookSelectedTableViewCell" customModule="Travelea" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MrJ-6a-mad" id="DAd-ui-jPR">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t68-Hf-Rcc">
@@ -1573,6 +1574,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="acW-7t-seN"/>
-        <segue reference="Bgh-0e-yE4"/>
+        <segue reference="U1h-sx-5Hs"/>
     </inferredMetricsTieBreakers>
 </document>
