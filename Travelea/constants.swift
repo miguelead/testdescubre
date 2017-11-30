@@ -14,7 +14,7 @@ let kMaxKm = 50
 let kLimitPag = 15
 let kRuta = "http://192.168.0.101:8001"
 let kRutaSecundaria = "http://192.168.0.101:8000"
-let KRutaMain = kRutaSecundaria
+let KRutaMain = "http://emprenomina.com"
 let kpolicyWebURL = "http://www.elcampitorefugio.org/terms-of-service"
 let kTermWebURL = "http://www.elcampitorefugio.org/terms-of-service"
 
