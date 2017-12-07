@@ -58,12 +58,6 @@ class PuntoDeInteresDetalleVC: UIViewController {
     
     }
     
-
-    
-    
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,7 +108,7 @@ class PuntoDeInteresDetalleVC: UIViewController {
         self.llamarLabel.isEnabled = !punto._telf.isEmpty
         self.contactarLabel.isEnabled = !punto._mail.isEmpty
         self.sitioWeb.isEnabled = !punto._web.isEmpty
-        self.navigationController?.navigationItem.title = punto._titulo
+        
     }
     
     func consultaApi(){
